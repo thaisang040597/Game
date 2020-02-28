@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="PuzzleGame.Views.Man1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+             xmlns:local="clr-namespace:PuzzleGame.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ImageBrush  x:Key="btnLoginImgIdle" />
+        <ImageBrush  x:Key="btnLoginImgHover" />
+        <ImageBrush x:Key="btnLoginImgClick" />
+    </UserControl.Resources>
+    <Grid Background="AliceBlue" >
+        <Grid.Resources>
+            <Style TargetType="Button"  x:Key="btnLoginStyle">
+                <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle}"></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="Cursor" Value="Hand" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="50" Height="50">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>
+                                    <Setter Property="Width" Value="60" TargetName="button1"></Setter>
+                                    <Setter Property="Height" Value="60" TargetName="button1"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgClick}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+        </Grid.Resources>
+        <Canvas>
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Images/khurung.png"></ImageBrush>
+               
+            </Canvas.Background>
+            <Button x:Name="back" Style="{StaticResource btnLoginStyle}" Click="back_Click">
+                <Image Source="/Images/muiten1.png"></Image>
+            </Button>
+            <Image x:Name="gau1" Source="/Images/gau1.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" ></Image>
+            <Image x:Name="hoa"  gif:AnimationBehavior.SourceUri="/Images/hoa.gif" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50"  Visibility="Hidden" >
+                
+            </Image>
+            <Image x:Name="gau" Source="/Images/gau.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" Visibility="Hidden"></Image>
+            <Image x:Name="gau2" Source="/Images/gau2.png" Width="150" Height="150"   MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}"></Image>
+            <!--<Image x:Name="hinh1" Source="/Images/gau2.png"  Width="70"  Height="70"   
+             MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}"></Image>-->
+        </Canvas>
+        <Grid Width="250" Height="250" Visibility="Hidden" x:Name="report"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="boderstart"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+                    
+                </Border.Background>
+              
+            </Border>
+            <Grid Grid.Row="0">
+                <Image gif:AnimationBehavior.SourceUri="/Images/icon.gif"   ></Image>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Qua Màn" FontWeight="Bold" Click="Button_Click" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+      
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Chơi Lại" FontWeight="Bold" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+           
+
+        </Grid>
+    </Grid>
+</UserControl>

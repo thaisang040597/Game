@@ -1,0 +1,123 @@
+﻿<Window x:Class="PuzzleGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PuzzleGame"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow"  WindowState="Maximized" ResizeMode="CanMinimize">
+    <Grid x:Name="myGrid">
+         
+        <Grid.Background>
+            <ImageBrush x:Name="abc" x:Uid="abd" ImageSource="/PuzzleGame;component/Images/C49.png"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*">
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+       
+        <Grid   Grid.Column="0" Grid.Row="1" >
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/board.png"></ImageBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="18*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                
+                <StackPanel>
+                    <Border CornerRadius="10" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" x:Name="boderstart" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="LightGray" Offset="0" />
+                                <GradientStop Color="AliceBlue" Offset="0.75" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Button Cursor="Hand" x:Name="start" BorderBrush="Transparent" Background="LightCyan" Foreground="BurlyWood" FontSize="24"
+                    Content="Bắt Đầu" FontWeight="Bold" Click="login_Click" >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="50px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Border>
+                    <Border CornerRadius="10" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" x:Name="boderhelp" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="LightGray" Offset="0" />
+                                <GradientStop Color="AliceBlue" Offset="0.75" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Button Cursor="Hand" x:Name="help" BorderBrush="Transparent" Background="LightCyan" Foreground="BurlyWood" FontSize="24"
+                    Content="Hướng Dẫn" FontWeight="Bold" Click="a_Click">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="50px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Border>
+                    <Border CornerRadius="10" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" x:Name="bodersetting" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="LightGray" Offset="0" />
+                                <GradientStop Color="AliceBlue" Offset="0.75" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Button Cursor="Hand" x:Name="setting" BorderBrush="Transparent" Background="LightCyan" Foreground="BurlyWood" FontSize="24"
+                    Content="Cài Đặt" FontWeight="Bold">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="50px"></Setter>
+                                            
+                                        </Trigger>
+                                        
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Border>
+                </StackPanel>
+                
+            </Grid>
+            
+
+        </Grid>
+        <ContentControl  Grid.RowSpan="3" Grid.ColumnSpan="3"  Content="{Binding}"></ContentControl>
+    </Grid>
+</Window>
