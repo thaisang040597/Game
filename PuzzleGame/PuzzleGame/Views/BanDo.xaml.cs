@@ -66,5 +66,10 @@ namespace PuzzleGame.Views
             Man7 man7 = new Man7();
             oc.Children.Add(man7);
         }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+        }
     }
 }

@@ -6,7 +6,7 @@
              xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              xmlns:local="clr-namespace:PuzzleGame.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Resources>
         <ImageBrush  x:Key="btnLoginImgIdle" />
         <ImageBrush  x:Key="btnLoginImgHover" />
@@ -22,7 +22,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="50" Height="50">
+                            <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="60" Height="60">
                                 <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                     Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
@@ -30,8 +30,8 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>
-                                    <Setter Property="Width" Value="60" TargetName="button1"></Setter>
-                                    <Setter Property="Height" Value="60" TargetName="button1"></Setter>
+                                    <Setter Property="Width" Value="70" TargetName="button1"></Setter>
+                                    <Setter Property="Height" Value="70" TargetName="button1"></Setter>
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="True">
                                     <Setter Property="Background" Value="{DynamicResource btnLoginImgClick}"/>
@@ -45,18 +45,18 @@
         </Grid.Resources>
         <Canvas>
             <Canvas.Background>
-                <ImageBrush ImageSource="/Images/khurung.png"></ImageBrush>
+                <ImageBrush ImageSource="/Images/Game1Round1/khurung.png"></ImageBrush>
                
             </Canvas.Background>
             <Button x:Name="back" Style="{StaticResource btnLoginStyle}" Click="back_Click">
-                <Image Source="/Images/muiten1.png"></Image>
+                <Image Source="/Images/Game1Round1/muiten1.png"></Image>
             </Button>
-            <Image x:Name="gau1" Source="/Images/gau1.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" ></Image>
+            <Image x:Name="gau1" Source="/Images/Game1Round1/gau1.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" ></Image>
             <Image x:Name="hoa"  gif:AnimationBehavior.SourceUri="/Images/hoa.gif" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50"  Visibility="Hidden" >
                 
             </Image>
-            <Image x:Name="gau" Source="/Images/gau.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" Visibility="Hidden"></Image>
-            <Image x:Name="gau2" Source="/Images/gau2.png" Width="150" Height="150"   MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+            <Image x:Name="gau" Source="/Images/Game1Round1/gau.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" Visibility="Hidden"></Image>
+            <Image x:Name="gau2" Source="/Images/Game1Round1/gau2.png" Width="150" Height="150"   MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
                    Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}"></Image>
             <!--<Image x:Name="hinh1" Source="/Images/gau2.png"  Width="70"  Height="70"   
              MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
@@ -86,8 +86,8 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
-                    Content="Qua Màn" FontWeight="Bold" Click="Button_Click" >
+                <Button x:Name="Continue"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Qua Màn" FontWeight="Bold" Click="Continue_Click"  >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -95,8 +95,8 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
-                    Content="Chơi Lại" FontWeight="Bold" >
+                <Button x:Name="Replay"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Chơi Lại" FontWeight="Bold" Click="Replay_Click" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>

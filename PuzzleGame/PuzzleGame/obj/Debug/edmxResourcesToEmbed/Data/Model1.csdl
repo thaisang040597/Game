@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PuzzleGameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ImageGame">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PositionX" Type="Double" Nullable="false" />
+    <Property Name="PositionY" Type="Double" Nullable="false" />
+    <Property Name="Round" Type="Int32" Nullable="false" />
+    <Property Name="ImageCate" Type="Int32" Nullable="false" />
+    <Property Name="IdPuzzleGame" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Puzzle" Relationship="Self.FK_ImageGame_ImageGame" FromRole="ImageGame" ToRole="Puzzle" />
+  </EntityType>
+  <EntityType Name="MediaGame">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Round" Type="Int32" Nullable="false" />
+    <Property Name="IdPuzzleGame" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Puzzle" Relationship="Self.FK_MediaGame_PuzzleGame" FromRole="MediaGame" ToRole="Puzzle" />
+  </EntityType>
+  <EntityType Name="Puzzle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameCate" Type="Int32" Nullable="false" />
+    <Property Name="RoundTotal" Type="Int32" Nullable="false" />
+    <Property Name="RoundWin" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ImageGames" Relationship="Self.FK_ImageGame_ImageGame" FromRole="Puzzle" ToRole="ImageGame" />
+    <NavigationProperty Name="MediaGames" Relationship="Self.FK_MediaGame_PuzzleGame" FromRole="Puzzle" ToRole="MediaGame" />
+  </EntityType>
+  <Association Name="FK_ImageGame_ImageGame">
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="1" />
+    <End Role="ImageGame" Type="Self.ImageGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puzzle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ImageGame">
+        <PropertyRef Name="IdPuzzleGame" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaGame_PuzzleGame">
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="1" />
+    <End Role="MediaGame" Type="Self.MediaGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puzzle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaGame">
+        <PropertyRef Name="IdPuzzleGame" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PuzzleGameEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ImageGames" EntityType="Self.ImageGame" />
+    <EntitySet Name="MediaGames" EntityType="Self.MediaGame" />
+    <EntitySet Name="Puzzles" EntityType="Self.Puzzle" />
+    <AssociationSet Name="FK_ImageGame_ImageGame" Association="Self.FK_ImageGame_ImageGame">
+      <End Role="Puzzle" EntitySet="Puzzles" />
+      <End Role="ImageGame" EntitySet="ImageGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaGame_PuzzleGame" Association="Self.FK_MediaGame_PuzzleGame">
+      <End Role="Puzzle" EntitySet="Puzzles" />
+      <End Role="MediaGame" EntitySet="MediaGames" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -73,45 +73,7 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.pdb
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\XamlAnimatedGif.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame_Content.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\Sound\Ilikeme.wav
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\Sound\Ilikeme.wav
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\PuzzleGame.exe.config
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\PuzzleGame.exe
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\PuzzleGame.pdb
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignColors.dll
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\XamlAnimatedGif.dll
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignColors.pdb
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\MainWindow.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\BanDo.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man1.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man2.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man3.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man4.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man5.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man6.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man7.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\App.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame_Content.g.cs
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame_MarkupCompile.cache
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame_MarkupCompile.lref
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\MainWindow.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\BanDo.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man1.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man2.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man3.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man4.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man5.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man6.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Man7.baml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.g.resources
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.Properties.Resources.resources
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csproj.GenerateResource.cache
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csproj.CopyComplete
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.exe
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.pdb
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.dll
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.xml
-C:\Users\Dell\Desktop\DO AN TOT NGHIEP\New folder\Game\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.xml
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.dll
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.dll
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.xml
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.xml

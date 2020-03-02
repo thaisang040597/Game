@@ -6,11 +6,42 @@
         xmlns:local="clr-namespace:PuzzleGame"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow"  WindowState="Maximized" ResizeMode="CanMinimize">
+        Width="1366" Height="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    
     <Grid x:Name="myGrid">
-         
+        <Grid.Resources>
+            <Style TargetType="Button"  x:Key="btnLoginStyle">
+                <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle}"></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="Cursor" Value="Hand" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="50" Height="50">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!--<Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>-->
+                                    <Setter Property="Width" Value="55" TargetName="button1"></Setter>
+                                    <Setter Property="Height" Value="55" TargetName="button1"></Setter>
+                                </Trigger>
+                                <!--<Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgClick}"/>
+                                </Trigger>-->
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+
         <Grid.Background>
-            <ImageBrush x:Name="abc" x:Uid="abd" ImageSource="/PuzzleGame;component/Images/C49.png"></ImageBrush>
+            <ImageBrush x:Name="abc" x:Uid="abd" ImageSource="/Images/Background/C49.png"></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*"></ColumnDefinition>
@@ -24,16 +55,21 @@
                 <RowDefinition Height="7*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
-            
-       
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Button x:Name="close" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Right" VerticalAlignment="Top"  Click="close_Click" >
+                <Image Source="/Images/Background/close1.png"></Image>
+            </Button>
+        </Grid>
+
+
         <Grid   Grid.Column="0" Grid.Row="1" >
             <Grid.Background>
-                <ImageBrush ImageSource="/Images/board.png"></ImageBrush>
+                <ImageBrush ImageSource="/Images/Background/board.png"></ImageBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="18*"></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1.5*"></ColumnDefinition>
                 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -115,6 +151,7 @@
                 </StackPanel>
                 
             </Grid>
+           
             
 
         </Grid>

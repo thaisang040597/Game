@@ -202,12 +202,22 @@ namespace PuzzleGame.Views
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Replay_Click(object sender, RoutedEventArgs e)
         {
-             
-           
+            report.Visibility = Visibility.Hidden;
+            playMedia.Stop();
         }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+
+
 
 
 

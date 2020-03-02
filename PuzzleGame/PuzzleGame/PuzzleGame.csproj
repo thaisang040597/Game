@@ -75,30 +75,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ImageGame.cs">
+    <Compile Include="Data\ImageGame.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\MediaGame.cs">
+    <Compile Include="Data\MediaGame.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model1.Context.cs">
+    <Compile Include="Data\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model1.cs">
+    <Compile Include="Data\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model1.Designer.cs">
+    <Compile Include="Data\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Puzzle.cs">
+    <Compile Include="Data\Puzzle.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Viewmodel\ImageGameViewModel.cs" />
+    <Compile Include="Viewmodel\MediaGameViewModel.cs" />
+    <Compile Include="Viewmodel\PuzzleViewModel.cs" />
     <Compile Include="Views\BanDo.xaml.cs">
       <DependentUpon>BanDo.xaml</DependentUpon>
     </Compile>
@@ -186,11 +189,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\Model1.edmx">
+    <EntityDeploy Include="Data\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Model1.edmx.diagram">
+    <None Include="Data\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -202,50 +205,36 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Viewmodel\" />
+    <Resource Include="Images\Background\background1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Map.png" />
+    <Resource Include="Images\Background\khobau1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\C47.png" />
+    <Resource Include="Images\Background\khobau4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Map1.png" />
+    <Resource Include="Images\Background\khohbau7.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\background1.png" />
+    <Resource Include="Images\Background\khobau10.png" />
+    <Resource Include="Images\Background\khobau5.png" />
+    <Resource Include="Images\Background\khobau6.png" />
+    <Resource Include="Images\Background\khobau8.png" />
+    <Resource Include="Images\Background\khobau9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\khobau1.png" />
+    <Resource Include="Images\Game1Round1\muiten1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\khobau4.png" />
+    <Resource Include="Images\Game1Round1\khurung.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\khohbau7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\khobau10.png" />
-    <Resource Include="Images\khobau5.png" />
-    <Resource Include="Images\khobau6.png" />
-    <Resource Include="Images\khobau8.png" />
-    <Resource Include="Images\khobau9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\muiten1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\khurung.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\gau.png" />
-    <Resource Include="Images\gau1.png" />
-    <Resource Include="Images\gau2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\lion.png" />
+    <Resource Include="Images\Game1Round1\gau.png" />
+    <Resource Include="Images\Game1Round1\gau1.png" />
+    <Resource Include="Images\Game1Round1\gau2.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.gif" />
@@ -254,18 +243,20 @@
     <Resource Include="Images\hoa.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\board.png" />
-    <Resource Include="Images\C49.png" />
-    <Content Include="Model\Model1.Context.tt">
+    <Resource Include="Images\Background\board.png" />
+    <Resource Include="Images\Background\C49.png" />
+    <Content Include="Data\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Model\Model1.tt">
+    <Content Include="Data\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Background\close.png" />
+    <Resource Include="Images\Background\close1.png" />
     <Content Include="Sound\Ilikeme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
