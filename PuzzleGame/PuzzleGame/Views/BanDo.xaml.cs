@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PuzzleGame.Views.Game2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,17 @@ namespace PuzzleGame.Views
     /// </summary>
     public partial class BanDo : UserControl
     {
+       
         public BanDo()
         {
             InitializeComponent();
+            //imgstep1.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\khobau4.png"));
+            //imgstep2.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\khobau5.png"));
+            Global.BandoTest = this;
+            
         }
+       
+       
         private void step1_Click(object sender, RoutedEventArgs e)
         {
             Man1 man1 = new Man1();
@@ -70,6 +78,17 @@ namespace PuzzleGame.Views
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Game2_Click(object sender, RoutedEventArgs e)
+        {
+            Round21 round21 = new Round21();
+            oc.Children.Add(round21);
         }
     }
 }

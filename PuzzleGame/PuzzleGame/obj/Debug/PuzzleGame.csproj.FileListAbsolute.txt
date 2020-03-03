@@ -77,3 +77,5 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.xml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.xml
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round21.g.cs
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round21.baml

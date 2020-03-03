@@ -54,6 +54,22 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Button x:Name="Game2" Background="Gray" Opacity="0.005" Click="Game2_Click">
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
         <Grid Grid.Row="0" Grid.Column="0">
             <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Click="back_Click"  >
                 <Image Source="/Images/Game1Round1/muiten1.png"></Image>
@@ -61,17 +77,23 @@
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Right" Margin="0 30 110 30">
             <Button x:Name="step1" Style="{StaticResource btnLoginStyle}" Click="step1_Click" >
-                <Image Source="/Images/Background/khobau4.png"></Image>
+                <Button.Background>
+                    <ImageBrush x:Name="imgstep1" ImageSource="/Images/Background/khobau4.png"></ImageBrush>
+                </Button.Background>
             </Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" Margin="-55 15 0 90">
             <Button x:Name="step2" Style="{StaticResource btnLoginStyle}" Click="step2_Click">
-                <Image Source="/Images/Background/khobau5.png"></Image>
+                <Button.Background>
+                    <ImageBrush x:Name="imgstep2" ImageSource="/Images/Background/khobau5.png"></ImageBrush>
+                </Button.Background>
             </Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" Margin="0 0 180 120">
             <Button x:Name="step3" Style="{StaticResource btnLoginStyle}" Click="step3_Click">
-                <Image Source="/Images/Background/khobau6.png"></Image>
+                <Button.Background>
+                    <ImageBrush  ImageSource="/Images/Background/khobau6.png"></ImageBrush>
+                </Button.Background>
             </Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right" Margin="0 0 60 110">

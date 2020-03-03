@@ -28,6 +28,8 @@ namespace PuzzleGame.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            Global.BandoTest.imgstep2.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\khobau1.png"));
+            
         }
     }
 }

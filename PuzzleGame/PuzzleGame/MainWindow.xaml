@@ -111,7 +111,7 @@
                             </LinearGradientBrush>
                         </Border.Background>
                         <Button Cursor="Hand" x:Name="help" BorderBrush="Transparent" Background="LightCyan" Foreground="BurlyWood" FontSize="24"
-                    Content="Hướng Dẫn" FontWeight="Bold" Click="a_Click">
+                    Content="Hướng Dẫn" FontWeight="Bold" >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="10"/>

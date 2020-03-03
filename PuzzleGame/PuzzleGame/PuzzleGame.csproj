@@ -99,11 +99,16 @@
     <Compile Include="Data\Puzzle.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Viewmodel\ImageGameViewModel.cs" />
-    <Compile Include="Viewmodel\MediaGameViewModel.cs" />
-    <Compile Include="Viewmodel\PuzzleViewModel.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Model\ImageGame.cs" />
+    <Compile Include="Model\MediaGame.cs" />
+    <Compile Include="Model\Puzzle.cs" />
+    <Compile Include="Viewmodel\RoundGame1.cs" />
     <Compile Include="Views\BanDo.xaml.cs">
       <DependentUpon>BanDo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game2\Round21.xaml.cs">
+      <DependentUpon>Round21.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Man1.xaml.cs">
       <DependentUpon>Man1.xaml</DependentUpon>
@@ -139,6 +144,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\BanDo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game2\Round21.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,9 +219,6 @@
     <Resource Include="Images\Background\background1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Background\khobau1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Background\khobau4.png" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +263,8 @@
     </Content>
     <Resource Include="Images\Background\close.png" />
     <Resource Include="Images\Background\close1.png" />
+    <Resource Include="Images\Background\khobau1.png" />
+    <Resource Include="Images\Background\Game2\bandogame2.png" />
     <Content Include="Sound\Ilikeme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -41,7 +41,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            
+
         </Grid.Resources>
         <Canvas>
             <Canvas.Background>
@@ -108,5 +108,6 @@
            
 
         </Grid>
+        <Grid x:Name="oc"></Grid>
     </Grid>
 </UserControl>

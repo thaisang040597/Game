@@ -34,11 +34,7 @@ namespace PuzzleGame
 
         }
 
-        private void a_Click(object sender, RoutedEventArgs e)
-        {
-           
-
-        }
+       
 
         private void close_Click(object sender, RoutedEventArgs e)
         {

@@ -26,21 +26,25 @@ namespace PuzzleGame.Views
         private double DeltaX = 0.0;
         private double DeltaY = 0.0;
         private bool moving = false;
-        private Point PositionInLabel;
-        private static bool gaucho = false;
+        private Point PositionImage;
+        private static bool gaucho = false;    //không cho chọn khi đúng hình;
+        private bool replay = false;
         private int temp = 0;
         MediaPlayer playMedia = new MediaPlayer();
+       
 
         public Man1()
         {
             InitializeComponent();
             this.DataContext = this;
-      
            
+           
+
+
 
         }
 
-       
+
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
@@ -61,6 +65,7 @@ namespace PuzzleGame.Views
        
         private void Feast_MouseDown(object sender, MouseButtonEventArgs e)
         {
+          
             Image l = e.Source as Image;
             if (l != null)
             {
@@ -72,8 +77,12 @@ namespace PuzzleGame.Views
                 {
                     gau2.CaptureMouse();
                     moving = true;
-                    PositionInLabel = e.GetPosition(l);
+                    PositionImage = e.GetPosition(gau2);
                     
+                }
+                else if( replay == true)
+                {
+                    moving = false;
                 }
                 //if (l.Name == "hinh2")
                 //{
@@ -88,14 +97,15 @@ namespace PuzzleGame.Views
         {
             double x = Canvas.GetLeft(gau1);
             double y = Canvas.GetTop(gau1);
-            Image l = e.Source as Image;
+            
             if (moving)
             {
+                Image l = e.Source as Image;
                 if (l.Name == "gau2")
                 {
                     Point p = e.GetPosition(null);
-                    DeltaX = p.X - BasePoint.X - PositionInLabel.X;
-                    DeltaY = p.Y - BasePoint.Y - PositionInLabel.Y;
+                    DeltaX = p.X - BasePoint.X - PositionImage.X;
+                    DeltaY = p.Y - BasePoint.Y - PositionImage.Y;
                     BasePoint.X += DeltaX;
                     BasePoint.Y += DeltaY;
                     RaisePropertyChanged("XPosition");
@@ -207,12 +217,38 @@ namespace PuzzleGame.Views
         {
             report.Visibility = Visibility.Hidden;
             playMedia.Stop();
+            replay = true;
+            if (replay == true)
+            {
+                moving = false;
+                temp = 0;
+                BasePoint.X = 200;
+                BasePoint.Y = 0;
+                gaucho = false;
+                RaisePropertyChanged("XPosition");
+                RaisePropertyChanged("YPosition");
+                hoa.Visibility = Visibility.Hidden;
+                gau1.Visibility = Visibility.Visible;
+                
+
+                
+
+
+            }
         }
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
+            
+            playMedia.Stop();
+            Global.BandoTest.imgstep1.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\khobau1.png"));
+            this.Visibility = Visibility.Hidden;
+            
+            gaucho = false;
+            
 
         }
+       
 
 
 
