@@ -77,7 +77,8 @@ namespace PuzzleGame.Views
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Hidden;
+          
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

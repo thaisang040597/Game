@@ -42,7 +42,6 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignColors.pdb
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\MainWindow.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\BanDo.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Man1.g.cs
@@ -72,10 +71,13 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.exe
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.pdb
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\XamlAnimatedGif.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame_Content.g.cs
-D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\Sound\Ilikeme.wav
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.xml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.xml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round21.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round21.baml
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\ViewMain.g.cs
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\ViewMain.baml
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache

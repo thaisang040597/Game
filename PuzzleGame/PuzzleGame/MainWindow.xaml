@@ -3,13 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PuzzleGame"
+        xmlns:local="clr-namespace:PuzzleGame.Views"
+        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Width="1366" Height="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+      
+        Width="1366" Height="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown">
     
     <Grid x:Name="myGrid">
-        <Grid.Resources>
+        <!--<Grid.Resources>
             <Style TargetType="Button"  x:Key="btnLoginStyle">
                 <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle}"></Setter>
                 <Setter Property="BorderThickness" Value="0"></Setter>
@@ -25,13 +27,13 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <!--<Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>-->
+                                    --><!--<Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>--><!--
                                     <Setter Property="Width" Value="55" TargetName="button1"></Setter>
                                     <Setter Property="Height" Value="55" TargetName="button1"></Setter>
                                 </Trigger>
-                                <!--<Trigger Property="IsPressed" Value="True">
+                                --><!--<Trigger Property="IsPressed" Value="True">
                                     <Setter Property="Background" Value="{DynamicResource btnLoginImgClick}"/>
-                                </Trigger>-->
+                                </Trigger>--><!--
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
@@ -59,6 +61,7 @@
             <Button x:Name="close" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Right" VerticalAlignment="Top"  Click="close_Click" >
                 <Image Source="/Images/Background/close1.png"></Image>
             </Button>
+            --><!--<TextBlock Grid.Column="1"  Name="txtMinimize" FontFamily="Webdings" FontSize="20" Foreground="White" MouseLeftButtonUp="txtMinimize_MouseLeftButtonUp">0</TextBlock>--><!--
         </Grid>
 
 
@@ -155,6 +158,31 @@
             
 
         </Grid>
-        <ContentControl  Grid.RowSpan="3" Grid.ColumnSpan="3"  Content="{Binding}"></ContentControl>
+        <ContentControl  Grid.RowSpan="3" Grid.ColumnSpan="3"  Content="{Binding}"></ContentControl>-->
+        <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+            
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:CircleWipe/>
+                </materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:CircleWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
+                <local:ViewMain/>
+
+            </materialDesign:TransitionerSlide >
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:CircleWipe/>
+                </materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:SlideWipe Direction="Up"/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
+                <local:BanDo/>
+
+            </materialDesign:TransitionerSlide >
+           
+
+        </materialDesign:Transitioner>
     </Grid>
 </Window>

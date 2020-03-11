@@ -27,18 +27,23 @@ namespace PuzzleGame
             InitializeComponent();
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
-        {
+        //private void login_Click(object sender, RoutedEventArgs e)
+        //{
 
-             this.DataContext = new BanDo();
+        //     this.DataContext = new BanDo();
 
-        }
+        //}
 
        
 
-        private void close_Click(object sender, RoutedEventArgs e)
+        //private void close_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+        //}
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            
         }
     }
 }

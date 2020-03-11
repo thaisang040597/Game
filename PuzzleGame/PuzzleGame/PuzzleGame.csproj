@@ -103,7 +103,6 @@
     <Compile Include="Model\ImageGame.cs" />
     <Compile Include="Model\MediaGame.cs" />
     <Compile Include="Model\Puzzle.cs" />
-    <Compile Include="Viewmodel\RoundGame1.cs" />
     <Compile Include="Views\BanDo.xaml.cs">
       <DependentUpon>BanDo.xaml</DependentUpon>
     </Compile>
@@ -130,6 +129,9 @@
     </Compile>
     <Compile Include="Views\Man7.xaml.cs">
       <DependentUpon>Man7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewMain.xaml.cs">
+      <DependentUpon>ViewMain.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ViewMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -214,7 +220,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Viewmodel\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Background\background1.png" />
   </ItemGroup>
@@ -232,23 +240,37 @@
     <Resource Include="Images\Background\khobau9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Game1Round1\muiten1.png" />
+    <Resource Include="Images\Gif\icon.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Game1Round1\khurung.png" />
+    <Resource Include="Images\Gif\hoa.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Game1Round1\gau.png" />
-    <Resource Include="Images\Game1Round1\gau1.png" />
-    <Resource Include="Images\Game1Round1\gau2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\icon.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\hoa.gif" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Images\Background\backdoor1.png" />
+    <Resource Include="Images\Game1\Round1\bantay.png" />
+    <Resource Include="Images\Game1\Round1\bantay1.png" />
+    <Resource Include="Images\Game1\Round1\gau.png" />
+    <Resource Include="Images\Game1\Round1\gau1.png" />
+    <Resource Include="Images\Game1\Round1\gau2.png" />
+    <Resource Include="Images\Game1\Round1\ho.png" />
+    <Resource Include="Images\Game1\Round1\ho1.png" />
+    <Resource Include="Images\Game1\Round1\ho2.png" />
+    <Resource Include="Images\Game1\Round1\khurung.png" />
+    <Resource Include="Images\Game2\bandogame2.png" />
+    <Resource Include="Images\Game1\Round2\honey.png" />
+    <Resource Include="Images\Game1\Round1\tho2.png" />
+    <Resource Include="Images\Game1\Round2\carrot.png" />
+    <Resource Include="Images\Game1\Round3\teacher.png" />
+    <Resource Include="Images\Game1\Round3\board1.png" />
+    <Resource Include="Images\Game1\Round3\a.png" />
+    <Resource Include="Images\Game1\Round3\b.png" />
+    <Resource Include="Images\Game1\Round3\c.png" />
+    <Resource Include="Images\Game1\Round3\d.png" />
+    <Resource Include="Images\Game1\Round3\a1.png" />
+    <Content Include="Sound\chucmung.mp3" />
+    <Content Include="Sound\Gaukeu.mp3" />
+    <Content Include="Sound\thokeu.mp3" />
+    <Content Include="Sound\Ting.mp3" />
     <Resource Include="Images\Background\board.png" />
     <Resource Include="Images\Background\C49.png" />
     <Content Include="Data\Model1.Context.tt">
@@ -264,10 +286,6 @@
     <Resource Include="Images\Background\close.png" />
     <Resource Include="Images\Background\close1.png" />
     <Resource Include="Images\Background\khobau1.png" />
-    <Resource Include="Images\Background\Game2\bandogame2.png" />
-    <Content Include="Sound\Ilikeme.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

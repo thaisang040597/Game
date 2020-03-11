@@ -8,8 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/chucmung.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/gaukeu.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/thokeu.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/ting.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/model1.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/model1.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/ilikeme.wav")]
 
 

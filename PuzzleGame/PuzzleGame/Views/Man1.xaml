@@ -6,16 +6,16 @@
              xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              xmlns:local="clr-namespace:PuzzleGame.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920">
+             d:DesignHeight="768" d:DesignWidth="1366">
     <UserControl.Resources>
         <ImageBrush  x:Key="btnLoginImgIdle" />
-        <ImageBrush  x:Key="btnLoginImgHover" />
-        <ImageBrush x:Key="btnLoginImgClick" />
+        <!--<ImageBrush  x:Key="btnLoginImgHover" />
+        <ImageBrush x:Key="btnLoginImgClick" />-->
     </UserControl.Resources>
     <Grid Background="AliceBlue" >
         <Grid.Resources>
             <Style TargetType="Button"  x:Key="btnLoginStyle">
-                <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle}"></Setter>
+                <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle }" ></Setter>
                 <Setter Property="BorderThickness" Value="0"></Setter>
                 <Setter Property="Cursor" Value="Hand" />
 
@@ -24,8 +24,8 @@
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="60" Height="60">
                                 <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                                                  Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
@@ -43,24 +43,170 @@
             </Style>
 
         </Grid.Resources>
+
         <Canvas>
             <Canvas.Background>
-                <ImageBrush ImageSource="/Images/Game1Round1/khurung.png"></ImageBrush>
-               
+                <ImageBrush ImageSource="/Images/Game1/Round1/khurung.png"></ImageBrush>
+
             </Canvas.Background>
             <Button x:Name="back" Style="{StaticResource btnLoginStyle}" Click="back_Click">
-                <Image Source="/Images/Game1Round1/muiten1.png"></Image>
+                <Image Source="/Images/Background/backdoor1.png"></Image>
             </Button>
-            <Image x:Name="gau1" Source="/Images/Game1Round1/gau1.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" ></Image>
-            <Image x:Name="hoa"  gif:AnimationBehavior.SourceUri="/Images/hoa.gif" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50"  Visibility="Hidden" >
-                
+            <Image x:Name="gau1" Source="/Images/Game1/Round1/gau1.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" ></Image>
+            <Image x:Name="ho" Source="/Images/Game1/Round1/ho.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="250" ></Image>
+            <Image x:Name="hoa"  gif:AnimationBehavior.SourceUri="/Images/Gif/hoa.gif" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50"  Visibility="Hidden" >
+
             </Image>
-            <Image x:Name="gau" Source="/Images/Game1Round1/gau.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" Visibility="Hidden"></Image>
-            <Image x:Name="gau2" Source="/Images/Game1Round1/gau2.png" Width="150" Height="150"   MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
-                   Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}"></Image>
+            <Image x:Name="gau" Source="/Images/Game1/Round1/gau.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" Visibility="Hidden"></Image>
+            <StackPanel  x:Name="bantay"  
+                         Canvas.Top="0"
+                         Canvas.Left="330"
+                         Height="100"
+                         Width="100">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Images/Game1/Round1/bantay.png"></ImageBrush>
+                </StackPanel.Background>
+                <StackPanel.RenderTransform>
+                    <TranslateTransform x:Name="AnimatedTranslateTransform" />
+                </StackPanel.RenderTransform>
+
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="StackPanel.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <!-- Animate the TranslateTransform.X property using 3 KeyFrames
+                   which animates the rectangle along a straight line. 
+                   This animation repeats indefinitely. -->
+                                <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="X"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+
+                                    <!-- Using a LinearDoubleKeyFrame, the rectangle moves 
+                     steadily from its starting position to 500 over 
+                     the first 3 seconds.  -->
+                                    <LinearDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                    <!-- Using a DiscreteDoubleKeyFrame, the rectangle suddenly 
+                     appears at 400 after the fourth second of the animation. -->
+                                    <DiscreteDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                    <!-- Using a SplineDoubleKeyFrame, the rectangle moves 
+                     back to its starting point. The
+                     animation starts out slowly at first and then speeds up. 
+                     This KeyFrame ends after the 6th
+                     second. -->
+                                    <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="Y"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+
+                                    <!-- Using a LinearDoubleKeyFrame, the rectangle moves 
+                     steadily from its starting position to 500 over 
+                     the first 3 seconds.  -->
+                                    <LinearDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                    <!-- Using a DiscreteDoubleKeyFrame, the rectangle suddenly 
+                     appears at 400 after the fourth second of the animation. -->
+                                    <DiscreteDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                    <!-- Using a SplineDoubleKeyFrame, the rectangle moves 
+                     back to its starting point. The
+                     animation starts out slowly at first and then speeds up. 
+                     This KeyFrame ends after the 6th
+                     second. -->
+                                    <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+            <StackPanel  x:Name="bantay1"  
+                         Canvas.Top="700"
+                         Canvas.Left="200"
+                         Height="100"
+                         Width="100"
+                         Visibility="Hidden">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Images/Game1/Round1/bantay1.png"></ImageBrush>
+                </StackPanel.Background>
+                <StackPanel.RenderTransform>
+                    <TranslateTransform x:Name="AnimatedTranslateTransform1" />
+                </StackPanel.RenderTransform>
+
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="StackPanel.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <!-- Animate the TranslateTransform.X property using 3 KeyFrames
+                   which animates the rectangle along a straight line. 
+                   This animation repeats indefinitely. -->
+                                <DoubleAnimationUsingKeyFrames
+                                     Storyboard.TargetName="AnimatedTranslateTransform1"
+                                     Storyboard.TargetProperty="X"                              
+                                     Duration="0:0:2"
+                                     RepeatBehavior="Forever">
+                                    <!-- Using a LinearDoubleKeyFrame, the rectangle moves 
+                     steadily from its starting position to 500 over 
+                     the first 3 seconds.  -->
+                                    <LinearDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                    <!-- Using a DiscreteDoubleKeyFrame, the rectangle suddenly 
+                     appears at 400 after the fourth second of the animation. -->
+                                    <DiscreteDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                    <!-- Using a SplineDoubleKeyFrame, the rectangle moves 
+                     back to its starting point. The
+                     animation starts out slowly at first and then speeds up. 
+                     This KeyFrame ends after the 6th
+                     second. -->
+                                    <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames
+                                        Storyboard.TargetName="AnimatedTranslateTransform1"
+                                        Storyboard.TargetProperty="Y"
+                                        Duration="0:0:2"
+                                        RepeatBehavior="Forever">
+
+                                    <!-- Using a LinearDoubleKeyFrame, the rectangle moves 
+                     steadily from its starting position to 500 over 
+                     the first 3 seconds.  -->
+                                    <LinearDoubleKeyFrame Value="-50" KeyTime="0:0:1" />
+
+                                    <!-- Using a DiscreteDoubleKeyFrame, the rectangle suddenly 
+                     appears at 400 after the fourth second of the animation. -->
+                                    <DiscreteDoubleKeyFrame Value="-50" KeyTime="0:0:1" />
+
+                                    <!-- Using a SplineDoubleKeyFrame, the rectangle moves 
+                     back to its starting point. The
+                     animation starts out slowly at first and then speeds up. 
+                     This KeyFrame ends after the 6th
+                     second. -->
+                                    <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+            <Image x:Name="gau2" Source="/Images/Game1/Round1/gau2.png" Width="150" Height="150"   MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}" ></Image>
             <!--<Image x:Name="hinh1" Source="/Images/gau2.png"  Width="70"  Height="70"   
              MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
                    Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}"></Image>-->
+
+            <Image x:Name="hoa1"  gif:AnimationBehavior.SourceUri="/Images/hoa.gif" Width="150" Height="150" Canvas.Top="550" Canvas.Left="250"  Visibility="Hidden" >
+
+            </Image>
+            <Image x:Name="ho1" Source="/Images/Game1/Round1/ho1.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="250" Visibility="Hidden"></Image>
+            <Image x:Name="ho2" Source="/Images/Game1/Round1/ho2.png" Width="150" Height="150"   MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPosition1}" Canvas.Top="{Binding YPosition1}"></Image>
         </Canvas>
         <Grid Width="250" Height="250" Visibility="Hidden" x:Name="report"  >
             <Grid.RowDefinitions>
@@ -74,12 +220,12 @@
                         <GradientStop Color="Bisque" Offset="0" />
                         <GradientStop Color="Orange" Offset="0.95" />
                     </LinearGradientBrush>
-                    
+
                 </Border.Background>
-              
+
             </Border>
             <Grid Grid.Row="0">
-                <Image gif:AnimationBehavior.SourceUri="/Images/icon.gif"   ></Image>
+                <Image gif:AnimationBehavior.SourceUri="/Images/Gif/icon.gif"   ></Image>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -91,7 +237,7 @@
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>
-      
+
                         </Style>
                     </Button.Resources>
                 </Button>
@@ -105,9 +251,9 @@
                     </Button.Resources>
                 </Button>
             </Grid>
-           
+
 
         </Grid>
-        <Grid x:Name="oc"></Grid>
+        <!--<Grid x:Name="oc"></Grid>-->
     </Grid>
 </UserControl>
