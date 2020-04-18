@@ -24,17 +24,31 @@ namespace PuzzleGame.Views
     {
         private Point BasePoint = new Point(200.0, 20);
         private Point BasePoint1 = new Point(400, 0.0);
+        private Point BasePoint2 = new Point(600, 250.0);
+        private Point BasePoint3 = new Point(200, 450);
+        private Point BasePoint4 = new Point(450, 650);
         private double DeltaX = 0.0;
         private double DeltaY = 0.0;
         private double DeltaX1 = 0.0;
         private double DeltaY1 = 0.0;
+        private double DeltaX2 = 0.0;
+        private double DeltaY2 = 0.0;
+        private double DeltaX3 = 0.0;
+        private double DeltaY3 = 0.0;
+        private double DeltaX4 = 0.0;
+        private double DeltaY4 = 0.0;
         private bool moving = false;
         private Point PositionImage;
         private static bool gaucho = false;
         private static bool hovan = false;//không cho chọn khi đúng hình;
+        private static bool voixam = false;
+        private static bool khinau = false;
+        private static bool thoxam = false;
         private bool replay = false;
         //private int temp = 0;
         MediaPlayer playMedia = new MediaPlayer();
+        
+
        
 
         public Man1()
@@ -75,7 +89,33 @@ namespace PuzzleGame.Views
         {
             get { return BasePoint1.Y + DeltaY1; }
         }
+        public double XPosition2
+        {
+            get { return BasePoint2.X + DeltaX2; }
+        }
 
+        public double YPosition2
+        {
+            get { return BasePoint2.Y + DeltaY2; }
+        }
+        public double XPosition3
+        {
+            get { return BasePoint3.X + DeltaX3; }
+        }
+
+        public double YPosition3
+        {
+            get { return BasePoint3.Y + DeltaY3; }
+        }
+        public double XPosition4
+        {
+            get { return BasePoint4.X + DeltaX4; }
+        }
+
+        public double YPosition4
+        {
+            get { return BasePoint4.Y + DeltaY4; }
+        }
         private void Feast_MouseDown(object sender, MouseButtonEventArgs e)
         {
           
@@ -89,6 +129,8 @@ namespace PuzzleGame.Views
                     moving = true;
                     PositionImage = e.GetPosition(gau2);
                     bantay1.Visibility = Visibility.Visible;
+                    Panel.SetZIndex(gau2, 2);
+                    Panel.SetZIndex(ho2, 1);
 
                 }
                 if (l.Name == "ho2" && hovan == false)
@@ -96,7 +138,39 @@ namespace PuzzleGame.Views
                     ho2.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(ho2);
-                    
+                    Panel.SetZIndex(gau2, 1);
+                    Panel.SetZIndex(ho2, 2);
+
+                }
+                if (l.Name == "voi2" && voixam == false)
+                {
+                    voi2.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(voi2);
+                    Panel.SetZIndex(voi2, 3);
+                    Panel.SetZIndex(ho2, 2);
+                    Panel.SetZIndex(gau2, 1);
+
+                }
+                if (l.Name == "khi2" && khinau == false)
+                {
+                    khi2.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(khi2);
+                    Panel.SetZIndex(voi2, 3);
+                    Panel.SetZIndex(ho2, 2);
+                    Panel.SetZIndex(gau2, 1);
+
+                }
+                if (l.Name == "tho2" && thoxam == false)
+                {
+                    tho2.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(tho2);
+                    Panel.SetZIndex(voi2, 3);
+                    Panel.SetZIndex(ho2, 2);
+                    Panel.SetZIndex(gau2, 1);
+
                 }
                 playMedia.Stop();
                 
@@ -115,6 +189,13 @@ namespace PuzzleGame.Views
             double y = Canvas.GetTop(gau1);
             double m = Canvas.GetLeft(ho);
             double n = Canvas.GetTop(ho);
+            double v = Canvas.GetLeft(voi);
+            double o = Canvas.GetTop(voi);
+            double k = Canvas.GetLeft(khi);
+            double h = Canvas.GetTop(khi);
+            double t = Canvas.GetLeft(tho);
+            double u = Canvas.GetTop(tho);
+
 
 
             if (moving)
@@ -141,7 +222,7 @@ namespace PuzzleGame.Views
                     }
                     
                 }
-                if (l.Name == "ho2")
+                if (l.Name == "ho2" )
                 {
                     Point p = e.GetPosition(null);
                     DeltaX1 = p.X - BasePoint1.X - PositionImage.X;
@@ -162,6 +243,69 @@ namespace PuzzleGame.Views
                     }
 
                 }
+                if (l.Name == "voi2")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaX2 = p.X - BasePoint2.X - PositionImage.X;
+                    DeltaY2 = p.Y - BasePoint2.Y - PositionImage.Y;
+                    BasePoint2.X += DeltaX2;
+                    BasePoint2.Y += DeltaY2;
+                    RaisePropertyChanged("XPosition2");
+                    RaisePropertyChanged("YPosition2");
+                    if ((((BasePoint2.X - 50) < v) && (BasePoint2.X + 50) > v) && (((BasePoint2.Y - 50) < o) && ((BasePoint2.Y + 50) > o)))
+                    {
+                        voi1.Visibility = Visibility.Visible;
+                        voi.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        voi1.Visibility = Visibility.Hidden;
+                        voi.Visibility = Visibility.Visible;
+                    }
+
+                }
+                if (l.Name == "khi2")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaX3 = p.X - BasePoint3.X - PositionImage.X;
+                    DeltaY3 = p.Y - BasePoint3.Y - PositionImage.Y;
+                    BasePoint3.X += DeltaX3;
+                    BasePoint3.Y += DeltaY3;
+                    RaisePropertyChanged("XPosition3");
+                    RaisePropertyChanged("YPosition3");
+                    if ((((BasePoint3.X - 50) < k) && (BasePoint3.X + 50) > k) && (((BasePoint3.Y - 50) < h) && ((BasePoint3.Y + 50) > h)))
+                    {
+                        khi1.Visibility = Visibility.Visible;
+                        khi.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        khi1.Visibility = Visibility.Hidden;
+                        khi.Visibility = Visibility.Visible;
+                    }
+
+                }
+                if (l.Name == "tho2")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaX4 = p.X - BasePoint4.X - PositionImage.X;
+                    DeltaY4 = p.Y - BasePoint4.Y - PositionImage.Y;
+                    BasePoint4.X += DeltaX4;
+                    BasePoint4.Y += DeltaY4;
+                    RaisePropertyChanged("XPosition4");
+                    RaisePropertyChanged("YPosition4");
+                    if ((((BasePoint4.X - 50) < t) && (BasePoint4.X + 50) > t) && (((BasePoint4.Y - 50) < u) && ((BasePoint4.Y + 50) > u)))
+                    {
+                        tho1.Visibility = Visibility.Visible;
+                        tho.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        tho1.Visibility = Visibility.Hidden;
+                        tho.Visibility = Visibility.Visible;
+                    }
+
+                }
 
 
             }
@@ -170,16 +314,20 @@ namespace PuzzleGame.Views
        
         private void Feast_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //DispatcherTimer playlistTimer = new DispatcherTimer();
-
-            //playlistTimer.Interval = new TimeSpan(0, 0, 5);
-            Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Ting.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
-            // inserting the URI to the media player
+           
+            Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Ting.mp3"); 
+          
          
             double m = Canvas.GetLeft(ho);
             double n = Canvas.GetTop(ho);
             double x = Canvas.GetLeft(gau1);
             double y = Canvas.GetTop(gau1);
+            double v = Canvas.GetLeft(voi);
+            double o = Canvas.GetTop(voi);
+            double k = Canvas.GetLeft(khi);
+            double h = Canvas.GetTop(khi);
+            double t = Canvas.GetLeft(tho);
+            double u = Canvas.GetTop(tho);
             Image l = e.Source as Image;
             if (l != null)
             {
@@ -199,7 +347,7 @@ namespace PuzzleGame.Views
                         RaisePropertyChanged("XPosition");
                         RaisePropertyChanged("YPosition");
                         gau.Visibility = Visibility.Hidden;
-                        hoa.Visibility = Visibility.Visible;                       
+                                             
                         gaucho = true;
                         
                         playMedia.Open(ting);
@@ -232,11 +380,77 @@ namespace PuzzleGame.Views
 
                     }
                 }
-                
+                if (l.Name == "voi2")
+                {
+                    voi2.ReleaseMouseCapture();
+                    BasePoint2.X += DeltaX2;
+                    BasePoint2.Y += DeltaY2;
+                    DeltaX2 = 0.0;
+                    DeltaY2 = 0.0;
+                    moving = false;
+                    if ((((BasePoint2.X - 50) < v) && (BasePoint2.X + 50) > v) && (((BasePoint2.Y - 50) < o) && ((BasePoint2.Y + 50) > o)))
+                    {
+                        BasePoint2.X = v;
+                        BasePoint2.Y = o;
+                        RaisePropertyChanged("XPosition2");
+                        RaisePropertyChanged("YPosition2");
+                        voi1.Visibility = Visibility.Hidden;
+                        voi2.Visibility = Visibility.Visible;
+                        voixam = true;
+                        playMedia.Open(ting);
+                        playMedia.Play();
+
+                    }
+                }
+                if (l.Name == "khi2")
+                {
+                    khi2.ReleaseMouseCapture();
+                    BasePoint3.X += DeltaX3;
+                    BasePoint3.Y += DeltaY3;
+                    DeltaX3 = 0.0;
+                    DeltaY3 = 0.0;
+                    moving = false;
+                    if ((((BasePoint3.X - 50) < k) && (BasePoint3.X + 50) > k) && (((BasePoint3.Y - 50) < h) && ((BasePoint3.Y + 50) > h)))
+                    {
+                        BasePoint3.X = k;
+                        BasePoint3.Y = h;
+                        RaisePropertyChanged("XPosition3");
+                        RaisePropertyChanged("YPosition3");
+                        khi1.Visibility = Visibility.Hidden;
+                        khi2.Visibility = Visibility.Visible;
+                        khinau = true;
+                        playMedia.Open(ting);
+                        playMedia.Play();
+
+                    }
+                }
+                if (l.Name == "tho2")
+                {
+                    tho2.ReleaseMouseCapture();
+                    BasePoint4.X += DeltaX4;
+                    BasePoint4.Y += DeltaY4;
+                    DeltaX4 = 0.0;
+                    DeltaY4 = 0.0;
+                    moving = false;
+                    if ((((BasePoint4.X - 50) < t) && (BasePoint4.X + 50) > t) && (((BasePoint4.Y - 50) < u) && ((BasePoint4.Y + 50) > u)))
+                    {
+                        BasePoint4.X = t;
+                        BasePoint4.Y = u;
+                        RaisePropertyChanged("XPosition4");
+                        RaisePropertyChanged("YPosition4");
+                        tho1.Visibility = Visibility.Hidden;
+                        tho.Visibility = Visibility.Visible;
+                        thoxam = true;
+                        playMedia.Open(ting);
+                        playMedia.Play();
+
+                    }
+                }
+
 
 
             }
-            if(gaucho ==  true && hovan == true )
+            if(gaucho ==  true && hovan == true && voixam == true && khinau == true && thoxam == true )
             {
                 
                 report.Visibility = Visibility.Visible;
@@ -271,7 +485,7 @@ namespace PuzzleGame.Views
                 gaucho = false;
                 RaisePropertyChanged("XPosition");
                 RaisePropertyChanged("YPosition");
-                hoa.Visibility = Visibility.Hidden;
+                
                 gau1.Visibility = Visibility.Visible;
 
                 BasePoint1.X = 400;

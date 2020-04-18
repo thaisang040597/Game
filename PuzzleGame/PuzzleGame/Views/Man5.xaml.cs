@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PuzzleGame.Views
 {
@@ -20,15 +21,18 @@ namespace PuzzleGame.Views
     /// </summary>
     public partial class Man5 : UserControl
     {
+       
         public Man5()
         {
             InitializeComponent();
+            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;
+      
 
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

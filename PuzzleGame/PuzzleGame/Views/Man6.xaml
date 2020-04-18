@@ -5,10 +5,67 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PuzzleGame.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Coral">
-        <Grid Width="180" Height="100">
-            <Button Content="Back" Click="Button_Click"></Button>
-        </Grid>
+             d:DesignHeight="768" d:DesignWidth="1366">
+    <UserControl.Resources>
+        <ImageBrush  x:Key="btnLoginImgIdle" />
+
+    </UserControl.Resources>
+    <Grid Background="AliceBlue">
+        <Grid.Resources>
+            <Style TargetType="Button"  x:Key="btnLoginStyle">
+                <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle }" ></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="Cursor" Value="Hand" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="60" Height="60">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>
+                                    <Setter Property="Width" Value="70" TargetName="button1"></Setter>
+                                    <Setter Property="Height" Value="70" TargetName="button1"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgClick}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+        <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Click="back_Click" >
+            <Image Source="/Images/Background/backdoor1.png"></Image>
+        </Button>
+        <Canvas>
+            <Image Width="250" Height="200" Canvas.Left="50" Canvas.Top="300" Source="/Images/Game1/Round5/barbershop.png"></Image>
+            <Image Width="350" Height="250" Canvas.Left="300" Canvas.Top="250" Source="/Images/Game1/Round5/police.png"></Image>
+            <Image Width="250" Height="210" Canvas.Left="700" Canvas.Top="300" Source="/Images/Game1/Round5/restaurant.png"></Image>
+            <Image Width="350" Height="270" Canvas.Left="1000" Canvas.Top="250" Source="/Images/Game1/Round5/school.png"></Image>
+            <Grid Width="1366" Height="100" Canvas.Top="490" >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Images/Game1/Round5/pavement.png"   ></ImageBrush>
+                </Grid.Background>
+
+            </Grid>
+            <Grid Width="1446" Height="270" Canvas.Top="570" Canvas.Left="-40" >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Images/Game1/Round5/road.png"   ></ImageBrush>
+                </Grid.Background>
+
+            </Grid>
+            <Image Width="200" Height="250" Canvas.Top="340" Canvas.Left="550" Source="/Images/Game1/Round5/tree.png" ></Image>
+            <Image Width="250" Height="250" Canvas.Top="380" Canvas.Left="250" Source="/Images/Game1/Round5/busstop.png" ></Image>
+            <Image Width="200" Height="250" Canvas.Top="340" Canvas.Left="-20" Source="/Images/Game1/Round5/tree.png"></Image>
+            <Image Width="200" Height="250" Canvas.Top="340" Canvas.Left="950" Source="/Images/Game1/Round5/tree.png" ></Image>
+            <Image Width="350" Height="200" Canvas.Top="480" Canvas.Left="-100" Source="/Images/Game1/Round5/bus1.png"></Image>
+        </Canvas>
     </Grid>
 </UserControl>

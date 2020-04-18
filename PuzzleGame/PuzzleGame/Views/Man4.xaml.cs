@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -22,12 +23,12 @@ namespace PuzzleGame.Views
     {
         public Man4()
         {
-            InitializeComponent();
+            InitializeComponent();                                                                                 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void back_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Hidden;
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

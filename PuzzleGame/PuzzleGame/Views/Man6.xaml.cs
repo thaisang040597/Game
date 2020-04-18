@@ -25,9 +25,11 @@ namespace PuzzleGame.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+
+        private void back_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Hidden;
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

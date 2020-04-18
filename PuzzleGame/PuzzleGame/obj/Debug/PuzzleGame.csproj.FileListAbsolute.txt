@@ -81,3 +81,5 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\ViewMain.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\ViewMain.baml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Menu.g.cs
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Menu.baml

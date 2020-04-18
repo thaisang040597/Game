@@ -166,7 +166,7 @@
                     <materialDesign:CircleWipe/>
                 </materialDesign:TransitionerSlide.BackwardWipe>
                 <materialDesign:TransitionerSlide.ForwardWipe>
-                    <materialDesign:CircleWipe/>
+                    <materialDesign:FadeWipe/>
                 </materialDesign:TransitionerSlide.ForwardWipe>
                 <local:ViewMain/>
 
@@ -178,7 +178,7 @@
                 <materialDesign:TransitionerSlide.ForwardWipe>
                     <materialDesign:SlideWipe Direction="Up"/>
                 </materialDesign:TransitionerSlide.ForwardWipe>
-                <local:BanDo/>
+                <local:Menu/>
 
             </materialDesign:TransitionerSlide >
            
