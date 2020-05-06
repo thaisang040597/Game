@@ -22,123 +22,571 @@ namespace PuzzleGame.Views
     public partial class Man3 : UserControl, INotifyPropertyChanged
     {
 
-        private Point BasePoint = new Point(1150, 700);
-        private Point BasePoint1 = new Point(400, 0.0);
-        private double DeltaX = 0.0;
-        private double DeltaY = 0.0;
-        private double DeltaX1 = 0.0;
-        private double DeltaY1 = 0.0;
+        private Point BasePointC = new Point(1100, 700);
+        private Point BasePointB = new Point(1220, 700);
+        private Point BasePointO = new Point(1160, 700);
+        private Point BasePointG = new Point(1280, 700);
+        private Point BasePointE = new Point(1100, 770);
+        private Point BasePointI = new Point(1220, 770);
+        private Point BasePointK = new Point(1160, 770);
+        private Point BasePointF = new Point(1280, 770);
+        private Point BasePointV = new Point(1280, 840);
+        private Point BasePointS = new Point(1220, 840);
+        private Point BasePointQ = new Point(1100, 840);
+        private Point BasePointT = new Point(1160, 840);
+        private double DeltaXC = 0.0;
+        private double DeltaYC= 0.0;
+        private double DeltaXB = 0.0;
+        private double DeltaYB = 0.0;
+        private double DeltaXO = 0.0;
+        private double DeltaYO = 0.0;
+        private double DeltaXG = 0.0;
+        private double DeltaYG = 0.0;
+        private double DeltaXE = 0.0;
+        private double DeltaYE = 0.0;
+        private double DeltaXI = 0.0;
+        private double DeltaYI = 0.0;
+        private double DeltaXK = 0.0;
+        private double DeltaYK = 0.0;
+        private double DeltaXF = 0.0;
+        private double DeltaYF = 0.0;
+        private double DeltaXV = 0.0;
+        private double DeltaYV = 0.0;
+        private double DeltaXS = 0.0;
+        private double DeltaYS = 0.0;
+        private double DeltaXQ = 0.0;
+        private double DeltaYQ = 0.0;
+        private double DeltaXT = 0.0;
+        private double DeltaYT = 0.0;
         private bool moving = false;
         private Point PositionImage;
-        private static bool chua = false;
-        private static bool carot = false;//không cho chọn khi đúng hình;
+        private static bool chuc = false;
+        private static bool chub = false;//không cho chọn khi đúng hình;
+        private static bool chuo = false;
+        private static bool chug = false;
+        private static bool chue = false;
+        private static bool chui = false;
+        private static bool chuk = false;
+        private static bool chuf = false;
+        private static bool chuv = false;
+        private static bool chus = false;
+       
+        private static bool chut = false;
+        private bool checkpoint = false;
         private bool replay = false;
         private int temp = 0;
+        MediaPlayer playMedia = new MediaPlayer();
         public Man3()
         {
             InitializeComponent();
             this.DataContext = this;
+          
+            Countdown.Completed += new EventHandler(Story_completed);
         }
-        public double XPosition
+        public double XPositionC
         {
-            get { return BasePoint.X + DeltaX; }
+            get { return BasePointC.X + DeltaXC; }
         }
 
-        public double YPosition
+        public double YPositionC
         {
-            get { return BasePoint.Y + DeltaY; }
+            get { return BasePointC.Y + DeltaYC; }
         }
+        public double XPositionB
+        {
+            get { return BasePointB.X + DeltaXB; }
+        }
+
+        public double YPositionB
+        {
+            get { return BasePointB.Y + DeltaYB; }
+        }
+        public double XPositionO
+        {
+            get { return BasePointO.X + DeltaXO; }
+        }
+
+        public double YPositionO
+        {
+            get { return BasePointO.Y + DeltaYO; }
+        }
+        public double XPositionG
+        {
+            get { return BasePointG.X + DeltaXG; }
+        }
+
+        public double YPositionG
+        {
+            get { return BasePointG.Y + DeltaYG; }
+        }
+        public double XPositionE
+        {
+            get { return BasePointE.X + DeltaXE; }
+        }
+
+        public double YPositionE
+        {
+            get { return BasePointE.Y + DeltaYE; }
+        }
+        public double XPositionI
+        {
+            get { return BasePointI.X + DeltaXI; }
+        }
+
+        public double YPositionI
+        {
+            get { return BasePointI.Y + DeltaYI; }
+        }
+        public double XPositionK
+        {
+            get { return BasePointK.X + DeltaXK; }
+        }
+
+        public double YPositionK
+        {
+            get { return BasePointK.Y + DeltaYK; }
+        }
+        public double XPositionF
+        {
+            get { return BasePointF.X + DeltaXF; }
+        }
+
+        public double YPositionF
+        {
+            get { return BasePointF.Y + DeltaYF; }
+        }
+        public double XPositionV
+        {
+            get { return BasePointV.X + DeltaXV; }
+        }
+
+        public double YPositionV
+        {
+            get { return BasePointV.Y + DeltaYV; }
+        }
+        public double XPositionS
+        {
+            get { return BasePointS.X + DeltaXS; }
+        }
+
+        public double YPositionS
+        {
+            get { return BasePointS.Y + DeltaYS; }
+        }
+      
+        
+        public double XPositionT
+        {
+            get { return BasePointT.X + DeltaXT; }
+        }
+
+        public double YPositionT
+        {
+            get { return BasePointT.Y + DeltaYT; }
+        }
+
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
+            chuc = false;
+            chub = false;
+            chuo = false;
+            chug = false;
+            chue = false;
+            chui = false;
+            chuk = false;
+            chuf = false;
+            chus = false;
+           
+            chut = false;
+            chuv = false;
+            checkpoint = true;
+            Countdown.Stop(this);
+            Countdown.Remove(this);
         }
+        private void Story_completed(object sender, EventArgs e)
+        {
+            if (chuc == false || chub == false || chuo == false || chug == false || chue == false || chui == false || chuk == false || chuf == false || chut == false || chus == false || chuv == false)
+            {
+                timeout.Visibility = Visibility.Visible;
 
+                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                playMedia.Open(uri); // inserting the URI to the media player
+                playMedia.Play();
+                if (checkpoint == true)
+                {
+                    playMedia.Stop();
+                   
+                }
+                Grid1.IsEnabled = false;
+            }
+            Countdown.Remove(this);
+        }
         private void Feast_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Image l = e.Source as Image;
             if (l != null)
             {
-                //bantay.Visibility = Visibility.Hidden;
-                if (l.Name == "a" && chua == false)
+                
+                if (l.Name == "c" && chuc == false)
                 {
-                    a.CaptureMouse();
+                    c.CaptureMouse();
                     moving = true;
-                    PositionImage = e.GetPosition(a);
-                    //bantay1.Visibility = Visibility.Visible;
+                    PositionImage = e.GetPosition(c);
+                    Panel.SetZIndex(c,12);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                   
+                    Panel.SetZIndex(t, 1);
+
 
                 }
-                //if (l.Name == "carrot" && carot == false)
-                //{
-                //    carrot.CaptureMouse();
-                //    moving = true;
-                //    PositionImage = e.GetPosition(carrot);
-                //}
-                //playMedia.Stop();
+                if (l.Name == "b" && chub == false)
+                {
+                    b.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(b);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 12);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                   
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "o" && chuo == false)
+                {
+                    o.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(o);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 12);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                  
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "g" && chug == false)
+                {
+                    g.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(g);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 12);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                  
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "e1" && chue == false)
+                {
+                    e1.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(e1);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 12);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                   
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "i" && chui == false)
+                {
+                    i.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(i);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 12);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                   
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "k" && chuk == false)
+                {
+                    k.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(k);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 12);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                  
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "f" && chuf == false)
+                {
+                    f.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(f);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 12);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                 
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "v" && chuv == false)
+                {
+                   v.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(v);
+                    Panel.SetZIndex(c, 12);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 12);
+                  
+                    Panel.SetZIndex(t, 1);
+                }
+                if (l.Name == "s" && chus == false)
+                {
+                    s.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(s);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 12);
+                    Panel.SetZIndex(v, 1);
+                  
+                    Panel.SetZIndex(t, 1);
+                }
+             
+                if (l.Name == "t" && chut == false)
+                {
+                   t.CaptureMouse();
+                    moving = true;
+                    PositionImage = e.GetPosition(t);
+                    Panel.SetZIndex(c, 1);
+                    Panel.SetZIndex(b, 1);
+                    Panel.SetZIndex(o, 1);
+                    Panel.SetZIndex(g, 1);
+                    Panel.SetZIndex(e1, 1);
+                    Panel.SetZIndex(i, 1);
+                    Panel.SetZIndex(k, 1);
+                    Panel.SetZIndex(f, 1);
+                    Panel.SetZIndex(s, 1);
+                    Panel.SetZIndex(v, 1);
+                  
+                    Panel.SetZIndex(t, 12);
+                }
+                playMedia.Stop();
 
 
 
             }
         }
-
+        
         private void Feast_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            double m = Canvas.GetLeft(a1);
-            double n = Canvas.GetTop(a1);
-            //double x = Canvas.GetLeft(gau);
-            //double y = Canvas.GetTop(gau);
+            double xc = Canvas.GetLeft(chuC);
+            double yc= Canvas.GetTop(chuC);
+            double xb = Canvas.GetLeft(chuB);
+            double yb = Canvas.GetTop(chuB);
+            double xo = Canvas.GetLeft(chuO);
+            double yo = Canvas.GetTop(chuO);
+            double xg = Canvas.GetLeft(chuG);
+            double yg = Canvas.GetTop(chuG);
+            double xe = Canvas.GetLeft(chuE);
+            double ye = Canvas.GetTop(chuE);
+            double xi = Canvas.GetLeft(chuI);
+            double yi = Canvas.GetTop(chuI);
+            double xk = Canvas.GetLeft(chuK);
+            double yk = Canvas.GetTop(chuK);
+            double xf = Canvas.GetLeft(chuF);
+            double yf = Canvas.GetTop(chuF);
+            double xv = Canvas.GetLeft(chuV);
+            double yv = Canvas.GetTop(chuV);
+            double xs = Canvas.GetLeft(chuS);
+            double ys = Canvas.GetTop(chuS);
+           
+            double xt = Canvas.GetLeft(chuT);
+            double yt = Canvas.GetTop(chuT);
+
             Image l = e.Source as Image;
             if (l != null)
             {
-                if (l.Name == "a")
+                if (l.Name == "c")
                 {
-                    a.ReleaseMouseCapture();
-                    BasePoint.X += DeltaX;
-                    BasePoint.Y += DeltaY;
-                    DeltaX = 0.0;
-                    DeltaY = 0.0;
-                    moving = false;
-                    //if ((((BasePoint.X - 10) < m) && (BasePoint.X + 10) > m) && (((BasePoint.Y - 10) < n) && ((BasePoint.Y + 10) > n)))
-                    //{
-                    //    BasePoint.X = m;
-                    //    BasePoint.Y = n;
-                    //    RaisePropertyChanged("XPosition");
-                    //    RaisePropertyChanged("YPosition");
-                    //    //gau.Visibility = Visibility.Hidden;
-                    //    //hoa.Visibility = Visibility.Visible;
-                    //    chua = true;
-                    //    //Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Gaukeu.mp3");
-                    //    //playMedia.Open(ting);
-                    //    //playMedia.Play();
-                    //    //bantay1.Visibility = Visibility.Hidden;
-
-                    //}
+                    CheckImage(BasePointC, DeltaXC, DeltaYC, xc, yc, c);
                 }
-                //if (l.Name == "carrot")
-                //{
-                //    carrot.ReleaseMouseCapture();
-                //    BasePoint1.X += DeltaX1;
-                //    BasePoint1.Y += DeltaY1;
-                //    DeltaX1 = 0.0;
-                //    DeltaY1 = 0.0;
-                //    moving = false;
-                //    if ((((BasePoint1.X - 100) < m) && (BasePoint1.X + 100) > m) && (((BasePoint1.Y - 80) < n) && ((BasePoint1.Y + 100) > n)))
-                //    {
-                //        BasePoint1.X = m + 65;
-                //        BasePoint1.Y = n + 45;
-                //        RaisePropertyChanged("XPosition1");
-                //        RaisePropertyChanged("YPosition1");
-
-                //        carot = true;
-                //        Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/thokeu.mp3");
-                //        playMedia.Open(ting);
-                //        playMedia.Play();
-
-                //    }
-                //}
-
-
-
+                if (l.Name == "b")
+                {
+                    CheckImage(BasePointB, DeltaXB, DeltaYB, xb, yb, b);
+                }
+                if (l.Name == "o")
+                {
+                    CheckImage(BasePointO, DeltaXO, DeltaYO, xo, yo, o);
+                }
+                if (l.Name == "g")
+                {
+                    CheckImage(BasePointG, DeltaXG, DeltaYG, xg, yg, g);
+                }
+                if (l.Name == "e1")
+                {
+                    CheckImage(BasePointE, DeltaXE, DeltaYE, xe, ye, e1);
+                }
+                if (l.Name == "i")
+                {
+                    CheckImage(BasePointI, DeltaXI, DeltaYI, xi, yi, i);
+                }
+                if (l.Name == "k")
+                {
+                    CheckImage(BasePointK, DeltaXK, DeltaYK, xk, yk, k);
+                }
+                if (l.Name == "f")
+                {
+                    CheckImage(BasePointF, DeltaXF, DeltaYF, xf, yf, f);
+                }
+                if (l.Name == "v")
+                {
+                    CheckImage(BasePointV, DeltaXV, DeltaYV, xv, yv, v);
+                }
+                if (l.Name == "s")
+                {
+                    CheckImage(BasePointS, DeltaXS, DeltaYS, xs, ys, s);
+                }
+               
+                if (l.Name == "t")
+                {
+                    CheckImage(BasePointT, DeltaXT, DeltaYT, xt, yt, t);
+                }
             }
+            if(chuc == true && chub == true && chuo == true && chug == true && chue == true && chui == true && chuk == true && chuf == true && chus == true &&   chut == true && chuv == true)
+            {
+                report.Visibility = Visibility.Visible;
+                Pause1.IsEnabled = false;
+                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                playMedia.Open(uri); // inserting the URI to the media player
+                playMedia.Play();
+                Countdown.Stop(this);
+                Countdown.Remove(this);
+            }
+            
+        }
+        private void CheckImage(Point point, double deltaX, double deltaY, double toadoX, double toadoY,Image hinh )
+        {
+            hinh.ReleaseMouseCapture();
+            point.X += deltaX;
+            point.Y += deltaY;
+            deltaX = 0;
+            deltaY = 0;
+            moving = false;
+
+            if ((((point.X - 50) < toadoX) && ((point.X + 50) > toadoX)) && (((point.Y - 700) < toadoY) && ((point.Y + 700) > toadoY)))
+            {
+                
+                if(hinh.Name == "c")
+                {
+                    chuc = true;
+                }
+                if (hinh.Name == "b")
+                {
+                    chub = true;
+                }
+                if (hinh.Name == "o")
+                {
+                    chuo = true;
+                }
+                if (hinh.Name == "g")
+                {
+                    chug = true;
+                }
+                if (hinh.Name == "e1")
+                {
+                    chue = true;
+                }
+                if (hinh.Name == "i")
+                {
+                    chui = true;
+                }
+                if (hinh.Name == "k")
+                {
+                    chuk = true;
+                }
+                if (hinh.Name == "f")
+                {
+                    chuf = true;
+                }
+                if (hinh.Name == "v")
+                {
+                    chuv = true;
+                }
+                if (hinh.Name == "s")
+                {
+                    chus = true;
+                }
+              
+                if (hinh.Name == "t")
+                {
+                    chut = true;
+                }
+                Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Ting.mp3");
+                playMedia.Open(ting);
+                playMedia.Play();
+
+               
+            }
+
         }
 
         private void Feast_MouseMove(object sender, MouseEventArgs e)
@@ -146,43 +594,131 @@ namespace PuzzleGame.Views
             if (moving)
             {
                 Image l = e.Source as Image;
-                if (l.Name == "a")
+                if (l.Name == "c")
+                {
+                   
+                    Point p = e.GetPosition(null);
+                    DeltaXC = p.X - BasePointC.X - PositionImage.X;
+                    DeltaYC = p.Y - (BasePointC.Y - 650) - PositionImage.Y;
+                    BasePointC.X += DeltaXC;
+                    BasePointC.Y += DeltaYC;
+                    RaisePropertyChanged("XPositionC");
+                    RaisePropertyChanged("YPositionC");
+                }
+                if(l.Name =="b")
                 {
                     Point p = e.GetPosition(null);
-                    DeltaX = p.X - BasePoint.X - PositionImage.X;
-                    DeltaY = p.Y - (BasePoint.Y-650) - PositionImage.Y;
-                    BasePoint.X += DeltaX;
-                    BasePoint.Y += DeltaY;
-                    RaisePropertyChanged("XPosition");
-                    RaisePropertyChanged("YPosition");
-
-
+                    DeltaXB = p.X - BasePointB.X - PositionImage.X;
+                    DeltaYB = p.Y - (BasePointB.Y - 650) - PositionImage.Y;
+                    BasePointB.X += DeltaXB;
+                    BasePointB.Y += DeltaYB;
+                    RaisePropertyChanged("XPositionB");
+                    RaisePropertyChanged("YPositionB");
                 }
-                //if (l.Name == "carrot")
-                //{
-                //    Point p = e.GetPosition(null);
-                //    DeltaX1 = p.X - BasePoint1.X - PositionImage.X;
-                //    DeltaY1 = p.Y - BasePoint1.Y - PositionImage.Y;
-                //    BasePoint1.X += DeltaX1;
-                //    BasePoint1.Y += DeltaY1;
-                //    RaisePropertyChanged("XPosition1");
-                //    RaisePropertyChanged("YPosition1");
-                //    //    if ((((BasePoint1.X - 50) < m) && (BasePoint1.X + 50) > m) && (((BasePoint1.Y - 50) < n) && ((BasePoint1.Y + 50) > n)))
-                //    //    {
-                //    //        ho1.Visibility = Visibility.Visible;
-                //    //        ho.Visibility = Visibility.Hidden;
-                //    //    }
-                //    //    else
-                //    //    {
-                //    //        ho1.Visibility = Visibility.Hidden;
-                //    //        ho.Visibility = Visibility.Visible;
-                //    //    }
-
-                //}
-
+                if (l.Name == "o")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXO = p.X - BasePointO.X - PositionImage.X;
+                    DeltaYO = p.Y - (BasePointO.Y - 650) - PositionImage.Y;
+                    BasePointO.X += DeltaXO;
+                    BasePointO.Y += DeltaYO;
+                    RaisePropertyChanged("XPositionO");
+                    RaisePropertyChanged("YPositionO");
+                }
+                if (l.Name == "g")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXG = p.X - BasePointG.X - PositionImage.X;
+                    DeltaYG = p.Y - (BasePointG.Y - 650) - PositionImage.Y;
+                    BasePointG.X += DeltaXG;
+                    BasePointG.Y += DeltaYG;
+                    RaisePropertyChanged("XPositionG");
+                    RaisePropertyChanged("YPositionG");
+                }
+                if (l.Name == "e1")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXE = p.X - BasePointE.X - PositionImage.X;
+                    DeltaYE = p.Y - (BasePointE.Y - 650) - PositionImage.Y;
+                    BasePointE.X += DeltaXE;
+                    BasePointE.Y += DeltaYE;
+                    RaisePropertyChanged("XPositionE");
+                    RaisePropertyChanged("YPositionE");
+                }
+                if (l.Name == "i")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXI = p.X - BasePointI.X - PositionImage.X;
+                    DeltaYI = p.Y - (BasePointI.Y - 650) - PositionImage.Y;
+                    BasePointI.X += DeltaXI;
+                    BasePointI.Y += DeltaYI;
+                    RaisePropertyChanged("XPositionI");
+                    RaisePropertyChanged("YPositionI");
+                }
+                if (l.Name == "k")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXK = p.X - BasePointK.X - PositionImage.X;
+                    DeltaYK = p.Y - (BasePointK.Y - 650) - PositionImage.Y;
+                    BasePointK.X += DeltaXK;
+                    BasePointK.Y += DeltaYK;
+                    RaisePropertyChanged("XPositionK");
+                    RaisePropertyChanged("YPositionK");
+                }
+                if (l.Name == "f")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXF = p.X - BasePointF.X - PositionImage.X;
+                    DeltaYF = p.Y - (BasePointF.Y - 650) - PositionImage.Y;
+                    BasePointF.X += DeltaXF;
+                    BasePointF.Y += DeltaYF;
+                    RaisePropertyChanged("XPositionF");
+                    RaisePropertyChanged("YPositionF");
+                }
+                if (l.Name == "v")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXV = p.X - BasePointV.X - PositionImage.X;
+                    DeltaYV = p.Y - (BasePointV.Y - 650) - PositionImage.Y;
+                    BasePointV.X += DeltaXV;
+                    BasePointV.Y += DeltaYV;
+                    RaisePropertyChanged("XPositionV");
+                    RaisePropertyChanged("YPositionV");
+                }
+                if (l.Name == "s")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXS = p.X - BasePointS.X - PositionImage.X;
+                    DeltaYS = p.Y - (BasePointS.Y - 650) - PositionImage.Y;
+                    BasePointS.X += DeltaXS;
+                    BasePointS.Y += DeltaYS;
+                    RaisePropertyChanged("XPositionS");
+                    RaisePropertyChanged("YPositionS");
+                }
+                if (l.Name == "q")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXQ = p.X - BasePointQ.X - PositionImage.X;
+                    DeltaYQ = p.Y - (BasePointQ.Y - 650) - PositionImage.Y;
+                    BasePointQ.X += DeltaXQ;
+                    BasePointQ.Y += DeltaYQ;
+                    RaisePropertyChanged("XPositionQ");
+                    RaisePropertyChanged("YPositionQ");
+                }
+                if (l.Name == "t")
+                {
+                    Point p = e.GetPosition(null);
+                    DeltaXT = p.X - BasePointT.X - PositionImage.X;
+                    DeltaYT = p.Y - (BasePointT.Y - 650) - PositionImage.Y;
+                    BasePointT.X += DeltaXT;
+                    BasePointT.Y += DeltaYT;
+                    RaisePropertyChanged("XPositionT");
+                    RaisePropertyChanged("YPositionT");
+                }
 
             }
         }
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string prop)
@@ -191,5 +727,134 @@ namespace PuzzleGame.Views
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
+        private void Pause1_Click(object sender, RoutedEventArgs e)
+        {
+            Pause1.Visibility = Visibility.Collapsed;
+            Resume1.Visibility = Visibility.Visible;
+            Canvas1.IsEnabled = false;
+            Canvas1.Focusable = false;
+        }
+
+        private void Resume1_Click(object sender, RoutedEventArgs e)
+        {
+            Resume1.Visibility = Visibility.Collapsed;
+            Pause1.Visibility = Visibility.Visible;
+            Canvas1.IsEnabled = true;
+            Canvas1.Focusable = true;
+        }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+            Pause1.IsEnabled = true;
+            playMedia.Stop();
+
+            this.Visibility = Visibility.Collapsed;
+
+            chuc = false;
+            chub = false;
+            chue = false;
+            chuo = false;
+            chug = false;
+            chuf = false;
+            chui = false;
+            chuk = false;
+            chus = false;
+            chut = false;
+           
+            chuv = false;
+           
+        }
+
+        private void Replay_Click(object sender, RoutedEventArgs e)
+        {
+            Grid1.IsEnabled = true;
+            Countdown.Begin(this, true);
+            Pause1.IsEnabled = true;
+            report.Visibility = Visibility.Hidden;
+            timeout.Visibility = Visibility.Collapsed;
+            playMedia.Stop();
+            replay = true;
+            if (replay == true)
+            {
+                moving = false;
+                chuc = false;
+                chub = false;
+                chuo = false;
+                chug = false;
+                chue = false;
+                chui = false;
+                chuk = false;
+                chuf = false;
+                chus = false;
+              
+                chut = false;
+                chuv = false;
+                BasePointC.X = 1100;
+                BasePointC.Y = 700;
+                RaisePropertyChanged("XPositionC");
+                RaisePropertyChanged("YPositionC");
+                BasePointB.X = 1220;
+                BasePointB.Y = 700;
+                RaisePropertyChanged("XPositionB");
+                RaisePropertyChanged("YPositionB");
+                BasePointO.X = 1160;
+                BasePointO.Y = 700;
+               
+                RaisePropertyChanged("XPositionO");
+                RaisePropertyChanged("YPositionO");
+             
+                BasePointG.X = 1280;
+                BasePointG.Y = 700;
+               
+                RaisePropertyChanged("XPositionG");
+                RaisePropertyChanged("YPositionG");
+              
+                BasePointE.X = 1100;
+                BasePointE.Y = 770;
+                
+                RaisePropertyChanged("XPositionE");
+                RaisePropertyChanged("YPositionE");
+                BasePointI.X = 1160;
+                BasePointI.Y = 770;
+
+                RaisePropertyChanged("XPositionI");
+                RaisePropertyChanged("YPositionI");
+                BasePointK.X = 1220;
+                BasePointK.Y = 770;
+
+                RaisePropertyChanged("XPositionK");
+                RaisePropertyChanged("YPositionK");
+                BasePointF.X = 1280;
+                BasePointF.Y = 770;
+
+                RaisePropertyChanged("XPositionF");
+                RaisePropertyChanged("YPositionF");
+                BasePointS.X = 1280;
+                BasePointS.Y = 840;
+
+                RaisePropertyChanged("XPositionS");
+                RaisePropertyChanged("YPositionS");
+                BasePointT.X = 1220;
+                BasePointT.Y = 840;
+
+                RaisePropertyChanged("XPositionT");
+                RaisePropertyChanged("YPositionT");
+                BasePointQ.X = 1100;
+                BasePointQ.Y = 840;
+
+                RaisePropertyChanged("XPositionQ");
+                RaisePropertyChanged("YPositionQ");
+                BasePointV.X = 1160;
+                BasePointV.Y = 840;
+
+                RaisePropertyChanged("XPositionV");
+                RaisePropertyChanged("YPositionV");
+
+
+
+
+
+            }
+        }
     }
 }

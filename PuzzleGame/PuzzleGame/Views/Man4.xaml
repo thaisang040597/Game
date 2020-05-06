@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PuzzleGame.Views"
              mc:Ignorable="d" 
@@ -10,7 +11,27 @@
         <ImageBrush  x:Key="btnLoginImgIdle" />
        
     </UserControl.Resources>
-    <Grid Background="White">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="begin1"  >
+                <Storyboard x:Name="Countdown" >
+                    <DoubleAnimationUsingKeyFrames x:Name="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Time">
+
+                        <EasingDoubleKeyFrame  KeyTime="0:0:12" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Pause1">
+            <PauseStoryboard BeginStoryboardName="begin1"></PauseStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
+            <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid Background="AliceBlue">
         <Grid.Resources>
             <Style TargetType="Button"  x:Key="btnLoginStyle">
                 <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle }" ></Setter>
@@ -44,43 +65,161 @@
         <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Click="back_Click" >
             <Image Source="/Images/Background/backdoor1.png"></Image>
         </Button>
-        <Image Width="1000" Height="550" Source="/Images/Game1/Round4/table.png" Margin="50 300 350 50"></Image>
-        <Image Width="200" Height="200" Source="/Images/Game1/Round4/disk1.png"  Margin="290 0 500 200" >
-            <!--<Image.RenderTransform>
-                <TranslateTransform x:Name="AnimatedTranslateTransform"></TranslateTransform>
-            </Image.RenderTransform>
-            <Image.Triggers>
-                <EventTrigger RoutedEvent="UserControl.Loaded"  >
-                    <BeginStoryboard >
-                        <Storyboard>
-                            <DoubleAnimationUsingKeyFrames
-                                    Storyboard.TargetName="AnimatedTranslateTransform"
-                                    Storyboard.TargetProperty="Y"
-                              
-                                    Duration="0:0:2"
-                                    RepeatBehavior="0:0:3">
-                                <LinearDoubleKeyFrame Value="80" KeyTime="0:0:1" />
-                                <DiscreteDoubleKeyFrame Value="40" KeyTime="0:0:1" />
-                               
+       
+       
+       
+        <Canvas x:Name="Canvas1">
+            <Image Width="1400" Height="850" Source="/Images/Game1/Round4/kitchen.png" Canvas.Bottom="100"></Image>
+            <Image Width="1000" Height="550" Source="/Images/Game1/Round4/table.png" Canvas.Top="450"></Image>
+            <Image x:Name="dudu" Width="140" Height="140" Source="/Images/Game1/Round4/dudu2.png"  MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPositionDuDu}" Canvas.Top="{Binding YPositionDuDu}"></Image>
+            <Image Width="200" Height="200" Source="/Images/Game1/Round4/disk1.png" Canvas.Top="370" Canvas.Left="350" Panel.ZIndex="2" >
 
-                                --><!-- Using a SplineDoubleKeyFrame, the rectangle moves 
-                     back to its starting point. The
-                     animation starts out slowly at first and then speeds up. 
-                     This KeyFrame ends after the 6th
-                     second. --><!--
-                                <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:3" />
-                            </DoubleAnimationUsingKeyFrames>
-                           
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Image.Triggers>-->
-        </Image>
-        <Image Width="350" Height="450" Source="/Images/Game1/Round4/children.png" Margin="1000 250 50 50"></Image>
-        <Canvas>
-            <Image Width="150" Height="150" Source="/Images/Game1/Round4/lemon1.png" Canvas.Left="200" Canvas.Top="280"></Image>
-            <Image Width="80" Height="80" Source="/Images/Game1/Round4/lemon2.png" Canvas.Top="600" Canvas.Left="650"></Image>
+            </Image>
+            <Image Width="350" Height="400" Source="/Images/Game1/Round4/children.png" Canvas.Top="350" Canvas.Left="1000"></Image>
+
+            <Image x:Name="quachanh" Width="140" Height="140" Source="/Images/Game1/Round4/lemon1.png" Canvas.Left="200" Canvas.Top="400"></Image>
+            <Image x:Name="chanhgoc" Width="140" Height="140" Source="/Images/Game1/Round4/lemon.png" Canvas.Left="200" Canvas.Top="400" Visibility="Collapsed"></Image>
+            <Image x:Name="chanh" Width="70" Height="70" Source="/Images/Game1/Round4/lemon2.png"  MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPositionChanh}" Canvas.Top="{Binding YPositionChanh}"></Image>
+            <Image x:Name="quadau" Width="120" Height="120" Source="/Images/Game1/Round4/dau2.png" Canvas.Left="80" Canvas.Top="440"></Image>
+            <Image x:Name="daugoc" Width="120" Height="120" Source="/Images/Game1/Round4/dau.png" Canvas.Left="80" Canvas.Top="440" Visibility="Collapsed"></Image>
+           
+            <Image x:Name="quadudu" Width="180" Height="180" Source="/Images/Game1/Round4/dudu1.png" Canvas.Left="560" Canvas.Top="320" ></Image>
+            <Image x:Name="dudugoc" Width="180" Height="180" Source="/Images/Game1/Round4/dudu.png" Canvas.Left="560" Canvas.Top="320" Visibility="Collapsed" ></Image>
+            <Image x:Name="quanho"  Width="120" Height="120" Source="/Images/Game1/Round4/nho2.png" Canvas.Left="580" Canvas.Top="440"></Image>
+            <Image x:Name="nhogoc" Width="120" Height="120" Source="/Images/Game1/Round4/nho.png" Canvas.Left="580" Canvas.Top="440" Visibility="Collapsed"></Image>
+            <Image x:Name="quathanhlong" Width="160" Height="160" Source="/Images/Game1/Round4/thanhlong2.png" Canvas.Left="720" Canvas.Top="400" Panel.ZIndex="2"></Image>
+            <Image x:Name="thanhlonggoc" Width="160" Height="160" Source="/Images/Game1/Round4/thanhlong.png" Canvas.Left="720" Canvas.Top="400" Visibility="Collapsed"></Image>
+            <Image x:Name="dau" Width="70" Height="70" Source="/Images/Game1/Round4/dau1.png"  MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPositionDau}" Canvas.Top="{Binding YPositionDau}" Panel.ZIndex="3"></Image>
+            <Image x:Name="thanhlong"  Width="90" Height="90" Source="/Images/Game1/Round4/thanhlong1.png"  MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPositionThanhLong}" Canvas.Top="{Binding YPositionThanhLong}"></Image>
+            <Image x:Name="nho" Width="35" Height="35" Source="/Images/Game1/Round4/nho1.png"  MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
+                   Canvas.Left="{Binding XPositionNho}" Canvas.Top="{Binding YPositionNho}" Panel.ZIndex="3"></Image>
+            
+           
         </Canvas>
-        
+        <Border Height="30" Width="302" BorderBrush="Orange"  Margin="420 15 560 720" BorderThickness="2"  >
+            <Grid x:Name="Time"
+                  Width="300" Height="30" 
+                  VerticalAlignment="Center" 
+                  Background="Chocolate" 
+                 
+                   
+                  
+                  HorizontalAlignment="Left">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+
+
+            </Grid>
+        </Border>
+
+
+
+        <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Margin="760 0 480 700 " Click="Pause1_Click" >
+            <Image Source="/Images/Background/pause.png"></Image>
+        </Button>
+        <Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Margin="760 0 480 700 "   Click="Resume1_Click" Visibility="Collapsed">
+            <Image Source="/Images/Background/Resume.png"></Image>
+        </Button>
+        <Grid Width="250" Height="250" Visibility="Hidden" x:Name="report"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="boderstart"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Grid Grid.Row="0">
+                <Image gif:AnimationBehavior.SourceUri="/Images/Gif/icon.gif"   ></Image>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Continue"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Qua Màn" FontWeight="Bold" Click="Continue_Click"  >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Replay"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Chơi Lại" FontWeight="Bold" Click="Replay_Click" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+
+        </Grid>
+        <Grid Width="250" Height="250" x:Name="timeout"  Visibility="Collapsed" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="bodertimeout"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Grid Grid.Row="0">
+                <!--<TextBlock  FontSize="35" FontWeight="DemiBold" FontFamily="Constantia" Foreground="Red" VerticalAlignment="Top" HorizontalAlignment="Center">Hết Giờ</TextBlock>-->
+                <Image Margin="10 30 10 0" Source="/Images/Background/timeout.png"   ></Image>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Continue1"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Qua Màn" FontWeight="Bold" Click="Continue_Click"  >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Replay1"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Chơi Lại" FontWeight="Bold" Click="Replay_Click" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

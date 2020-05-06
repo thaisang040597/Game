@@ -10,6 +10,26 @@
     <UserControl.Resources>
         <ImageBrush  x:Key="btnLoginImgIdle" />
     </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="begin1"  >
+                <Storyboard x:Name="Countdown" >
+                    <DoubleAnimationUsingKeyFrames x:Name="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Time">
+
+                        <EasingDoubleKeyFrame  KeyTime="0:0:12" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Pause1">
+            <PauseStoryboard BeginStoryboardName="begin1"></PauseStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
+            <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid Background="AliceBlue">
         <Grid.Resources>
             <Style TargetType="Button"  x:Key="btnLoginStyle">
@@ -41,7 +61,8 @@
             </Style>
 
         </Grid.Resources>
-        <Canvas>
+        <Grid>
+        <Canvas x:Name="Canvas1">
             <Canvas.Background>
                 <ImageBrush ImageSource="/Images/Game1/Round1/khurung.png"></ImageBrush>
             </Canvas.Background>
@@ -49,12 +70,52 @@
                 <Image Source="/Images/Background/backdoor1.png"></Image>
             </Button>
             <Image x:Name="gau" Source="/Images/Game1/Round1/gau2.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="50" ></Image>
-            <Image x:Name="tho" Source="/Images/Game1/Round1/tho2.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="250" ></Image>
+            <Image x:Name="tho" Source="/Images/Game1/Round1/tho2.png" Width="100" Height="100" Canvas.Top="550" Canvas.Left="350" ></Image>
+            <Image x:Name="hama" Source="/Images/Game1/Round2/hama2.png" Width="150" Height="150" Canvas.Top="550" Canvas.Left="1050" ></Image>
+            <Image x:Name="khi" Source="/Images/Game1/Round1/khi2.png" Width="120" Height="120" Canvas.Top="240" Canvas.Left="1250" ></Image>
+            <Image x:Name="voi" Source="/Images/Game1/Round1/voi2.png" Width="200" Height="200" Canvas.Top="550" Canvas.Left="750" ></Image>
             <Image x:Name="honey" Source="/Images/Game1/Round2/honey.png" Width="100" Height="100"   MouseDown="Feast_MouseDown1"  MouseUp="Feast_MouseUp1" MouseMove="Feast_MouseMove1"
                    Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}" ></Image>
-            <Image x:Name="carrot" Source="/Images/Game1/Round2/carrot.png" Width="80" Height="80"   MouseDown="Feast_MouseDown1"  MouseUp="Feast_MouseUp1" MouseMove="Feast_MouseMove1"
+            <Image x:Name="carrot" Source="/Images/Game1/Round2/carrot.png" Width="60" Height="60"   MouseDown="Feast_MouseDown1"  MouseUp="Feast_MouseUp1" MouseMove="Feast_MouseMove1"
                    Canvas.Left="{Binding XPosition1}" Canvas.Top="{Binding YPosition1}" ></Image>
+            <Image x:Name="co" Source="/Images/Game1/Round2/co.png" Width="60" Height="60"   MouseDown="Feast_MouseDown1"  MouseUp="Feast_MouseUp1" MouseMove="Feast_MouseMove1"
+                   Canvas.Left="{Binding XPosition2}" Canvas.Top="{Binding YPosition2}" ></Image>
+            <Image x:Name="cane" Source="/Images/Game1/Round2/cane.png" Width="100" Height="100"   MouseDown="Feast_MouseDown1"  MouseUp="Feast_MouseUp1" MouseMove="Feast_MouseMove1"
+                   Canvas.Left="{Binding XPosition3}" Canvas.Top="{Binding YPosition3}" ></Image>
+            <Image x:Name="banana" Source="/Images/Game1/Round2/banana1.png" Width="40" Height="40"   MouseDown="Feast_MouseDown1"  MouseUp="Feast_MouseUp1" MouseMove="Feast_MouseMove1"
+                   Canvas.Left="{Binding XPosition4}" Canvas.Top="{Binding YPosition4}" ></Image>
         </Canvas>
+            <Border Height="30" Width="302" BorderBrush="Orange"  Margin="420 15 400 720" BorderThickness="2"  >
+                <Grid x:Name="Time"
+                  Width="300" Height="30" 
+                  VerticalAlignment="Center" 
+                  Background="Chocolate" 
+                 
+                   
+                  
+                  HorizontalAlignment="Left">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+
+                </Grid>
+            </Border>
+
+
+
+            <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Margin="860 0 430 700 " Click="Pause1_Click" >
+                <Image Source="/Images/Background/pause.png"></Image>
+            </Button>
+            <Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Margin="860 0 430 700 "   Click="Resume1_Click" Visibility="Collapsed">
+                <Image Source="/Images/Background/Resume.png"></Image>
+            </Button>
+        </Grid>
         <Grid Width="250" Height="250" Visibility="Hidden" x:Name="report"  >
             <Grid.RowDefinitions>
                 <RowDefinition Height="7*"></RowDefinition>
@@ -101,7 +162,54 @@
 
 
         </Grid>
-        
-       
+        <Grid Width="250" Height="250" x:Name="timeout"  Visibility="Collapsed" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="bodertimeout"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Grid Grid.Row="0">
+                <!--<TextBlock  FontSize="35" FontWeight="DemiBold" FontFamily="Constantia" Foreground="Red" VerticalAlignment="Top" HorizontalAlignment="Center">Hết Giờ</TextBlock>-->
+                <Image Margin="10 30 10 0" Source="/Images/Background/timeout.png"   ></Image>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Continue1"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Qua Màn" FontWeight="Bold" Click="Continue_Click"  >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Replay1"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Chơi Lại" FontWeight="Bold" Click="Replay_Click" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+
+        </Grid>
+
+
     </Grid>
 </UserControl>

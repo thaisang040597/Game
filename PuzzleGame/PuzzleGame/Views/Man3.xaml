@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              xmlns:local="clr-namespace:PuzzleGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
@@ -11,7 +12,27 @@
         <!--<ImageBrush  x:Key="btnLoginImgHover" />
         <ImageBrush x:Key="btnLoginImgClick" />-->
     </UserControl.Resources>
-    <Grid Background="AliceBlue" >
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="begin1"  >
+                <Storyboard x:Name="Countdown" >
+                    <DoubleAnimationUsingKeyFrames x:Name="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Time">
+
+                        <EasingDoubleKeyFrame  KeyTime="0:0:30" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Pause1">
+            <PauseStoryboard BeginStoryboardName="begin1"></PauseStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
+            <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid Background="AliceBlue"  >
         <Grid.Resources>
             <Style TargetType="Button"  x:Key="btnLoginStyle">
                 <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle }" ></Setter>
@@ -42,50 +63,455 @@
             </Style>
 
         </Grid.Resources>
-
-        <Grid Width="1000" Height="700" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid x:Name="Grid1">
+        <Grid Width="1000" Height="768" VerticalAlignment="Bottom" HorizontalAlignment="Left" >
             <Grid.Background>
                 <ImageBrush ImageSource="/Images/Game1/Round3/board1.png"></ImageBrush>
             </Grid.Background>
-            <Image x:Name="a1" Source="/Images/Game1/Round3/a1.png" Width="50" Height="50"  Margin="120 140 800 500" ></Image>
-            <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Click="back_Click" >
-                <Image Source="/Images/Background/backdoor1.png"></Image>
-            </Button>
-        </Grid>
-        <Grid Width="400" Height="400"  Margin="800 350 150 0" >
-            <Grid.Background>
-                <ImageBrush ImageSource="/Images/Game1/Round3/teacher.png"></ImageBrush>
-            </Grid.Background>
-        </Grid>
-      
+            <Canvas  x:Name="Canvas1"  >
+           
+                    <TextBlock  FontSize="40" FontWeight="DemiBold" FontFamily="Constantia" Foreground="BurlyWood" Canvas.Left="400" Canvas.Top="120">ALPHABET</TextBlock>
+                 
+                   <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="120" Canvas.Top="170">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/a.png" ></Image>
+                    </Border>
+                <Border x:Name="chuB" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="220" Canvas.Top="170">
+                    </Border>
+                <Border x:Name="chuC" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="320" Canvas.Top="170">
+                    
+                </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="420" Canvas.Top="170">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/d.png" ></Image>
+                        </Border>
+                <Border x:Name="chuE" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="520" Canvas.Top="170">
+                    </Border>
+                <Border x:Name="chuF"  Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="620" Canvas.Top="170">
+                    </Border>
+                <Border x:Name="chuG" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="720" Canvas.Top="170">
+                    </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="820" Canvas.Top="170">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/h.png" ></Image>
+                        </Border>
 
-        <Canvas>
-                    <Image x:Name="a" Source="/Images/Game1/Round3/a.png" Height="50" Width="50" Canvas.Left="{Binding XPosition}" Canvas.Top="{Binding YPosition}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"  ></Image>
-            <Image x:Name="b" Source="/Images/Game1/Round3/b.png" Width="50" Height="50" Canvas.Top="700" Canvas.Left="1220"></Image>
-                    <!--<Image Source="/Images/Game1/Round3/b.png" Height="50" Width="50" Canvas.Left="1150" Canvas.Top="760"></Image>-->
-               
-                <Canvas.RenderTransform>
-                    <TranslateTransform x:Name="AnimatedTranslateTransform" />
-                </Canvas.RenderTransform>
-                <Canvas.Triggers>
-                    <EventTrigger RoutedEvent="UserControl.Loaded"  >
-                        <BeginStoryboard >
-                            <Storyboard>
-                                <DoubleAnimationUsingKeyFrames
+
+                <Border x:Name="chuI" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="120" Canvas.Top="270">
+                    </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="220" Canvas.Top="270">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/j.png" ></Image>
+                        </Border>
+                <Border x:Name="chuK" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="320" Canvas.Top="270">
+                    </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="420" Canvas.Top="270">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/l.png" ></Image>
+                        </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="520" Canvas.Top="270">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/m.png" ></Image>
+                        </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="620" Canvas.Top="270">
+                            <Image  Source="/Images/Game1/Round3/n.png" Width="50" Height="50"></Image>
+                        </Border>
+                <Border x:Name="chuO"  Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="720" Canvas.Top="270">
+                    </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="820" Canvas.Top="270">
+                            <Image Width="75" Height="70"  Source="/Images/Game1/Round3/p.png" ></Image>
+                        </Border>
+
+
+                <Border x:Name="chuQ" Background="White" Width="75" Height="75"   CornerRadius="15"  Canvas.Left="120" Canvas.Top="370">
+                    <Image Width="75" Height="70"  Source="/Images/Game1/Round3/q.png" ></Image>
+                </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="220" Canvas.Top="370">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/r.png" ></Image>
+                        </Border>
+                <Border x:Name="chuS"  Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="320" Canvas.Top="370">
+                    </Border>
+                <Border x:Name="chuT" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="420" Canvas.Top="370">
+                    </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="520" Canvas.Top="370">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/u.png" ></Image>
+                        </Border>
+                <Border x:Name="chuV" Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="620" Canvas.Top="370">
+                    </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="720" Canvas.Top="370">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/w.png" ></Image>
+                        </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="820" Canvas.Top="370">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/x.png" ></Image>
+                        </Border>
+
+
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15"  Canvas.Left="120" Canvas.Top="470">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/y.png" ></Image>
+                        </Border>
+                <Border Background="White" Width="75" Height="75"   CornerRadius="15" Canvas.Left="220" Canvas.Top="470">
+                            <Image Width="50" Height="50"  Source="/Images/Game1/Round3/z.png" ></Image>
+                        </Border>
+                <Image x:Name="c" Source="/Images/Game1/Round3/c.png" Height="50" Width="50" Canvas.Left="{Binding XPositionC}" Canvas.Top="{Binding YPositionC}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"  >
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
                                     Storyboard.TargetName="AnimatedTranslateTransform"
                                     Storyboard.TargetProperty="Y"
                               
                                     Duration="0:0:2"
                                     RepeatBehavior="0:0:2">
-                                    <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Canvas.Triggers>
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="b" Source="/Images/Game1/Round3/b.png" Width="50" Height="50" Canvas.Left="{Binding XPositionB}" Canvas.Top="{Binding YPositionB}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform1" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform1"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="g" Source="/Images/Game1/Round3/g.png" Width="50" Height="50" Canvas.Left="{Binding XPositionG}" Canvas.Top="{Binding YPositionG}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform2" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform2"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="o" Source="/Images/Game1/Round3/o.png" Width="50" Height="50" Canvas.Left="{Binding XPositionO}" Canvas.Top="{Binding YPositionO}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform3" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform3"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="e1" Source="/Images/Game1/Round3/e.png" Width="50" Height="50" Canvas.Left="{Binding XPositionE}" Canvas.Top="{Binding YPositionE}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform4" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform4"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="f" Source="/Images/Game1/Round3/f.png" Width="50" Height="50" Canvas.Left="{Binding XPositionF}" Canvas.Top="{Binding YPositionF}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform5" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform5"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="k" Source="/Images/Game1/Round3/k.png" Width="50" Height="50" Canvas.Left="{Binding XPositionK}" Canvas.Top="{Binding YPositionK}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform6" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform6"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="i" Source="/Images/Game1/Round3/i.png" Width="50" Height="50" Canvas.Left="{Binding XPositionI}" Canvas.Top="{Binding YPositionI}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform7" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform7"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="t" Source="/Images/Game1/Round3/t.png" Width="50" Height="50" Canvas.Left="{Binding XPositionT}" Canvas.Top="{Binding YPositionT}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform8" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform8"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+
+                <Image x:Name="s" Source="/Images/Game1/Round3/s.png" Width="50" Height="50" Canvas.Left="{Binding XPositionS}" Canvas.Top="{Binding YPositionS}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform10" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform10"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image x:Name="v" Source="/Images/Game1/Round3/v.png" Width="50" Height="50" Canvas.Left="{Binding XPositionV}" Canvas.Top="{Binding YPositionV}" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="AnimatedTranslateTransform11" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="UserControl.Loaded"  >
+                            <BeginStoryboard >
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform11"
+                                    Storyboard.TargetProperty="Y"
+                              
+                                    Duration="0:0:2"
+                                    RepeatBehavior="0:0:2">
+                                        <LinearDoubleKeyFrame Value="-650" KeyTime="0:0:2" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Image Width="400" Height="400" Source="/Images/Game1/Round3/teacher.png" Canvas.Left="790" Canvas.Top="350"></Image>
             </Canvas>
-           
+            <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Click="back_Click" >
+                <Image Source="/Images/Background/backdoor1.png"></Image>
+            </Button>
+            <Border Height="30" Width="302" BorderBrush="Orange"  Margin="400 15 100 720" BorderThickness="2"  >
+                <Grid x:Name="Time"
+                  Width="300" Height="30" 
+                  VerticalAlignment="Center" 
+                  Background="Chocolate" 
+                 
+                   
+                  
+                  HorizontalAlignment="Left">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+
+                </Grid>
+            </Border>
+
+
+
+            <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Margin="760 0 30 700 " Click="Pause1_Click" >
+                <Image Source="/Images/Background/pause.png"></Image>
+            </Button>
+            <Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Margin="760 0 30 700 "   Click="Resume1_Click" Visibility="Collapsed">
+                <Image Source="/Images/Background/Resume.png"></Image>
+            </Button>
         </Grid>
+
+        </Grid>
+        <Grid Width="250" Height="250" Visibility="Hidden" x:Name="report"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="boderstart"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Grid Grid.Row="0">
+                <Image gif:AnimationBehavior.SourceUri="/Images/Gif/icon.gif"   ></Image>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Continue"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Qua Màn" FontWeight="Bold" Click="Continue_Click"  >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Replay"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Chơi Lại" FontWeight="Bold" Click="Replay_Click" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+
+        </Grid>
+        <Grid Width="250" Height="250" x:Name="timeout"  Visibility="Collapsed" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="bodertimeout"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Grid Grid.Row="0">
+                <!--<TextBlock  FontSize="35" FontWeight="DemiBold" FontFamily="Constantia" Foreground="Red" VerticalAlignment="Top" HorizontalAlignment="Center">Hết Giờ</TextBlock>-->
+                <Image Margin="10 30 10 0" Source="/Images/Background/timeout.png"   ></Image>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Continue1"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Qua Màn" FontWeight="Bold" Click="Continue_Click"  >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Replay1"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                    Content="Chơi Lại" FontWeight="Bold" Click="Replay_Click" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
+
+
+
+
+    </Grid>
       
    
 </UserControl>

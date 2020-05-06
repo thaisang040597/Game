@@ -43,7 +43,6 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignColors.pdb
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\MainWindow.g.cs
-D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\BanDo.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Man1.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Man2.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Man3.g.cs
@@ -55,7 +54,6 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\App.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame_MarkupCompile.cache
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame_MarkupCompile.lref
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\MainWindow.baml
-D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\BanDo.baml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Man1.baml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Man2.baml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Man3.baml

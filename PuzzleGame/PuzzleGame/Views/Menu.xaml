@@ -47,7 +47,7 @@
             <ColumnDefinition Width="1.5*"></ColumnDefinition>
             <ColumnDefinition Width="4.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
+        <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" Click="back_Click">
             <Image Source="/Images/Background/backdoor1.png"></Image>
         </Button>
         <Grid Grid.Row="0" Grid.Column="0" >
@@ -104,7 +104,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Images/Background/boardmenu.png" ></ImageBrush>
             </Grid.Background>
-            <StackPanel Margin="170 240 120 30" x:Name="stpround" Visibility="Hidden">
+            <StackPanel Margin="170 240 120 30" x:Name="stpround" >
                 <StackPanel Orientation="Horizontal" Height="150">
                     <Border  CornerRadius="5" Padding="2"  Width="200" Height="120" 
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
@@ -183,7 +183,7 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border >
+                        <Border x:Name="round2" MouseDown="round2_MouseDown" >
                             <Border.Background>
                                 <ImageBrush ImageSource="/Images/Game1/Round2/carrot.png"></ImageBrush>
                             </Border.Background>
@@ -236,9 +236,9 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border >
+                        <Border x:Name="round3" MouseDown="round3_MouseDown">
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Game1/Round3/a.png"></ImageBrush>
+                                <ImageBrush ImageSource="/Images/Game1/Round3/AH.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -291,9 +291,9 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border >
+                        <Border x:Name="round4" MouseDown="round4_MouseDown" >
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Game1/Round4/lemon2.png"></ImageBrush>
+                                <ImageBrush ImageSource="/Images/Game1/Round4/thanhlong.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -344,9 +344,9 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border >
+                        <Border x:Name="round5" MouseDown="round5_MouseDown" >
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Game1/Round4/lemon2.png"></ImageBrush>
+                                <ImageBrush ImageSource="/Images/Game1/Round5/barber.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -397,9 +397,9 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border >
+                        <Border  x:Name="round6" MouseDown="round6_MouseDown">
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Game1/Round4/lemon2.png"></ImageBrush>
+                                <ImageBrush ImageSource="/Images/Game1/Round6/xedap.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -452,9 +452,9 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border >
+                        <Border x:Name="round7" MouseDown="round7_MouseDown" >
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Game1/Round4/lemon2.png"></ImageBrush>
+                                <ImageBrush ImageSource="/Images/Game1/Round7/sum.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">

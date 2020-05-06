@@ -9,7 +9,7 @@ namespace PuzzleGame
 {
    public class Global
     {
-        public static BanDo BandoTest;
+        
        
     }
 }

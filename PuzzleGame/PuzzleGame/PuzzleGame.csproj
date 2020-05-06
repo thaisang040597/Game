@@ -104,9 +104,6 @@
     <Compile Include="Model\MediaGame.cs" />
     <Compile Include="Model\Puzzle.cs" />
     <Compile Include="Viewmodel\ImageViewModel.cs" />
-    <Compile Include="Views\BanDo.xaml.cs">
-      <DependentUpon>BanDo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Game2\Round21.xaml.cs">
       <DependentUpon>Round21.xaml</DependentUpon>
     </Compile>
@@ -149,10 +146,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\BanDo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Game2\Round21.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -233,25 +226,65 @@
     <Resource Include="Images\Background\background1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Background\khobau4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Background\khohbau7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Background\khobau10.png" />
-    <Resource Include="Images\Background\khobau5.png" />
-    <Resource Include="Images\Background\khobau6.png" />
-    <Resource Include="Images\Background\khobau8.png" />
-    <Resource Include="Images\Background\khobau9.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Gif\icon.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Gif\hoa.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Background\timeout.png" />
+    <Resource Include="Images\Game1\Round4\dau2.png" />
+    <Resource Include="Images\Game1\Round4\dudu1.png" />
+    <Resource Include="Images\Game1\Round4\nho2.png" />
+    <Resource Include="Images\Game1\Round4\thanhlong.png" />
+    <Resource Include="Images\Game1\Round4\thanhlong2.png" />
+    <Resource Include="Images\Game1\Round4\kitchen.png" />
+    <Resource Include="Images\Game1\Round6\bank.png" />
+    <Resource Include="Images\Game1\Round6\coffeeshop.png" />
+    <Resource Include="Images\Game1\Round6\supermarket.png" />
+    <Resource Include="Images\Game1\Round4\dau1.png" />
+    <Resource Include="Images\Game1\Round4\dudu2.png" />
+    <Resource Include="Images\Game1\Round4\nho1.png" />
+    <Resource Include="Images\Game1\Round4\thanhlong1.png" />
+    <Resource Include="Images\Game1\Round3\e.png" />
+    <Resource Include="Images\Game1\Round3\f.png" />
+    <Resource Include="Images\Game1\Round3\g.png" />
+    <Resource Include="Images\Game1\Round3\h.png" />
+    <Resource Include="Images\Game1\Round3\i.png" />
+    <Resource Include="Images\Game1\Round3\j.png" />
+    <Resource Include="Images\Game1\Round3\k.png" />
+    <Resource Include="Images\Game1\Round3\l.png" />
+    <Resource Include="Images\Game1\Round3\m.png" />
+    <Resource Include="Images\Game1\Round3\n.png" />
+    <Resource Include="Images\Game1\Round3\o.png" />
+    <Resource Include="Images\Game1\Round3\p.png" />
+    <Resource Include="Images\Game1\Round3\q.png" />
+    <Resource Include="Images\Game1\Round3\r.png" />
+    <Resource Include="Images\Game1\Round3\r1.png" />
+    <Resource Include="Images\Game1\Round3\s.png" />
+    <Resource Include="Images\Game1\Round3\t.png" />
+    <Resource Include="Images\Game1\Round3\u.png" />
+    <Resource Include="Images\Game1\Round3\v.png" />
+    <Resource Include="Images\Game1\Round3\w.png" />
+    <Resource Include="Images\Game1\Round3\x.png" />
+    <Resource Include="Images\Game1\Round3\y.png" />
+    <Resource Include="Images\Game1\Round3\z.png" />
+    <Resource Include="Images\Game1\Round5\barber.png" />
+    <Resource Include="Images\Game1\Round5\chef.png" />
+    <Resource Include="Images\Game1\Round5\officer.png" />
+    <Resource Include="Images\Game1\Round7\sum.png" />
+    <Resource Include="Images\Game1\Round5\policeman.png" />
+    <Resource Include="Images\Game1\Round4\dau.png" />
+    <Resource Include="Images\Game1\Round4\dudu.png" />
+    <Resource Include="Images\Game1\Round4\lemon.png" />
+    <Resource Include="Images\Game1\Round4\nho.png" />
+    <Resource Include="Images\Game1\Round6\Layer 1.png" />
+    <Resource Include="Images\Game1\Round6\Layer kem1.png" />
+    <Resource Include="Images\Game1\Round6\Layer police.png" />
+    <Resource Include="Images\Game1\Round6\Layer2 car.png" />
+    <Resource Include="Images\Game1\Round6\bus2.png" />
+    <Content Include="Sound\timeout.mp3" />
+    <Content Include="Sound\voikeu.mp3" />
     <Resource Include="Images\Background\backdoor1.png" />
     <Resource Include="Images\Game1\Round1\bantay.png" />
     <Resource Include="Images\Game1\Round1\bantay1.png" />
@@ -272,7 +305,6 @@
     <Resource Include="Images\Game1\Round3\b.png" />
     <Resource Include="Images\Game1\Round3\c.png" />
     <Resource Include="Images\Game1\Round3\d.png" />
-    <Resource Include="Images\Game1\Round3\a1.png" />
     <Resource Include="Images\Game1\Round4\disk.png" />
     <Resource Include="Images\Game1\Round4\table.png" />
     <Resource Include="Images\Game1\Round4\disk1.png" />
@@ -301,8 +333,22 @@
     <Resource Include="Images\Game1\Round1\voi1.png" />
     <Resource Include="Images\Game1\Round1\voi2.png" />
     <Resource Include="Images\Background\boardmenu.png" />
+    <Resource Include="Images\Game1\Round3\AH.png" />
+    <Resource Include="Images\Game1\Round2\banana1.png" />
+    <Resource Include="Images\Game1\Round2\cane.png" />
+    <Resource Include="Images\Game1\Round2\dau.png" />
+    <Resource Include="Images\Game1\Round2\hama2.png" />
+    <Resource Include="Images\Game1\Round6\ferarri.png" />
+    <Resource Include="Images\Game1\Round6\policecar.png" />
+    <Resource Include="Images\Game1\Round6\toyota.png" />
+    <Resource Include="Images\Game1\Round6\xedap.png" />
+    <Resource Include="Images\Game1\Round6\xekem.png" />
+    <Resource Include="Images\Background\pause.png" />
+    <Resource Include="Images\Background\Resume.png" />
+    <Resource Include="Images\Game1\Round2\co.png" />
     <Content Include="Sound\chucmung.mp3" />
     <Content Include="Sound\Gaukeu.mp3" />
+    <Content Include="Sound\khikeu.mp3" />
     <Content Include="Sound\thokeu.mp3" />
     <Content Include="Sound\Ting.mp3" />
     <Resource Include="Images\Background\board.png" />
@@ -319,7 +365,6 @@
     </Content>
     <Resource Include="Images\Background\close.png" />
     <Resource Include="Images\Background\close1.png" />
-    <Resource Include="Images\Background\khobau1.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

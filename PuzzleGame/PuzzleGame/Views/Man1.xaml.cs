@@ -10,13 +10,16 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
+
 namespace PuzzleGame.Views
 {
+   
     /// <summary>
     /// Interaction logic for Man1.xaml
     /// </summary>
@@ -44,30 +47,55 @@ namespace PuzzleGame.Views
         private static bool voixam = false;
         private static bool khinau = false;
         private static bool thoxam = false;
+        private bool checkpoint = false;
         private bool replay = false;
         //private int temp = 0;
         MediaPlayer playMedia = new MediaPlayer();
-        
-
        
+
+
 
         public Man1()
         {
             InitializeComponent();
             this.DataContext = this;
-           
-           
+            Countdown.Completed += new EventHandler(Story_completed);
+
+
 
 
 
         }
-
+        private void Story_completed(object sender, EventArgs e)
+        {
+            if (gaucho == false || hovan == false || thoxam == false || khinau == false || voixam == false )
+            {
+                timeout.Visibility = Visibility.Visible;
+               
+                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                playMedia.Open(uri); // inserting the URI to the media player
+                playMedia.Play();
+                if(checkpoint == true)
+                {
+                    playMedia.Stop();
+                }
+            }
+            Countdown.Remove(this);
+        }
 
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Hidden;
-            
+            this.Visibility = Visibility.Collapsed;
+            gaucho = false;
+            hovan = false;//không cho chọn khi đúng hình;
+            voixam = false;
+            khinau = false;
+            thoxam = false;
+            checkpoint = true;
+            Countdown.Stop(this);
+            Countdown.Remove(this);
+           
         }
         
 
@@ -116,6 +144,7 @@ namespace PuzzleGame.Views
         {
             get { return BasePoint4.Y + DeltaY4; }
         }
+        
         private void Feast_MouseDown(object sender, MouseButtonEventArgs e)
         {
           
@@ -129,17 +158,23 @@ namespace PuzzleGame.Views
                     moving = true;
                     PositionImage = e.GetPosition(gau2);
                     bantay1.Visibility = Visibility.Visible;
-                    Panel.SetZIndex(gau2, 2);
+                    Panel.SetZIndex(gau2, 6);
                     Panel.SetZIndex(ho2, 1);
-
+                    Panel.SetZIndex(voi2, 1);
+                    Panel.SetZIndex(khi2, 1);
+                    Panel.SetZIndex(tho2, 1);
                 }
                 if (l.Name == "ho2" && hovan == false)
                 {
                     ho2.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(ho2);
+                    
+                    Panel.SetZIndex(ho2, 6);
                     Panel.SetZIndex(gau2, 1);
-                    Panel.SetZIndex(ho2, 2);
+                    Panel.SetZIndex(voi2, 1);
+                    Panel.SetZIndex(khi2, 1);
+                    Panel.SetZIndex(tho2, 1);
 
                 }
                 if (l.Name == "voi2" && voixam == false)
@@ -147,9 +182,12 @@ namespace PuzzleGame.Views
                     voi2.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(voi2);
-                    Panel.SetZIndex(voi2, 3);
-                    Panel.SetZIndex(ho2, 2);
+                    Panel.SetZIndex(voi2, 6);
+                    Panel.SetZIndex(ho2, 1);
                     Panel.SetZIndex(gau2, 1);
+                    Panel.SetZIndex(khi2, 1);
+                    Panel.SetZIndex(tho2, 1);
+
 
                 }
                 if (l.Name == "khi2" && khinau == false)
@@ -157,9 +195,11 @@ namespace PuzzleGame.Views
                     khi2.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(khi2);
-                    Panel.SetZIndex(voi2, 3);
-                    Panel.SetZIndex(ho2, 2);
+                    Panel.SetZIndex(khi2, 6);
+                    Panel.SetZIndex(ho2, 1);
+                    Panel.SetZIndex(voi2, 1);
                     Panel.SetZIndex(gau2, 1);
+                    Panel.SetZIndex(tho2, 1);
 
                 }
                 if (l.Name == "tho2" && thoxam == false)
@@ -167,8 +207,10 @@ namespace PuzzleGame.Views
                     tho2.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(tho2);
-                    Panel.SetZIndex(voi2, 3);
-                    Panel.SetZIndex(ho2, 2);
+                    Panel.SetZIndex(tho2, 6);
+                    Panel.SetZIndex(ho2, 1);
+                    Panel.SetZIndex(voi2, 1);
+                    Panel.SetZIndex(khi2, 1);
                     Panel.SetZIndex(gau2, 1);
 
                 }
@@ -333,10 +375,12 @@ namespace PuzzleGame.Views
             {
                 if (l.Name == "gau2")
                 {
+                   
                     bantay1.Visibility = Visibility.Collapsed;
                     gau2.ReleaseMouseCapture();
                     BasePoint.X += DeltaX;
                     BasePoint.Y += DeltaY;
+                    
                     DeltaX = 0.0;
                     DeltaY = 0.0;
                     moving = false;
@@ -352,11 +396,10 @@ namespace PuzzleGame.Views
                         
                         playMedia.Open(ting);
                         playMedia.Play();
-
-                        bantay1.Visibility = Visibility.Hidden;
                         
-                    
+                        bantay1.Visibility = Visibility.Hidden;
                     }
+                    
                 }
                 if(l.Name == "ho2")
                 {
@@ -401,6 +444,7 @@ namespace PuzzleGame.Views
                         playMedia.Play();
 
                     }
+                   
                 }
                 if (l.Name == "khi2")
                 {
@@ -454,9 +498,12 @@ namespace PuzzleGame.Views
             {
                 
                 report.Visibility = Visibility.Visible;
+                Pause1.IsEnabled = false;
                 Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                 playMedia.Open(uri); // inserting the URI to the media player
                 playMedia.Play();
+                Countdown.Stop(this);
+                Countdown.Remove(this);
 
             }
            
@@ -473,7 +520,10 @@ namespace PuzzleGame.Views
 
         private void Replay_Click(object sender, RoutedEventArgs e)
         {
+            Countdown.Begin(this, true);
+            Pause1.IsEnabled = true;
             report.Visibility = Visibility.Hidden;
+            timeout.Visibility = Visibility.Collapsed;
             playMedia.Stop();
             replay = true;
             if (replay == true)
@@ -481,13 +531,12 @@ namespace PuzzleGame.Views
                 moving = false;
                 
                 BasePoint.X = 200;
-                BasePoint.Y = 0;
+                BasePoint.Y = 20;
                 gaucho = false;
                 RaisePropertyChanged("XPosition");
                 RaisePropertyChanged("YPosition");
-                
-                gau1.Visibility = Visibility.Visible;
 
+                gau1.Visibility = Visibility.Visible;
                 BasePoint1.X = 400;
                 BasePoint1.Y = 0;
                 hovan = false;
@@ -496,26 +545,63 @@ namespace PuzzleGame.Views
                 bantay.Visibility = Visibility.Visible;
                 ho.Visibility = Visibility.Visible;
 
+                BasePoint2.X = 600;
+                BasePoint2.Y = 250;
+                voixam = false;
+                RaisePropertyChanged("XPosition2");
+                RaisePropertyChanged("YPosition2");
+                voi.Visibility = Visibility.Visible;
+                BasePoint3.X = 200;
+                BasePoint3.Y = 450;
+                khinau = false;
+                RaisePropertyChanged("XPosition3");
+                RaisePropertyChanged("YPosition3");
+                khi.Visibility = Visibility.Visible;
+                BasePoint4.X = 450;
+                BasePoint4.Y = 650;
+                thoxam = false;
+                RaisePropertyChanged("XPosition4");
+                RaisePropertyChanged("YPosition4");
+                tho.Visibility = Visibility.Visible;
 
 
 
 
             }
         }
-
+       
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            
+            Pause1.IsEnabled = true;
             playMedia.Stop();
-            Global.BandoTest.imgstep1.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\khobau1.png"));
-            this.Visibility = Visibility.Hidden;
+            
+            this.Visibility = Visibility.Collapsed;
             
             gaucho = false;
             hovan = false;
+            voixam = false;
+            khinau = false;
+            thoxam = false;
             
 
         }
-       
+
+        private void Pause1_Click(object sender, RoutedEventArgs e)
+        {
+            Pause1.Visibility = Visibility.Collapsed;
+            Resume1.Visibility = Visibility.Visible;
+            Canvas1.IsEnabled = false;
+            Canvas1.Focusable = false;
+        }
+
+        private void Resume1_Click(object sender, RoutedEventArgs e)
+        {
+            Resume1.Visibility = Visibility.Collapsed;
+            Pause1.Visibility = Visibility.Visible;
+            Canvas1.IsEnabled = true;
+            Canvas1.Focusable = true;
+        }
+
 
 
 
