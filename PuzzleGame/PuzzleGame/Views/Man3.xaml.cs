@@ -379,7 +379,7 @@ namespace PuzzleGame.Views
                    v.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(v);
-                    Panel.SetZIndex(c, 12);
+                    Panel.SetZIndex(c, 1);
                     Panel.SetZIndex(b, 1);
                     Panel.SetZIndex(o, 1);
                     Panel.SetZIndex(g, 1);

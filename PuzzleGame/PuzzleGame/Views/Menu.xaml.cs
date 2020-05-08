@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PuzzleGame.Views.Game2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,18 @@ namespace PuzzleGame.Views
     /// </summary>
     public partial class Menu : UserControl
     {
+        
         public Menu()
         {
             InitializeComponent();
+           
         }
-
+       
+      
         private void Game1_Click(object sender, RoutedEventArgs e)
         {
-            stpround.Visibility = Visibility.Visible;
+            stproundgame1.Visibility = Visibility.Visible;
+            stproundgame2.Visibility = Visibility.Collapsed;
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
@@ -74,7 +79,45 @@ namespace PuzzleGame.Views
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            stpround.Visibility = Visibility.Hidden;
+            stproundgame1.Visibility = Visibility.Hidden;
+            stproundgame2.Visibility = Visibility.Hidden;
+        }
+
+        private void g2round1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Round1 round1 = new Round1();
+            oc.Children.Add(round1);
+        }
+
+        private void g2round2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void g2round3_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void g2round4_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void g2round5_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void g2round6_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Game2_Click(object sender, RoutedEventArgs e)
+        {
+            stproundgame2.Visibility = Visibility.Visible;
+            stproundgame1.Visibility = Visibility.Collapsed;
         }
     }
 }

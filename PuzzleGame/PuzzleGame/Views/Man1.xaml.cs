@@ -504,6 +504,10 @@ namespace PuzzleGame.Views
                 playMedia.Play();
                 Countdown.Stop(this);
                 Countdown.Remove(this);
+             
+
+                /*new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/PuzzleGame;/Images/Round2/carrot.png")));*/
+
 
             }
            
@@ -572,9 +576,13 @@ namespace PuzzleGame.Views
        
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
+            var filename = @"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\board.png";
+           Global.menutest.imground2.ImageSource = new BitmapImage(new Uri(filename, UriKind.Relative));
             Pause1.IsEnabled = true;
             playMedia.Stop();
-            
+            Global.dem = 1;
+            //Global.menutest.round2.Width = 300;
+            //Global.menutest.imground2.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\board.png"));
             this.Visibility = Visibility.Collapsed;
             
             gaucho = false;

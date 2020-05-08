@@ -73,11 +73,13 @@ D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.dll
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.xml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\bin\Debug\EntityFramework.SqlServer.xml
-D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round21.g.cs
-D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round21.baml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\ViewMain.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\ViewMain.baml
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Menu.g.cs
 D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Menu.baml
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round1.g.cs
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round1.baml
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\UserControl1.g.cs
+D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\UserControl1.baml

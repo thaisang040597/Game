@@ -9,7 +9,7 @@ namespace PuzzleGame
 {
    public class Global
     {
-        
-       
+        public static int dem;
+        public static Menu menutest;
     }
 }

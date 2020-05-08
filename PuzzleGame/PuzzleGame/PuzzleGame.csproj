@@ -104,8 +104,11 @@
     <Compile Include="Model\MediaGame.cs" />
     <Compile Include="Model\Puzzle.cs" />
     <Compile Include="Viewmodel\ImageViewModel.cs" />
-    <Compile Include="Views\Game2\Round21.xaml.cs">
-      <DependentUpon>Round21.xaml</DependentUpon>
+    <Compile Include="Views\Game2\Round1.xaml.cs">
+      <DependentUpon>Round1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game2\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Man1.xaml.cs">
       <DependentUpon>Man1.xaml</DependentUpon>
@@ -146,7 +149,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Game2\Round21.xaml">
+    <Page Include="Views\Game2\Round1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game2\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,6 +290,12 @@
     <Resource Include="Images\Game1\Round6\Layer police.png" />
     <Resource Include="Images\Game1\Round6\Layer2 car.png" />
     <Resource Include="Images\Game1\Round6\bus2.png" />
+    <Resource Include="Images\Game2\Round2.1\img.jpg" />
+    <Resource Include="Images\Game2\Round2.1\gethint.png" />
+    <Resource Include="Images\Game2\Round2.1\pause.png" />
+    <Resource Include="Images\Game2\Round2.1\replay.png" />
+    <Resource Include="Images\Game2\Round2.1\soc.png" />
+    <Resource Include="Images\Background\lock.png" />
     <Content Include="Sound\timeout.mp3" />
     <Content Include="Sound\voikeu.mp3" />
     <Resource Include="Images\Background\backdoor1.png" />
@@ -295,7 +308,6 @@
     <Resource Include="Images\Game1\Round1\ho1.png" />
     <Resource Include="Images\Game1\Round1\ho2.png" />
     <Resource Include="Images\Game1\Round1\khurung.png" />
-    <Resource Include="Images\Game2\bandogame2.png" />
     <Resource Include="Images\Game1\Round2\honey.png" />
     <Resource Include="Images\Game1\Round1\tho2.png" />
     <Resource Include="Images\Game1\Round2\carrot.png" />
