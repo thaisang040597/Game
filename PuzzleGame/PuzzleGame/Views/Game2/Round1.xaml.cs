@@ -133,6 +133,7 @@ namespace PuzzleGame.Views.Game2
             InitializeComponent();
             InitBoard();
             CreatePositionImage();
+            RanDomImage();
         }
 
         //private void CutImage(Int32Rect obj)
@@ -730,6 +731,8 @@ namespace PuzzleGame.Views.Game2
             shadow8.Opacity = 100;
             shadow9.Opacity = 100;
             report.Visibility = Visibility.Collapsed;
+            Countdown.Stop(this);
+            Resume1.Visibility = Visibility.Collapsed;
         }
 
 
@@ -793,6 +796,13 @@ namespace PuzzleGame.Views.Game2
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            Countdown.Stop(this);
+            Countdown.Remove(this);
         }
     }
 }

@@ -91,33 +91,43 @@ namespace PuzzleGame.Views
 
         private void g2round2_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Round2 round2 = new Round2();
+            oc.Children.Add(round2);
         }
 
         private void g2round3_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Round3 round3 = new Round3();
+            oc.Children.Add(round3);
         }
 
         private void g2round4_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Round4 round4 = new Round4();
+            oc.Children.Add(round4);
         }
 
         private void g2round5_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Round5 round5 = new Round5();
+            oc.Children.Add(round5);
         }
 
         private void g2round6_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Round6 round6 = new Round6();
+            oc.Children.Add(round6);
         }
 
         private void Game2_Click(object sender, RoutedEventArgs e)
         {
             stproundgame2.Visibility = Visibility.Visible;
             stproundgame1.Visibility = Visibility.Collapsed;
+        }
+
+        private void Border_MouseEnter(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

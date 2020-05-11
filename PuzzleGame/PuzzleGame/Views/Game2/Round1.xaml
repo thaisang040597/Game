@@ -134,7 +134,7 @@
                                 <Button x:Name="step1" Style="{StaticResource btnLoginStyle}" Click="getHint" >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Get Hint</Label>
                                     <Button.Background>
-                                        <ImageBrush x:Name="imgstep1" ImageSource="/Images/Game2/Round2.1/gethint.png"></ImageBrush>
+                                        <ImageBrush x:Name="imgstep1" ImageSource="/Images/Game2/gethint.png"></ImageBrush>
                                     </Button.Background>
                                 </Button>
                             </Grid>
@@ -142,7 +142,7 @@
                                 <Button x:Name="step2" Style="{StaticResource btnLoginStyle}" Click="rePlay" >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Replay</Label>
                                     <Button.Background>
-                                        <ImageBrush x:Name="imgstep2" ImageSource="/Images/Game2/Round2.1/replay.png"></ImageBrush>
+                                        <ImageBrush x:Name="imgstep2" ImageSource="/Images/Game2/replay.png"></ImageBrush>
                                     </Button.Background>
                                 </Button>
                             </Grid>
@@ -150,13 +150,13 @@
                                 <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Click="Pause1_Click" >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Pause</Label>
                                     <Button.Background>
-                                        <ImageBrush x:Name="imgstep3" ImageSource="/Images/Game2/Round2.1/pause.png"></ImageBrush>
+                                        <ImageBrush x:Name="imgstep3" ImageSource="/Images/Game2/pause.png"></ImageBrush>
                                     </Button.Background>
                                 </Button>
                                 <Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Click="Resume1_Click" Visibility="Collapsed">
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Resume</Label>
                                     <Button.Background>
-                                        <ImageBrush x:Name="imgstep4" ImageSource="/Images/Game2/Round2.1/pause.png"></ImageBrush>
+                                        <ImageBrush x:Name="imgstep4" ImageSource="/Images/Game2/pause.png"></ImageBrush>
                                     </Button.Background>
                                 </Button>
 
@@ -175,6 +175,9 @@
         </Grid>
 
         <Canvas x:Name="canvas1">
+            <Button x:Name="back" Style="{StaticResource btnLoginStyle}" Click="back_Click" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <Image Source="/Images/Background/backdoor1.png"></Image>
+            </Button>
 
             <Image x:Name="img1" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Width="150" Height="150"
                    Canvas.Left="{Binding XPosition1}" Canvas.Top="{Binding YPosition1}">

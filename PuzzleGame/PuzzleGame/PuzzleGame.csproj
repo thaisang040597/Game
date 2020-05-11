@@ -107,6 +107,21 @@
     <Compile Include="Views\Game2\Round1.xaml.cs">
       <DependentUpon>Round1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Game2\Round2.xaml.cs">
+      <DependentUpon>Round2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game2\Round3.xaml.cs">
+      <DependentUpon>Round3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game2\Round4.xaml.cs">
+      <DependentUpon>Round4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game2\Round5.xaml.cs">
+      <DependentUpon>Round5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game2\Round6.xaml.cs">
+      <DependentUpon>Round6.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Game2\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
@@ -150,6 +165,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Game2\Round1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game2\Round2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game2\Round3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game2\Round4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game2\Round5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game2\Round6.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,11 +326,16 @@
     <Resource Include="Images\Game1\Round6\Layer2 car.png" />
     <Resource Include="Images\Game1\Round6\bus2.png" />
     <Resource Include="Images\Game2\Round2.1\img.jpg" />
-    <Resource Include="Images\Game2\Round2.1\gethint.png" />
-    <Resource Include="Images\Game2\Round2.1\pause.png" />
-    <Resource Include="Images\Game2\Round2.1\replay.png" />
+    <Resource Include="Images\Game2\gethint.png" />
+    <Resource Include="Images\Game2\pause.png" />
+    <Resource Include="Images\Game2\replay.png" />
     <Resource Include="Images\Game2\Round2.1\soc.png" />
     <Resource Include="Images\Background\lock.png" />
+    <Resource Include="Images\Game2\Round2.2\meocon.jpg" />
+    <Resource Include="Images\Game2\Round2.6\rua4x4.jpg" />
+    <Resource Include="Images\Game2\Round2.4\conho.jpg" />
+    <Resource Include="Images\Game2\Round2.5\contho.PNG" />
+    <Resource Include="Images\Game2\Round2.3\conca.jpg" />
     <Content Include="Sound\timeout.mp3" />
     <Content Include="Sound\voikeu.mp3" />
     <Resource Include="Images\Background\backdoor1.png" />

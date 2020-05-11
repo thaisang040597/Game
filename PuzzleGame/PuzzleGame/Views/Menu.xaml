@@ -444,7 +444,7 @@
                         </Button>-->
                         <Border x:Name="g2round1"  MouseDown="g2round1_MouseDown"  >
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Game1/Round1/gau2.png"></ImageBrush>
+                                <ImageBrush ImageSource="/Images/Game2/Round2.1/soc.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
