@@ -125,6 +125,9 @@
     <Compile Include="Views\Game2\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Instruction.xaml.cs">
+      <DependentUpon>Instruction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Man1.xaml.cs">
       <DependentUpon>Man1.xaml</DependentUpon>
     </Compile>
@@ -142,9 +145,6 @@
     </Compile>
     <Compile Include="Views\Man6.xaml.cs">
       <DependentUpon>Man6.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Man7.xaml.cs">
-      <DependentUpon>Man7.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -192,6 +192,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Instruction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Man1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,10 +217,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Man6.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Man7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,7 +263,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Game3\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Background\background1.png" />
   </ItemGroup>
@@ -336,6 +338,12 @@
     <Resource Include="Images\Game2\Round2.4\conho.jpg" />
     <Resource Include="Images\Game2\Round2.5\contho.PNG" />
     <Resource Include="Images\Game2\Round2.3\conca.jpg" />
+    <Resource Include="Images\Game1\Round1\cho.png" />
+    <Resource Include="Images\Game1\Round1\cho1.png" />
+    <Resource Include="Images\Game1\Round1\cho2.png" />
+    <Resource Include="Images\Game1\Round1\sutu.png" />
+    <Resource Include="Images\Game1\Round1\sutu1.png" />
+    <Resource Include="Images\Game1\Round1\sutu2.png" />
     <Content Include="Sound\timeout.mp3" />
     <Content Include="Sound\voikeu.mp3" />
     <Resource Include="Images\Background\backdoor1.png" />

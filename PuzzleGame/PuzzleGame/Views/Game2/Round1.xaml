@@ -21,7 +21,7 @@
         <ImageBrush  x:Key="btnLoginImgHover" />
         <ImageBrush x:Key="btnLoginImgClick" />
     </UserControl.Resources>
-    <UserControl.Triggers>
+    <!--<UserControl.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard x:Name="begin1"  >
                 <Storyboard x:Name="Countdown" >
@@ -30,9 +30,11 @@
                         <EasingDoubleKeyFrame  KeyTime="0:0:45" Value="0"/>
                     </DoubleAnimationUsingKeyFrames>
                 </Storyboard>
-            </BeginStoryboard>
 
+            </BeginStoryboard>
         </EventTrigger>
+      
+        
 
         <EventTrigger RoutedEvent="Button.Click" SourceName="Pause1">
             <PauseStoryboard BeginStoryboardName="begin1"></PauseStoryboard>
@@ -40,7 +42,7 @@
         <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
             <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
         </EventTrigger>
-    </UserControl.Triggers>
+    </UserControl.Triggers>-->
     <Grid >
         <Grid.Resources>
             <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="15" Direction="270" Color="#BBBBBB"/>
@@ -99,18 +101,19 @@
                         <RowDefinition Height="3*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="1" Background="Aqua" ShowGridLines="False">
+                    <Grid Grid.Row="1"  ShowGridLines="False">
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Border  BorderBrush="Orange" BorderThickness="2"  >
+                            <!--<Border  BorderBrush="Orange" BorderThickness="2"  >
                                 <Grid x:Name="Time"
                   VerticalAlignment="Stretch" 
                   Background="Chocolate" 
-                  HorizontalAlignment="Stretch">
+                  HorizontalAlignment="Stretch"
+                                     >
                                     <Grid.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform />
@@ -122,15 +125,19 @@
 
 
                                 </Grid>
-                            </Border>
+                            </Border>-->
+                           
+
                         </Grid>
                         <Grid Grid.Row="1" ShowGridLines="False">
+                           
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
+                                
                                 <Button x:Name="step1" Style="{StaticResource btnLoginStyle}" Click="getHint" >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Get Hint</Label>
                                     <Button.Background>
@@ -139,7 +146,7 @@
                                 </Button>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Button x:Name="step2" Style="{StaticResource btnLoginStyle}" Click="rePlay" >
+                                <Button x:Name="step2" Style="{StaticResource btnLoginStyle}" Click="rePlay"  >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Replay</Label>
                                     <Button.Background>
                                         <ImageBrush x:Name="imgstep2" ImageSource="/Images/Game2/replay.png"></ImageBrush>
@@ -147,18 +154,18 @@
                                 </Button>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Click="Pause1_Click" >
+                                <!--<Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Click="Pause1_Click" >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Pause</Label>
                                     <Button.Background>
                                         <ImageBrush x:Name="imgstep3" ImageSource="/Images/Game2/pause.png"></ImageBrush>
                                     </Button.Background>
-                                </Button>
-                                <Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Click="Resume1_Click" Visibility="Collapsed">
+                                </Button>-->
+                                <!--<Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Click="Resume1_Click" Visibility="Collapsed">
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Resume</Label>
                                     <Button.Background>
                                         <ImageBrush x:Name="imgstep4" ImageSource="/Images/Game2/pause.png"></ImageBrush>
                                     </Button.Background>
-                                </Button>
+                                </Button>-->
 
                                 <!--<Button x:Name="step3" Style="{StaticResource btnLoginStyle}" Click="pause" >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Pause</Label>
@@ -273,7 +280,7 @@
                         SourceRect="{Binding Pieces7}" />
                 </Image.Source>
             </Image>
-            <Image x:Name="img8" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Width="150" Height="150"
+            <Image x:Name="voi" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Width="150" Height="150"
                    Canvas.Left="{Binding XPosition8}" Canvas.Top="{Binding YPosition8}">
                 <Image.BitmapEffect>
                     <DropShadowBitmapEffect x:Name="shadow8" Color="Black" Direction="-50"
@@ -301,7 +308,7 @@
             </Image>
 
         </Canvas>
-        <Grid Width="250" Height="250" x:Name="timeout"  Visibility="Collapsed" >
+        <Grid Width="250" Height="250" x:Name="gethint"  Visibility="Collapsed" >
            
             <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="bodertimeout"  Opacity="0.9">

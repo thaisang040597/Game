@@ -625,13 +625,13 @@ namespace PuzzleGame.Views.Game2
                     MouseMoveImage(_BasePoint6, e);
                     _BasePoint6 = pointtemp;
                 }
-                else if (l.Name == "img7")
+                else if (l.Name == "ho")
                 {
                     temp = 7;
                     MouseMoveImage(_BasePoint7, e);
                     _BasePoint7 = pointtemp;
                 }
-                else if (l.Name == "img8")
+                else if (l.Name == "voi")
                 {
                     temp = 8;
                     MouseMoveImage(_BasePoint8, e);
@@ -1027,27 +1027,26 @@ namespace PuzzleGame.Views.Game2
 
 
 
-        private void Pause1_Click(object sender, RoutedEventArgs e)
-        {
-            Pause1.Visibility = Visibility.Collapsed;
-            Resume1.Visibility = Visibility.Visible;
-            canvas1.IsEnabled = false;
-            canvas1.Focusable = false;
-        }
+        //private void Pause1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Pause1.Visibility = Visibility.Collapsed;
+        //    Resume1.Visibility = Visibility.Visible;
+        //    canvas1.IsEnabled = false;
+        //    canvas1.Focusable = false;
+        //}
 
-        private void Resume1_Click(object sender, RoutedEventArgs e)
-        {
-            Resume1.Visibility = Visibility.Collapsed;
-            Pause1.Visibility = Visibility.Visible;
-            canvas1.IsEnabled = true;
-            canvas1.Focusable = true;
-        }
+        //private void Resume1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Resume1.Visibility = Visibility.Collapsed;
+        //    Pause1.Visibility = Visibility.Visible;
+        //    canvas1.IsEnabled = true;
+        //    canvas1.Focusable = true;
+        //}
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            Countdown.Stop(this);
-            Countdown.Remove(this);
+            
         }
     }
 }

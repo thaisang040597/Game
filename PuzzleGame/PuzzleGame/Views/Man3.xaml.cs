@@ -80,8 +80,8 @@ namespace PuzzleGame.Views
         {
             InitializeComponent();
             this.DataContext = this;
-          
-            Countdown.Completed += new EventHandler(Story_completed);
+            RanDomAlp();
+            //Countdown.Completed += new EventHandler(Story_completed);
         }
         public double XPositionC
         {
@@ -201,26 +201,128 @@ namespace PuzzleGame.Views
             chut = false;
             chuv = false;
             checkpoint = true;
-            Countdown.Stop(this);
-            Countdown.Remove(this);
+            //Countdown.Stop(this);
+            //Countdown.Remove(this);
         }
-        private void Story_completed(object sender, EventArgs e)
-        {
-            if (chuc == false || chub == false || chuo == false || chug == false || chue == false || chui == false || chuk == false || chuf == false || chut == false || chus == false || chuv == false)
-            {
-                timeout.Visibility = Visibility.Visible;
+        //private void Story_completed(object sender, EventArgs e)
+        //{
+        //    if (chuc == false || chub == false || chuo == false || chug == false || chue == false || chui == false || chuk == false || chuf == false || chut == false || chus == false || chuv == false)
+        //    {
+        //        timeout.Visibility = Visibility.Visible;
 
-                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
-                playMedia.Open(uri); // inserting the URI to the media player
-                playMedia.Play();
-                if (checkpoint == true)
+        //        Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+        //        playMedia.Open(uri); // inserting the URI to the media player
+        //        playMedia.Play();
+        //        if (checkpoint == true)
+        //        {
+        //            playMedia.Stop();
+
+        //        }
+        //        Grid1.IsEnabled = false;
+        //    }
+        //    Countdown.Remove(this);
+        //}
+        private void RanDomAlp()
+        {
+            List<string> Images = new List<string>()
+            {
+                "/Images/Game1/Round3/b.png","/Images/Game1/Round3/c.png" ,"/Images/Game1/Round3/o.png" ,"/Images/Game1/Round3/g.png",
+                "/Images/Game1/Round3/e.png"  ,"/Images/Game1/Round3/i.png"  ,"/Images/Game1/Round3/k.png" , "/Images/Game1/Round3/f.png" ,
+                "/Images/Game1/Round3/v.png","/Images/Game1/Round3/s.png","/Images/Game1/Round3/t.png"
+            };
+            List<Image> ImagesBong = new List<Image>()
+            {
+                num_b,num_c,num_o,num_g,num_e,num_i,num_k,num_f,num_v,num_s,num_t
+            };
+            List<Image> ImagesGoc = new List<Image>()
+            {
+                b,c,o,g,e1,i,k,f,v,s,t
+            };
+            List<int> lstIndex = new List<int>();
+            Random rnd = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                int index = 0;
+                do
                 {
-                    playMedia.Stop();
-                   
-                }
-                Grid1.IsEnabled = false;
+                    index = rnd.Next(0, 10);
+                } while (lstIndex.Exists(x => x == index) == true);
+                lstIndex.Add(index);
             }
-            Countdown.Remove(this);
+            ImagesBong[lstIndex[0]].Visibility = Visibility.Collapsed;
+            ImagesBong[lstIndex[1]].Visibility = Visibility.Collapsed;
+            ImagesBong[lstIndex[2]].Visibility = Visibility.Collapsed;
+            ImagesBong[lstIndex[3]].Visibility = Visibility.Collapsed;
+            ImagesBong[lstIndex[4]].Visibility = Visibility.Collapsed;
+            ImagesGoc[lstIndex[0]].Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
+            ImagesGoc[lstIndex[1]].Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
+            ImagesGoc[lstIndex[2]].Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
+            ImagesGoc[lstIndex[3]].Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
+            ImagesGoc[lstIndex[4]].Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
+            //c.Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
+            //ho2.Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
+            //voi2.Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
+            //khi2.Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
+            //tho2.Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
+            //gau1.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[0]], UriKind.RelativeOrAbsolute));
+            //ho.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[1]], UriKind.RelativeOrAbsolute));
+            //voi.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[2]], UriKind.RelativeOrAbsolute));
+            //khi.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[3]], UriKind.RelativeOrAbsolute));
+            //tho.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[4]], UriKind.RelativeOrAbsolute));
+
+
+        }
+        private Image GetImageByIndex(int index)
+        {
+            switch(index)
+            {
+                case 1:
+                    {
+                        return b;
+                    }
+                case 2:
+                    {
+                        return c;
+                    }
+                case 3:
+                    {
+                        return o;
+                    }
+                case 4:
+                    {
+                        return g;
+                    }
+                case 5:
+                    {
+                        return e1;
+                    }
+                case 6:
+                    {
+                        return i;
+                    }
+                case 7:
+                    {
+                        return k;
+                    }
+                case 8:
+                    {
+                        return f;
+                    }
+                case 9:
+                    {
+                        return s;
+                    }
+                case 10:
+                    {
+                        return t;
+                    }
+                case 11:
+                    {
+                        return v;
+                    }
+                   
+            }
+            return null;
         }
         private void Feast_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -514,12 +616,12 @@ namespace PuzzleGame.Views
             if(chuc == true && chub == true && chuo == true && chug == true && chue == true && chui == true && chuk == true && chuf == true && chus == true &&   chut == true && chuv == true)
             {
                 report.Visibility = Visibility.Visible;
-                Pause1.IsEnabled = false;
+                //Pause1.IsEnabled = false;
                 Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                 playMedia.Open(uri); // inserting the URI to the media player
                 playMedia.Play();
-                Countdown.Stop(this);
-                Countdown.Remove(this);
+            //    Countdown.Stop(this);
+            //    Countdown.Remove(this);
             }
             
         }
@@ -588,6 +690,19 @@ namespace PuzzleGame.Views
             }
 
         }
+
+        //private void RamdomImg()
+        //{
+        //    List<string> pics = new List<string>()
+        //    {
+        //        "Images/Game1/Round3/a.png",
+        //        "image/dau1.png",
+        //        "image/duahau.png",
+        //        "image/dudu.png",
+        //        "image/nho.png",
+        //        "image/lemon.png"
+        //    };
+        //}
 
         private void Feast_MouseMove(object sender, MouseEventArgs e)
         {
@@ -727,27 +842,33 @@ namespace PuzzleGame.Views
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
-        private void Pause1_Click(object sender, RoutedEventArgs e)
-        {
-            Pause1.Visibility = Visibility.Collapsed;
-            Resume1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = false;
-            Canvas1.Focusable = false;
-        }
+        //private void Pause1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //Pause1.Visibility = Visibility.Collapsed;
+        //    //Resume1.Visibility = Visibility.Visible;
+        //    Canvas1.IsEnabled = false;
+        //    Canvas1.Focusable = false;
+        //}
 
-        private void Resume1_Click(object sender, RoutedEventArgs e)
-        {
-            Resume1.Visibility = Visibility.Collapsed;
-            Pause1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = true;
-            Canvas1.Focusable = true;
-        }
+        //private void Resume1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //Resume1.Visibility = Visibility.Collapsed;
+        //    //Pause1.Visibility = Visibility.Visible;
+        //    Canvas1.IsEnabled = true;
+        //    Canvas1.Focusable = true;
+        //}
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            Pause1.IsEnabled = true;
+            //Pause1.IsEnabled = true;
             playMedia.Stop();
 
+            Global.dem = 3;
+            //Man2 man2 = new Man2();
+            //Global.menutest.oc.Children.Add(man2);
+            //Global.menutest.round2.Width = 300;
+
+            Global.menutest.imground4.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\Images\Game1\Round4\thanhlong.png"));
             this.Visibility = Visibility.Collapsed;
 
             chuc = false;
@@ -762,16 +883,18 @@ namespace PuzzleGame.Views
             chut = false;
            
             chuv = false;
-           
+            Man4 man4 = new Man4();
+            Global.menutest.oc.Children.Add(man4);
+
         }
 
         private void Replay_Click(object sender, RoutedEventArgs e)
         {
             Grid1.IsEnabled = true;
-            Countdown.Begin(this, true);
-            Pause1.IsEnabled = true;
+            //Countdown.Begin(this, true);
+            //Pause1.IsEnabled = true;
             report.Visibility = Visibility.Hidden;
-            timeout.Visibility = Visibility.Collapsed;
+            //timeout.Visibility = Visibility.Collapsed;
             playMedia.Stop();
             replay = true;
             if (replay == true)

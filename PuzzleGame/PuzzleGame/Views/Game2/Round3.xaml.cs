@@ -374,12 +374,12 @@ namespace PuzzleGame.Views.Game2
                     shadow7.Opacity = 0;
                     shadow8.Opacity = 0;
                     shadow9.Opacity = 0;
-                    report.Visibility = Visibility.Visible;
+                    //report.Visibility = Visibility.Visible;
                     Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                     playMedia.Open(uri); // inserting the URI to the media player
                     playMedia.Play();
-                    Countdown.Stop(this);
-                    Countdown.Remove(this);
+                    //Countdown.Stop(this);
+                    //Countdown.Remove(this);
                     //MessageBox.Show("Win");   
                     //checkwin nè kk thieu border thong bao;
 
@@ -429,13 +429,13 @@ namespace PuzzleGame.Views.Game2
                     MouseMoveImage(_BasePoint6, e);
                     _BasePoint6 = pointtemp;
                 }
-                else if (l.Name == "img7")
+                else if (l.Name == "ho")
                 {
                     temp = 7;
                     MouseMoveImage(_BasePoint7, e);
                     _BasePoint7 = pointtemp;
                 }
-                else if (l.Name == "img8")
+                else if (l.Name == "voi")
                 {
                     temp = 8;
                     MouseMoveImage(_BasePoint8, e);
@@ -729,26 +729,26 @@ namespace PuzzleGame.Views.Game2
             shadow7.Opacity = 100;
             shadow8.Opacity = 100;
             shadow9.Opacity = 100;
-            report.Visibility = Visibility.Collapsed;
+            //report.Visibility = Visibility.Collapsed;
         }
 
 
 
-        private void Pause1_Click(object sender, RoutedEventArgs e)
-        {
-            Pause1.Visibility = Visibility.Collapsed;
-            Resume1.Visibility = Visibility.Visible;
-            canvas1.IsEnabled = false;
-            canvas1.Focusable = false;
-        }
+        //private void Pause1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Pause1.Visibility = Visibility.Collapsed;
+        //    Resume1.Visibility = Visibility.Visible;
+        //    canvas1.IsEnabled = false;
+        //    canvas1.Focusable = false;
+        //}
 
-        private void Resume1_Click(object sender, RoutedEventArgs e)
-        {
-            Resume1.Visibility = Visibility.Collapsed;
-            Pause1.Visibility = Visibility.Visible;
-            canvas1.IsEnabled = true;
-            canvas1.Focusable = true;
-        }
+        //private void Resume1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Resume1.Visibility = Visibility.Collapsed;
+        //    Pause1.Visibility = Visibility.Visible;
+        //    canvas1.IsEnabled = true;
+        //    canvas1.Focusable = true;
+        //}
 
         //private void Hint(object sender, MouseButtonEventArgs e)
         //{
@@ -798,8 +798,8 @@ namespace PuzzleGame.Views.Game2
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            Countdown.Stop(this);
-            Countdown.Remove(this);
+            //Countdown.Stop(this);
+            //Countdown.Remove(this);
         }
     }
 }

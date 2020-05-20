@@ -85,27 +85,27 @@ namespace PuzzleGame.Views
         {
             InitializeComponent();
             this.DataContext = this;
-            Countdown.Completed += new EventHandler(Story_completed);
+            //Countdown.Completed += new EventHandler(Story_completed);
 
         }
 
-        private void Story_completed(object sender, EventArgs e)
-        {
-            if (canhsat == false || giaovien == false || cattoc == false || daubep == false )
-            {
-                timeout.Visibility = Visibility.Visible;
+        //private void Story_completed(object sender, EventArgs e)
+        //{
+        //    if (canhsat == false || giaovien == false || cattoc == false || daubep == false )
+        //    {
+        //        timeout.Visibility = Visibility.Visible;
 
-                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
-                playMedia.Open(uri); // inserting the URI to the media player
-                playMedia.Play();
-                if (checkpoint == true)
-                {
-                    playMedia.Stop();
-                }
-                Canvas1.IsEnabled = false;
-            }
-            Countdown.Remove(this);
-        }
+        //        Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+        //        playMedia.Open(uri); // inserting the URI to the media player
+        //        playMedia.Play();
+        //        if (checkpoint == true)
+        //        {
+        //            playMedia.Stop();
+        //        }
+        //        Canvas1.IsEnabled = false;
+        //    }
+        //    Countdown.Remove(this);
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -124,45 +124,53 @@ namespace PuzzleGame.Views
             giaovien = false;
             daubep = false;
             checkpoint = true;
-            Countdown.Stop(this);
-            Countdown.Remove(this);
+            //Countdown.Stop(this);
+            //Countdown.Remove(this);
         }
-        private void Pause1_Click(object sender, RoutedEventArgs e)
-        {
-            Pause1.Visibility = Visibility.Collapsed;
-            Resume1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = false;
-            Canvas1.Focusable = false;
-        }
-        private void Resume1_Click(object sender, RoutedEventArgs e)
-        {
-            Resume1.Visibility = Visibility.Collapsed;
-            Pause1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = true;
-            Canvas1.Focusable = true;
-        }
+        //private void Pause1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //Pause1.Visibility = Visibility.Collapsed;
+        //    //Resume1.Visibility = Visibility.Visible;
+        //    Canvas1.IsEnabled = false;
+        //    Canvas1.Focusable = false;
+        //}
+        //private void Resume1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //Resume1.Visibility = Visibility.Collapsed;
+        //    //Pause1.Visibility = Visibility.Visible;
+        //    Canvas1.IsEnabled = true;
+        //    Canvas1.Focusable = true;
+        //}
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            Pause1.IsEnabled = true;
+            //Pause1.IsEnabled = true;
             playMedia.Stop();
 
+            Global.dem = 5;
+            //Man2 man2 = new Man2();
+            //Global.menutest.oc.Children.Add(man2);
+            //Global.menutest.round2.Width = 300;
+
+            Global.menutest.imground6.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\Images\Game1\Round6\xedap.png"));
             this.Visibility = Visibility.Collapsed;
 
             canhsat = false;
             cattoc = false;
             daubep = false;
             giaovien = false;
-            
+            Man6 man6 = new Man6();
+            Global.menutest.oc.Children.Add(man6);
+
 
         }
         private void Replay_Click(object sender, RoutedEventArgs e)
 
         {
             Canvas1.IsEnabled = true;
-            Countdown.Begin(this, true);
-            Pause1.IsEnabled = true;
+            //Countdown.Begin(this, true);
+            //Pause1.IsEnabled = true;
             report.Visibility = Visibility.Hidden;
-            timeout.Visibility = Visibility.Collapsed;
+            //timeout.Visibility = Visibility.Collapsed;
 
             playMedia.Stop();
             replay = true;
@@ -360,12 +368,12 @@ namespace PuzzleGame.Views
             if (canhsat == true && giaovien == true && cattoc == true && daubep == true )
             {
                 report.Visibility = Visibility.Visible;
-                Pause1.IsEnabled = false;
+                //Pause1.IsEnabled = false;
                 Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                 playMedia.Open(uri); // inserting the URI to the media player
                 playMedia.Play();
-                Countdown.Stop(this);
-                Countdown.Remove(this);
+                //Countdown.Stop(this);
+                //Countdown.Remove(this);
             }
         }
 

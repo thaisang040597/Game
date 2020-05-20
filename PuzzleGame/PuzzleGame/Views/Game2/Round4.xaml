@@ -9,7 +9,7 @@
              Width="1366" Loaded="Window_Loaded" Height="768">
     <UserControl.Resources>
         <!-- Define some image resources, for use as the image element source. -->
-        <BitmapImage x:Key="masterImage" UriSource="/Images/Game2/Round2.4/conho.jpg" />
+        <BitmapImage x:Key="masterImage" UriSource="/Images/Game2/Round2.4/conHo.jpg" />
         <Rectangle x:Key="rectangle" Width="440"
                     Height="440"
                     Fill="Gray"
@@ -21,7 +21,7 @@
         <ImageBrush  x:Key="btnLoginImgHover" />
         <ImageBrush x:Key="btnLoginImgClick" />
     </UserControl.Resources>
-    <UserControl.Triggers>
+    <!--<UserControl.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard x:Name="begin1"  >
                 <Storyboard x:Name="Countdown" >
@@ -40,7 +40,7 @@
         <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
             <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
         </EventTrigger>
-    </UserControl.Triggers>
+    </UserControl.Triggers>-->
     <Grid>
         <Grid.Resources>
             <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="15" Direction="270" Color="#BBBBBB"/>
@@ -99,17 +99,17 @@
                         <RowDefinition Height="3*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="1" Background="Aqua" ShowGridLines="False">
+                    <Grid Grid.Row="1"  ShowGridLines="False">
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Border  BorderBrush="Orange" BorderThickness="2"  >
+                            <!--<Border  BorderBrush="Orange" BorderThickness="2"  >
                                 <Grid x:Name="Time"
                   VerticalAlignment="Stretch" 
-                  Background="Chocolate" 
+                  Background="CHocolate" 
                   HorizontalAlignment="Stretch">
                                     <Grid.RenderTransform>
                                         <TransformGroup>
@@ -120,13 +120,13 @@
                                         </TransformGroup>
                                     </Grid.RenderTransform>
                                 </Grid>
-                            </Border>
+                            </Border>-->
                         </Grid>
                         <Grid Grid.Row="1" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
                                 <Button x:Name="step1" Style="{StaticResource btnLoginStyle}" Click="getHint" >
@@ -144,7 +144,7 @@
                                     </Button.Background>
                                 </Button>
                             </Grid>
-                            <Grid Grid.Column="2">
+                            <!--<Grid Grid.Column="2">
                                 <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Click="Pause1_Click" >
                                     <Label FontSize="18px" FontWeight="Bold" Margin="20px 0px 0px 0px  ">Pause</Label>
                                     <Button.Background>
@@ -157,7 +157,7 @@
                                         <ImageBrush x:Name="imgstep4" ImageSource="/Images/Game2/pause.png"></ImageBrush>
                                     </Button.Background>
                                 </Button>
-                            </Grid>
+                            </Grid>-->
                         </Grid>
                     </Grid>
                 </Grid>

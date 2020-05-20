@@ -12,24 +12,7 @@
 
     </UserControl.Resources>
     <UserControl.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard x:Name="begin1"  >
-                <Storyboard x:Name="Countdown" >
-                    <DoubleAnimationUsingKeyFrames x:Name="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Time">
-
-                        <EasingDoubleKeyFrame  KeyTime="0:0:12" Value="0"/>
-                    </DoubleAnimationUsingKeyFrames>
-                </Storyboard>
-            </BeginStoryboard>
-
-        </EventTrigger>
-
-        <EventTrigger RoutedEvent="Button.Click" SourceName="Pause1">
-            <PauseStoryboard BeginStoryboardName="begin1"></PauseStoryboard>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
-            <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
-        </EventTrigger>
+        
     </UserControl.Triggers>
     <Grid Background="AliceBlue">
         <Grid.Resources>
@@ -66,11 +49,11 @@
             <Image Source="/Images/Background/backdoor1.png"></Image>
         </Button>
         <Canvas x:Name="Canvas1">
-            <Image Width="250" Height="200" Canvas.Left="50" Canvas.Top="300" Source="/Images/Game1/Round5/barbershop.png"></Image>
+            <Image Width="250" Height="200" Canvas.Left="50" Canvas.Top="300" Source="/Images/Game1/Round5/barbersHop.png"></Image>
             <Image Width="350" Height="350" Canvas.Left="308" Canvas.Top="235" Source="/Images/Game1/Round6/supermarket.png">
                 
             </Image>
-            <Image Width="250" Height="210" Canvas.Left="730" Canvas.Top="320" Source="/Images/Game1/Round6/coffeeshop.png"></Image>
+            <Image Width="250" Height="210" Canvas.Left="730" Canvas.Top="320" Source="/Images/Game1/Round6/coffeesHop.png"></Image>
             <Image Width="300" Height="300" Canvas.Left="1060" Canvas.Top="200" Source="/Images/Game1/Round6/bank.png"></Image>
             <Grid Width="1366" Height="100" Canvas.Top="490" >
                 <Grid.Background>
@@ -104,36 +87,11 @@
             <Image x:Name="xekemlanh" Width="350" Height="180" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove"
                    Canvas.Left="{Binding XPositionKem}" Canvas.Top="{Binding YPositionKem}" Source="/Images/Game1/Round6/xekem.png"></Image>
         </Canvas>
-        <Border Height="30" Width="302" BorderBrush="Orange"  Margin="420 15 560 720" BorderThickness="2"  >
-            <Grid x:Name="Time"
-                  Width="300" Height="30" 
-                  VerticalAlignment="Center" 
-                  Background="Chocolate" 
-                 
-                   
-                  
-                  HorizontalAlignment="Left">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-
-
-            </Grid>
-        </Border>
+        
 
 
 
-        <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Margin="760 0 480 700 " Click="Pause1_Click" >
-            <Image Source="/Images/Background/pause.png"></Image>
-        </Button>
-        <Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Margin="760 0 480 700 "   Click="Resume1_Click" Visibility="Collapsed">
-            <Image Source="/Images/Background/Resume.png"></Image>
-        </Button>
+      
         <Grid Width="250" Height="250" Visibility="Hidden" x:Name="report"  >
             <Grid.RowDefinitions>
                 <RowDefinition Height="7*"></RowDefinition>

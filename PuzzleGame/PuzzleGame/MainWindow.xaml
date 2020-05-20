@@ -21,13 +21,13 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="50" Height="50">
-                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                <ContentPresenter horizontalAlignment="{TemplateBinding horizontalContentAlignment}" 
                     Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    --><!--<Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>--><!--
+                                    --><!--<Setter Property="Background" Value="{DynamicResource btnLoginImghover}"/>--><!--
                                     <Setter Property="Width" Value="55" TargetName="button1"></Setter>
                                     <Setter Property="Height" Value="55" TargetName="button1"></Setter>
                                 </Trigger>
@@ -58,7 +58,7 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="2">
-            <Button x:Name="close" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Right" VerticalAlignment="Top"  Click="close_Click" >
+            <Button x:Name="close" Style="{StaticResource btnLoginStyle}" horizontalAlignment="Right" VerticalAlignment="Top"  Click="close_Click" >
                 <Image Source="/Images/Background/close1.png"></Image>
             </Button>
             --><!--<TextBlock Grid.Column="1"  Name="txtMinimize" FontFamily="Webdings" FontSize="20" Foreground="White" MouseLeftButtonUp="txtMinimize_MouseLeftButtonUp">0</TextBlock>--><!--
@@ -80,11 +80,11 @@
                 <RowDefinition Height="6*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="1" Grid.Row="1" horizontalAlignment="Center" VerticalAlignment="Center">
                 
                 <StackPanel>
                     <Border CornerRadius="10" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" x:Name="boderstart" >
+                VerticalAlignment="Center" horizontalAlignment="Center" Margin="15" x:Name="boderstart" >
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="LightGray" Offset="0" />
@@ -106,7 +106,7 @@
                         </Button>
                     </Border>
                     <Border CornerRadius="10" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" x:Name="boderhelp" >
+                VerticalAlignment="Center" horizontalAlignment="Center" Margin="15" x:Name="boderhelp" >
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="LightGray" Offset="0" />
@@ -128,7 +128,7 @@
                         </Button>
                     </Border>
                     <Border CornerRadius="10" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" x:Name="bodersetting" >
+                VerticalAlignment="Center" horizontalAlignment="Center" Margin="15" x:Name="bodersetting" >
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="LightGray" Offset="0" />
@@ -181,7 +181,19 @@
                 <local:Menu/>
 
             </materialDesign:TransitionerSlide >
-           
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:CircleWipe/>
+                </materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:FadeWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
+               
+                <local:Instruction/>
+
+            </materialDesign:TransitionerSlide >
+
+
 
         </materialDesign:Transitioner>
     </Grid>

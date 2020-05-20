@@ -122,7 +122,7 @@
                             </LinearGradientBrush>
                         </Border.Background>
                         <Button Cursor="Hand" x:Name="help" BorderBrush="Transparent" Background="LightCyan" Foreground="BurlyWood" FontSize="24"
-                    Content="Hướng Dẫn" FontWeight="Bold" >
+                    Content="Hướng Dẫn" FontWeight="Bold" Command="{x:Static materialDesign:Transitioner.MoveLastCommand}" >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="10"/>

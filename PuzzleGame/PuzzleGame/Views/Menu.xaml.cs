@@ -25,7 +25,8 @@ namespace PuzzleGame.Views
         public Menu()
         {
             InitializeComponent();
-           
+            Global.menutest= this;
+
         }
        
       
@@ -33,6 +34,7 @@ namespace PuzzleGame.Views
         {
             stproundgame1.Visibility = Visibility.Visible;
             stproundgame2.Visibility = Visibility.Collapsed;
+            stproundgame3.Visibility = Visibility.Collapsed;
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
@@ -43,39 +45,46 @@ namespace PuzzleGame.Views
 
         private void round2_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Man2 man2 = new Man2();
-            oc.Children.Add(man2);
+            
+                Man2 man2 = new Man2();
+                oc.Children.Add(man2);
+            
+           
+            
         }
 
         private void round3_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Man3 man3 = new Man3();
-            oc.Children.Add(man3);
+           
+                Man3 man3 = new Man3();
+                oc.Children.Add(man3);
+            
+           
         }
 
         private void round4_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Man4 man4 = new Man4();
-            oc.Children.Add(man4);
+           
+                Man4 man4 = new Man4();
+                oc.Children.Add(man4);
+            
         }
 
         private void round6_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Man6 man6 = new Man6();
-            oc.Children.Add(man6);
+                Man6 man6 = new Man6();
+                oc.Children.Add(man6);
+     
         }
 
         private void round5_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             Man5 man5 = new Man5();
             oc.Children.Add(man5);
         }
 
-        private void round7_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Man7 man7 = new Man7();
-            oc.Children.Add(man7);
-        }
+       
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
@@ -123,9 +132,48 @@ namespace PuzzleGame.Views
         {
             stproundgame2.Visibility = Visibility.Visible;
             stproundgame1.Visibility = Visibility.Collapsed;
+            stproundgame3.Visibility = Visibility.Collapsed;
         }
 
         private void Border_MouseEnter(object sender, MouseButtonEventArgs e)
+        {
+            Man1 man1 = new Man1();
+            oc.Children.Add(man1);
+        }
+
+        private void Game3_Click(object sender, RoutedEventArgs e)
+        {
+            stproundgame2.Visibility = Visibility.Collapsed;
+            stproundgame1.Visibility = Visibility.Collapsed;
+            stproundgame3.Visibility = Visibility.Visible;
+        }
+
+        private void round3_1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void round3_2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void round3_3_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void round3_4_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void round3_5_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void round3_6_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
         }

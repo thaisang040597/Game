@@ -40,6 +40,8 @@ namespace PuzzleGame.Views.Game2
         private double DeltaY = 0.0;
         private bool moving = false;
         private static Point PositionInImage;
+        public static bool flat = true;
+      
        
         public double XPosition1
         {
@@ -134,7 +136,21 @@ namespace PuzzleGame.Views.Game2
             InitBoard();
             CreatePositionImage();
             RanDomImage();
+            //Countdown.Completed += new EventHandler(Story_completed);
         }
+
+        //private void Story_completed(object sender, EventArgs e)
+        //{
+        //    //timeout.Visibility = Visibility.Visible;
+        //    //Countdown.Begin(this, true);
+        //    Countdown.Remove(this);
+        //    flat = false;
+        //    //if(flat = false)
+        //    //{
+        //    //    Countdown.Begin(this, true);
+        //    //}
+            
+        //}
 
         //private void CutImage(Int32Rect obj)
         //{
@@ -204,7 +220,7 @@ namespace PuzzleGame.Views.Game2
             Panel.SetZIndex(img5, 5);
             Panel.SetZIndex(img6, 6);
             Panel.SetZIndex(img7, 7);
-            Panel.SetZIndex(img8, 8);
+            Panel.SetZIndex(voi, 8);
             Panel.SetZIndex(img9, 9);
             if (l != null)
             {
@@ -264,13 +280,13 @@ namespace PuzzleGame.Views.Game2
                     PositionInImage = e.GetPosition(img7);
                     Panel.SetZIndex(img7, 10);
                 }
-                else if (l.Name == "img8")
+                else if (l.Name == "voi")
                 {
                     currentPositionImage = _BasePoint8;
-                    img8.CaptureMouse();
+                    voi.CaptureMouse();
                     moving = true;
-                    PositionInImage = e.GetPosition(img8);
-                    Panel.SetZIndex(img8, 10);
+                    PositionInImage = e.GetPosition(voi);
+                    Panel.SetZIndex(voi, 10);
                 }
                 else if (l.Name == "img9")
                 {
@@ -346,13 +362,13 @@ namespace PuzzleGame.Views.Game2
                     _BasePoint7 = pointtemp;
                     img7.ReleaseMouseCapture();
                 }
-                else if (l.Name == "img8")
+                else if (l.Name == "voi")
                 {
                     temp = 8;
-                    MouseUpImage(_BasePoint8, img8);
+                    MouseUpImage(_BasePoint8, voi);
                     LocationImage(_BasePoint8);
                     _BasePoint8 = pointtemp;
-                    img8.ReleaseMouseCapture();
+                    voi.ReleaseMouseCapture();
                 }
                 else if (l.Name == "img9")
                 {
@@ -379,8 +395,8 @@ namespace PuzzleGame.Views.Game2
                     Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                     playMedia.Open(uri); // inserting the URI to the media player
                     playMedia.Play();
-                    Countdown.Stop(this);
-                    Countdown.Remove(this);
+                    //Countdown.Stop(this);
+                    //Countdown.Remove(this);
                     //MessageBox.Show("Win");   
                     //checkwin nè kk thieu border thong bao;
 
@@ -436,7 +452,7 @@ namespace PuzzleGame.Views.Game2
                     MouseMoveImage(_BasePoint7, e);
                     _BasePoint7 = pointtemp;
                 }
-                else if (l.Name == "img8")
+                else if (l.Name == "voi")
                 {
                     temp = 8;
                     MouseMoveImage(_BasePoint8, e);
@@ -720,6 +736,8 @@ namespace PuzzleGame.Views.Game2
 
         private void rePlay(object sender, RoutedEventArgs e)
         {
+            
+            
             RanDomImage();
             shadow1.Opacity = 100;
             shadow2.Opacity = 100;
@@ -731,27 +749,37 @@ namespace PuzzleGame.Views.Game2
             shadow8.Opacity = 100;
             shadow9.Opacity = 100;
             report.Visibility = Visibility.Collapsed;
-            Countdown.Stop(this);
-            Resume1.Visibility = Visibility.Collapsed;
+           
+            //Countdown.Remove(this);
+            
+            //Countdown.Begin(this);
+            //Countdown.Begin(this, true);
+
+
+
+
+
+
+            //Resume1.Visibility = Visibility.Collapsed;
         }
 
 
 
-        private void Pause1_Click(object sender, RoutedEventArgs e)
-        {
-            Pause1.Visibility = Visibility.Collapsed;
-            Resume1.Visibility = Visibility.Visible;
-            canvas1.IsEnabled = false;
-            canvas1.Focusable = false;
-        }
+        //private void Pause1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Pause1.Visibility = Visibility.Collapsed;
+        //    Resume1.Visibility = Visibility.Visible;
+        //    canvas1.IsEnabled = false;
+        //    canvas1.Focusable = false;
+        //}
 
-        private void Resume1_Click(object sender, RoutedEventArgs e)
-        {
-            Resume1.Visibility = Visibility.Collapsed;
-            Pause1.Visibility = Visibility.Visible;
-            canvas1.IsEnabled = true;
-            canvas1.Focusable = true;
-        }
+        //private void Resume1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Resume1.Visibility = Visibility.Collapsed;
+        //    Pause1.Visibility = Visibility.Visible;
+        //    canvas1.IsEnabled = true;
+        //    canvas1.Focusable = true;
+        //}
 
         //private void Hint(object sender, MouseButtonEventArgs e)
         //{
@@ -767,7 +795,7 @@ namespace PuzzleGame.Views.Game2
         private void getHint(object sender, RoutedEventArgs e)
         {
             time = 2;
-            timeout.Visibility = Visibility.Visible;
+            gethint.Visibility = Visibility.Visible;
             canvas1.Opacity = 0.2;
             canvas1.IsEnabled = false;
             timer = new DispatcherTimer();
@@ -786,7 +814,7 @@ namespace PuzzleGame.Views.Game2
             else
             {
                 timer.Stop();
-                timeout.Visibility = Visibility.Collapsed;
+                gethint.Visibility = Visibility.Collapsed;
                 canvas1.Opacity = 1;
                 canvas1.IsEnabled = true;
             }
@@ -801,9 +829,11 @@ namespace PuzzleGame.Views.Game2
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            Countdown.Stop(this);
-            Countdown.Remove(this);
+            //Countdown.Stop(this);
+            //Countdown.Remove(this);
         }
+
+       
     }
 }
 

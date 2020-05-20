@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\
+D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\obj\Debug\
 PuzzleGame
 none
 false
 DEBUG;TRACE
-F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\App.xaml
-17188378406
+D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\App.xaml
+171430978352
 91967085408
-321405600894
-21-1428234560
-MainWindow.xaml;Views\Game2\Round1.xaml;Views\Game2\Round2.xaml;Views\Game2\Round3.xaml;Views\Game2\Round4.xaml;Views\Game2\Round5.xaml;Views\Game2\Round6.xaml;Views\Game2\UserControl1.xaml;Views\Man1.xaml;Views\Man2.xaml;Views\Man3.xaml;Views\Man4.xaml;Views\Man5.xaml;Views\Man6.xaml;Views\Man7.xaml;Views\Menu.xaml;Views\ViewMain.xaml;
+33283985599
+21-1418547907
+MainWindow.xaml;Views\Game2\Round1.xaml;Views\Game2\Round2.xaml;Views\Game2\Round3.xaml;Views\Game2\Round4.xaml;Views\Game2\Round5.xaml;Views\Game2\Round6.xaml;Views\Game2\UserControl1.xaml;Views\Instruction.xaml;Views\Man1.xaml;Views\Man2.xaml;Views\Man3.xaml;Views\Man4.xaml;Views\Man5.xaml;Views\Man6.xaml;Views\Menu.xaml;Views\ViewMain.xaml;
 
-False
+True
 

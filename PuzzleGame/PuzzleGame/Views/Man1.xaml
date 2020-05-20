@@ -13,7 +13,7 @@
         <ImageBrush x:Key="btnLoginImgClick" />-->
         
     </UserControl.Resources>
-    <UserControl.Triggers>
+    <!--<UserControl.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard x:Name="begin1"  >
                 <Storyboard x:Name="Countdown" >
@@ -32,7 +32,7 @@
         <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
             <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
         </EventTrigger>
-    </UserControl.Triggers>
+    </UserControl.Triggers>-->
     <Grid Background="AliceBlue" x:Name="GridRound1" >
         <Grid.Resources>
             <Style TargetType="Button"  x:Key="btnLoginStyle">
@@ -245,7 +245,7 @@
                
             
         </Canvas>
-            <Border Height="30" Width="302" BorderBrush="Orange"  Margin="420 15 400 720" BorderThickness="2"  >
+            <!--<Border Height="30" Width="302" BorderBrush="Orange"  Margin="420 15 400 720" BorderThickness="2"  >
                 <Grid x:Name="Time"
                   Width="300" Height="30" 
                   VerticalAlignment="Center" 
@@ -265,16 +265,16 @@
 
 
                 </Grid>
-            </Border>
+            </Border>-->
 
 
 
-            <Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Margin="860 0 430 700 " Click="Pause1_Click" >
+            <!--<Button x:Name="Pause1" Style="{StaticResource btnLoginStyle}" Margin="860 0 430 700 " Click="Pause1_Click" >
                 <Image Source="/Images/Background/pause.png"></Image>
             </Button>
             <Button x:Name="Resume1" Style="{StaticResource btnLoginStyle}" Margin="860 0 430 700 "   Click="Resume1_Click" Visibility="Collapsed">
                 <Image Source="/Images/Background/Resume.png"></Image>
-            </Button>
+            </Button>-->
         </Grid>
 
         <Grid x:Name="oc">
@@ -324,7 +324,7 @@
 
 
             </Grid>
-            <Grid Width="250" Height="250" x:Name="timeout"  Visibility="Collapsed" >
+            <!--<Grid Width="250" Height="250" x:Name="timeout"  Visibility="Collapsed" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="7*"></RowDefinition>
                     <RowDefinition Height="3*"></RowDefinition>
@@ -341,7 +341,7 @@
 
                 </Border>
                 <Grid Grid.Row="0">
-                    <!--<TextBlock  FontSize="35" FontWeight="DemiBold" FontFamily="Constantia" Foreground="Red" VerticalAlignment="Top" HorizontalAlignment="Center">Hết Giờ</TextBlock>-->
+                    --><!--<TextBlock  FontSize="35" FontWeight="DemiBold" FontFamily="Constantia" Foreground="Red" VerticalAlignment="Top" HorizontalAlignment="Center">Hết Giờ</TextBlock>--><!--
                     <Image Margin="10 30 10 0" Source="/Images/Background/timeout.png"   ></Image>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -368,7 +368,7 @@
                         </Button.Resources>
                     </Button>
                 </Grid>
-            </Grid>
+            </Grid>-->
         </Grid>
     </Grid>
 </UserControl>

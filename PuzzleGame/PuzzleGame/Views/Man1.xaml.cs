@@ -32,14 +32,7 @@ namespace PuzzleGame.Views
         private Point BasePoint4 = new Point(450, 650);
         private double DeltaX = 0.0;
         private double DeltaY = 0.0;
-        private double DeltaX1 = 0.0;
-        private double DeltaY1 = 0.0;
-        private double DeltaX2 = 0.0;
-        private double DeltaY2 = 0.0;
-        private double DeltaX3 = 0.0;
-        private double DeltaY3 = 0.0;
-        private double DeltaX4 = 0.0;
-        private double DeltaY4 = 0.0;
+       
         private bool moving = false;
         private Point PositionImage;
         private static bool gaucho = false;
@@ -59,29 +52,29 @@ namespace PuzzleGame.Views
         {
             InitializeComponent();
             this.DataContext = this;
-            Countdown.Completed += new EventHandler(Story_completed);
-
+            //Countdown.Completed += new EventHandler(Story_completed);
+            RanDomImg();
 
 
 
 
         }
-        private void Story_completed(object sender, EventArgs e)
-        {
-            if (gaucho == false || hovan == false || thoxam == false || khinau == false || voixam == false )
-            {
-                timeout.Visibility = Visibility.Visible;
+        //private void Story_completed(object sender, EventArgs e)
+        //{
+        //    if (gaucho == false || hovan == false || thoxam == false || khinau == false || voixam == false )
+        //    {
+        //        timeout.Visibility = Visibility.Visible;
                
-                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
-                playMedia.Open(uri); // inserting the URI to the media player
-                playMedia.Play();
-                if(checkpoint == true)
-                {
-                    playMedia.Stop();
-                }
-            }
-            Countdown.Remove(this);
-        }
+        //        Uri uri = new Uri(@"pack://application:,,,/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+        //        playMedia.Open(uri); // inserting the URI to the media player
+        //        playMedia.Play();
+        //        if(checkpoint == true)
+        //        {
+        //            playMedia.Stop();
+        //        }
+        //    }
+        //    Countdown.Remove(this);
+        //}
 
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -93,8 +86,8 @@ namespace PuzzleGame.Views
             khinau = false;
             thoxam = false;
             checkpoint = true;
-            Countdown.Stop(this);
-            Countdown.Remove(this);
+            //Countdown.Stop(this);
+            //Countdown.Remove(this);
            
         }
         
@@ -110,41 +103,77 @@ namespace PuzzleGame.Views
         }
         public double XPosition1
         {
-            get { return BasePoint1.X + DeltaX1; }
+            get { return BasePoint1.X + DeltaX; }
         }
 
         public double YPosition1
         {
-            get { return BasePoint1.Y + DeltaY1; }
+            get { return BasePoint1.Y + DeltaY; }
         }
         public double XPosition2
         {
-            get { return BasePoint2.X + DeltaX2; }
+            get { return BasePoint2.X + DeltaX; }
         }
 
         public double YPosition2
         {
-            get { return BasePoint2.Y + DeltaY2; }
+            get { return BasePoint2.Y + DeltaY; }
         }
         public double XPosition3
         {
-            get { return BasePoint3.X + DeltaX3; }
+            get { return BasePoint3.X + DeltaX; }
         }
 
         public double YPosition3
         {
-            get { return BasePoint3.Y + DeltaY3; }
+            get { return BasePoint3.Y + DeltaY; }
         }
         public double XPosition4
         {
-            get { return BasePoint4.X + DeltaX4; }
+            get { return BasePoint4.X + DeltaX; }
         }
 
         public double YPosition4
         {
-            get { return BasePoint4.Y + DeltaY4; }
+            get { return BasePoint4.Y + DeltaY; }
         }
-        
+
+        private void RanDomImg()
+        {
+            List<string> Images = new List<string>()
+            {
+                "/Images/Game1/Round1/gau2.png","/Images/Game1/Round1/tho2.png" ,"/Images/Game1/Round1/khi2.png" ,"/Images/Game1/Round1/voi2.png",
+                "/Images/Game1/Round1/ho2.png"  ,"/Images/Game1/Round1/sutu2.png"  ,"/Images/Game1/Round1/cho2.png"
+            };
+            List<string> ImagesBong = new List<string>()
+            {
+                "/Images/Game1/Round1/gau1.png","/Images/Game1/Round1/tho.png" ,"/Images/Game1/Round1/khi.png" ,"/Images/Game1/Round1/voi.png",
+                "/Images/Game1/Round1/ho.png"  ,"/Images/Game1/Round1/sutu.png"  ,"/Images/Game1/Round1/cho.png"
+            };
+
+            List<int> lstIndex = new List<int>();
+            Random rnd = new Random();
+            for(int i = 0; i < 5; i++)
+            {
+                int index = 0;
+                do
+                {
+                    index = rnd.Next(0, 6);
+                } while (lstIndex.Exists(x => x == index) == true);
+                lstIndex.Add(index);
+            }
+            gau2.Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
+            ho2.Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
+            voi2.Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
+            khi2.Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
+            tho2.Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
+            gau1.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[0]], UriKind.RelativeOrAbsolute));
+            ho.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[1]], UriKind.RelativeOrAbsolute));
+            voi.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[2]], UriKind.RelativeOrAbsolute));
+            khi.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[3]], UriKind.RelativeOrAbsolute));
+            tho.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[4]], UriKind.RelativeOrAbsolute));
+
+        }
         private void Feast_MouseDown(object sender, MouseButtonEventArgs e)
         {
           
@@ -252,100 +281,100 @@ namespace PuzzleGame.Views
                     BasePoint.Y += DeltaY;
                     RaisePropertyChanged("XPosition");
                     RaisePropertyChanged("YPosition");
-                    if ((((BasePoint.X - 50) < x) && (BasePoint.X + 50) > x) && (((BasePoint.Y - 50) < y) && ((BasePoint.Y + 50) > y)))
-                    {
-                        gau.Visibility = Visibility.Visible;
-                        gau1.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        gau.Visibility = Visibility.Hidden;
-                        gau1.Visibility = Visibility.Visible;
-                    }
+                    //if ((((BasePoint.X - 50) < x) && (BasePoint.X + 50) > x) && (((BasePoint.Y - 50) < y) && ((BasePoint.Y + 50) > y)))
+                    //{
+                    //    gau.Visibility = Visibility.Visible;
+                    //    gau1.Visibility = Visibility.Hidden;
+                    //}
+                    //else
+                    //{
+                    //    gau.Visibility = Visibility.Hidden;
+                    //    gau1.Visibility = Visibility.Visible;
+                    //}
                     
                 }
                 if (l.Name == "ho2" )
                 {
                     Point p = e.GetPosition(null);
-                    DeltaX1 = p.X - BasePoint1.X - PositionImage.X;
-                    DeltaY1 = p.Y - BasePoint1.Y - PositionImage.Y;
-                    BasePoint1.X += DeltaX1;
-                    BasePoint1.Y += DeltaY1;
+                    DeltaX = p.X - BasePoint1.X - PositionImage.X;
+                    DeltaY = p.Y - BasePoint1.Y - PositionImage.Y;
+                    BasePoint1.X += DeltaX;
+                    BasePoint1.Y += DeltaY;
                     RaisePropertyChanged("XPosition1");
                     RaisePropertyChanged("YPosition1");
-                    if ((((BasePoint1.X - 50) < m) && (BasePoint1.X + 50) > m) && (((BasePoint1.Y - 50) < n) && ((BasePoint1.Y + 50) > n)))
-                    {
-                        ho1.Visibility = Visibility.Visible;
-                        ho.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        ho1.Visibility = Visibility.Hidden;
-                        ho.Visibility = Visibility.Visible;
-                    }
+                    //if ((((BasePoint1.X - 50) < m) && (BasePoint1.X + 50) > m) && (((BasePoint1.Y - 50) < n) && ((BasePoint1.Y + 50) > n)))
+                    //{
+                    //    ho1.Visibility = Visibility.Visible;
+                    //    ho.Visibility = Visibility.Hidden;
+                    //}
+                    //else
+                    //{
+                    //    ho1.Visibility = Visibility.Hidden;
+                    //    ho.Visibility = Visibility.Visible;
+                    //}
 
                 }
                 if (l.Name == "voi2")
                 {
                     Point p = e.GetPosition(null);
-                    DeltaX2 = p.X - BasePoint2.X - PositionImage.X;
-                    DeltaY2 = p.Y - BasePoint2.Y - PositionImage.Y;
-                    BasePoint2.X += DeltaX2;
-                    BasePoint2.Y += DeltaY2;
+                    DeltaX = p.X - BasePoint2.X - PositionImage.X;
+                    DeltaY = p.Y - BasePoint2.Y - PositionImage.Y;
+                    BasePoint2.X += DeltaX;
+                    BasePoint2.Y += DeltaY;
                     RaisePropertyChanged("XPosition2");
                     RaisePropertyChanged("YPosition2");
-                    if ((((BasePoint2.X - 50) < v) && (BasePoint2.X + 50) > v) && (((BasePoint2.Y - 50) < o) && ((BasePoint2.Y + 50) > o)))
-                    {
-                        voi1.Visibility = Visibility.Visible;
-                        voi.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        voi1.Visibility = Visibility.Hidden;
-                        voi.Visibility = Visibility.Visible;
-                    }
+                    //if ((((BasePoint2.X - 50) < v) && (BasePoint2.X + 50) > v) && (((BasePoint2.Y - 50) < o) && ((BasePoint2.Y + 50) > o)))
+                    //{
+                    //    voi1.Visibility = Visibility.Visible;
+                    //    voi.Visibility = Visibility.Hidden;
+                    //}
+                    //else
+                    //{
+                    //    voi1.Visibility = Visibility.Hidden;
+                    //    voi.Visibility = Visibility.Visible;
+                    //}
 
                 }
                 if (l.Name == "khi2")
                 {
                     Point p = e.GetPosition(null);
-                    DeltaX3 = p.X - BasePoint3.X - PositionImage.X;
-                    DeltaY3 = p.Y - BasePoint3.Y - PositionImage.Y;
-                    BasePoint3.X += DeltaX3;
-                    BasePoint3.Y += DeltaY3;
+                    DeltaX = p.X - BasePoint3.X - PositionImage.X;
+                    DeltaY = p.Y - BasePoint3.Y - PositionImage.Y;
+                    BasePoint3.X += DeltaX;
+                    BasePoint3.Y += DeltaY;
                     RaisePropertyChanged("XPosition3");
                     RaisePropertyChanged("YPosition3");
-                    if ((((BasePoint3.X - 50) < k) && (BasePoint3.X + 50) > k) && (((BasePoint3.Y - 50) < h) && ((BasePoint3.Y + 50) > h)))
-                    {
-                        khi1.Visibility = Visibility.Visible;
-                        khi.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        khi1.Visibility = Visibility.Hidden;
-                        khi.Visibility = Visibility.Visible;
-                    }
+                    //if ((((BasePoint3.X - 50) < k) && (BasePoint3.X + 50) > k) && (((BasePoint3.Y - 50) < h) && ((BasePoint3.Y + 50) > h)))
+                    //{
+                    //    khi1.Visibility = Visibility.Visible;
+                    //    khi.Visibility = Visibility.Hidden;
+                    //}
+                    //else
+                    //{
+                    //    khi1.Visibility = Visibility.Hidden;
+                    //    khi.Visibility = Visibility.Visible;
+                    //}
 
                 }
                 if (l.Name == "tho2")
                 {
                     Point p = e.GetPosition(null);
-                    DeltaX4 = p.X - BasePoint4.X - PositionImage.X;
-                    DeltaY4 = p.Y - BasePoint4.Y - PositionImage.Y;
-                    BasePoint4.X += DeltaX4;
-                    BasePoint4.Y += DeltaY4;
+                    DeltaX = p.X - BasePoint4.X - PositionImage.X;
+                    DeltaY = p.Y - BasePoint4.Y - PositionImage.Y;
+                    BasePoint4.X += DeltaX;
+                    BasePoint4.Y += DeltaY;
                     RaisePropertyChanged("XPosition4");
                     RaisePropertyChanged("YPosition4");
-                    if ((((BasePoint4.X - 50) < t) && (BasePoint4.X + 50) > t) && (((BasePoint4.Y - 50) < u) && ((BasePoint4.Y + 50) > u)))
-                    {
-                        tho1.Visibility = Visibility.Visible;
-                        tho.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        tho1.Visibility = Visibility.Hidden;
-                        tho.Visibility = Visibility.Visible;
-                    }
+                    //if ((((BasePoint4.X - 50) < t) && (BasePoint4.X + 50) > t) && (((BasePoint4.Y - 50) < u) && ((BasePoint4.Y + 50) > u)))
+                    //{
+                    //    tho1.Visibility = Visibility.Visible;
+                    //    tho.Visibility = Visibility.Hidden;
+                    //}
+                    //else
+                    //{
+                    //    tho1.Visibility = Visibility.Hidden;
+                    //    tho.Visibility = Visibility.Visible;
+                    //}
 
                 }
 
@@ -356,10 +385,6 @@ namespace PuzzleGame.Views
        
         private void Feast_MouseUp(object sender, MouseButtonEventArgs e)
         {
-           
-            Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Ting.mp3"); 
-          
-         
             double m = Canvas.GetLeft(ho);
             double n = Canvas.GetTop(ho);
             double x = Canvas.GetLeft(gau1);
@@ -393,8 +418,9 @@ namespace PuzzleGame.Views
                         gau.Visibility = Visibility.Hidden;
                                              
                         gaucho = true;
-                        
-                        playMedia.Open(ting);
+                        Uri uri = new Uri(@"..\..\Sound\chucmung.mp3", UriKind.Relative);
+                        playMedia.Open(uri);
+
                         playMedia.Play();
                         
                         bantay1.Visibility = Visibility.Hidden;
@@ -404,10 +430,10 @@ namespace PuzzleGame.Views
                 if(l.Name == "ho2")
                 {
                     ho2.ReleaseMouseCapture();
-                    BasePoint1.X += DeltaX1;
-                    BasePoint1.Y += DeltaY1;
-                    DeltaX1 = 0.0;
-                    DeltaY1 = 0.0;
+                    BasePoint1.X += DeltaX;
+                    BasePoint1.Y += DeltaY;
+                    DeltaX = 0.0;
+                    DeltaY = 0.0;
                     moving = false;
                     if ((((BasePoint1.X - 50) < m) && (BasePoint1.X + 50) > m) && (((BasePoint1.Y - 50) < n) && ((BasePoint1.Y + 50) > n)))
                     {
@@ -418,18 +444,17 @@ namespace PuzzleGame.Views
                         ho1.Visibility = Visibility.Hidden;
                         ho2.Visibility = Visibility.Visible;
                         hovan = true;
-                        playMedia.Open(ting);
-                        playMedia.Play();
+                        playMedia.Open(new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative));
 
                     }
                 }
                 if (l.Name == "voi2")
                 {
                     voi2.ReleaseMouseCapture();
-                    BasePoint2.X += DeltaX2;
-                    BasePoint2.Y += DeltaY2;
-                    DeltaX2 = 0.0;
-                    DeltaY2 = 0.0;
+                    BasePoint2.X += DeltaX;
+                    BasePoint2.Y += DeltaY;
+                    DeltaX = 0.0;
+                    DeltaY = 0.0;
                     moving = false;
                     if ((((BasePoint2.X - 50) < v) && (BasePoint2.X + 50) > v) && (((BasePoint2.Y - 50) < o) && ((BasePoint2.Y + 50) > o)))
                     {
@@ -440,8 +465,7 @@ namespace PuzzleGame.Views
                         voi1.Visibility = Visibility.Hidden;
                         voi2.Visibility = Visibility.Visible;
                         voixam = true;
-                        playMedia.Open(ting);
-                        playMedia.Play();
+                        playMedia.Open(new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative));
 
                     }
                    
@@ -449,10 +473,10 @@ namespace PuzzleGame.Views
                 if (l.Name == "khi2")
                 {
                     khi2.ReleaseMouseCapture();
-                    BasePoint3.X += DeltaX3;
-                    BasePoint3.Y += DeltaY3;
-                    DeltaX3 = 0.0;
-                    DeltaY3 = 0.0;
+                    BasePoint3.X += DeltaX;
+                    BasePoint3.Y += DeltaY;
+                    DeltaX = 0.0;
+                    DeltaY = 0.0;
                     moving = false;
                     if ((((BasePoint3.X - 50) < k) && (BasePoint3.X + 50) > k) && (((BasePoint3.Y - 50) < h) && ((BasePoint3.Y + 50) > h)))
                     {
@@ -463,18 +487,17 @@ namespace PuzzleGame.Views
                         khi1.Visibility = Visibility.Hidden;
                         khi2.Visibility = Visibility.Visible;
                         khinau = true;
-                        playMedia.Open(ting);
-                        playMedia.Play();
+                        playMedia.Open(new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative));
 
                     }
                 }
                 if (l.Name == "tho2")
                 {
                     tho2.ReleaseMouseCapture();
-                    BasePoint4.X += DeltaX4;
-                    BasePoint4.Y += DeltaY4;
-                    DeltaX4 = 0.0;
-                    DeltaY4 = 0.0;
+                    BasePoint4.X += DeltaX;
+                    BasePoint4.Y += DeltaY;
+                    DeltaX = 0.0;
+                    DeltaY = 0.0;
                     moving = false;
                     if ((((BasePoint4.X - 50) < t) && (BasePoint4.X + 50) > t) && (((BasePoint4.Y - 50) < u) && ((BasePoint4.Y + 50) > u)))
                     {
@@ -485,8 +508,7 @@ namespace PuzzleGame.Views
                         tho1.Visibility = Visibility.Hidden;
                         tho.Visibility = Visibility.Visible;
                         thoxam = true;
-                        playMedia.Open(ting);
-                        playMedia.Play();
+                        playMedia.Open(new Uri(@"\Sound\Ting.mp3", UriKind.Relative));
 
                     }
                 }
@@ -498,12 +520,12 @@ namespace PuzzleGame.Views
             {
                 
                 report.Visibility = Visibility.Visible;
-                Pause1.IsEnabled = false;
-                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                //Pause1.IsEnabled = false;
+                Uri uri = new Uri(@"..\..\Sound\chucmung.mp3", UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                 playMedia.Open(uri); // inserting the URI to the media player
                 playMedia.Play();
-                Countdown.Stop(this);
-                Countdown.Remove(this);
+                //Countdown.Stop(this);
+                //Countdown.Remove(this);
              
 
                 /*new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/PuzzleGame;/Images/Round2/carrot.png")));*/
@@ -524,10 +546,11 @@ namespace PuzzleGame.Views
 
         private void Replay_Click(object sender, RoutedEventArgs e)
         {
-            Countdown.Begin(this, true);
-            Pause1.IsEnabled = true;
+            RanDomImg();
+            //Countdown.Begin(this, true);
+            //Pause1.IsEnabled = true;
             report.Visibility = Visibility.Hidden;
-            timeout.Visibility = Visibility.Collapsed;
+            //timeout.Visibility = Visibility.Collapsed;
             playMedia.Stop();
             replay = true;
             if (replay == true)
@@ -576,13 +599,16 @@ namespace PuzzleGame.Views
        
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            var filename = @"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\board.png";
-           Global.menutest.imground2.ImageSource = new BitmapImage(new Uri(filename, UriKind.Relative));
-            Pause1.IsEnabled = true;
+           // var filename = @"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\board.png";
+           //Global.menutest.imground2.ImageSource = new BitmapImage(new Uri(filename, UriKind.Relative));
+            //Pause1.IsEnabled = true;
             playMedia.Stop();
             Global.dem = 1;
+            //Man2 man2 = new Man2();
+            //Global.menutest.oc.Children.Add(man2);
             //Global.menutest.round2.Width = 300;
-            //Global.menutest.imground2.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\PuzzleGame\PuzzleGame\Images\Background\board.png"));
+
+            Global.menutest.imground2.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\Images\Game1\Round2\carrot.png"));
             this.Visibility = Visibility.Collapsed;
             
             gaucho = false;
@@ -590,25 +616,27 @@ namespace PuzzleGame.Views
             voixam = false;
             khinau = false;
             thoxam = false;
-            
+            Man2 man2 = new Man2();
+            Global.menutest.oc.Children.Add(man2);
+           
 
         }
 
-        private void Pause1_Click(object sender, RoutedEventArgs e)
-        {
-            Pause1.Visibility = Visibility.Collapsed;
-            Resume1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = false;
-            Canvas1.Focusable = false;
-        }
+        //private void Pause1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //Pause1.Visibility = Visibility.Collapsed;
+        //    //Resume1.Visibility = Visibility.Visible;
+        //    Canvas1.IsEnabled = false;
+        //    Canvas1.Focusable = false;
+        //}
 
-        private void Resume1_Click(object sender, RoutedEventArgs e)
-        {
-            Resume1.Visibility = Visibility.Collapsed;
-            Pause1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = true;
-            Canvas1.Focusable = true;
-        }
+        //private void Resume1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Resume1.Visibility = Visibility.Collapsed;
+        //    Pause1.Visibility = Visibility.Visible;
+        //    Canvas1.IsEnabled = true;
+        //    Canvas1.Focusable = true;
+        //}
 
 
 

@@ -97,6 +97,28 @@
                         </Button.Resources>
                     </Button>
                 </Border>
+                <Border CornerRadius="5" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15"  >
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#FF9966" Offset="0" />
+                            <GradientStop Color="#CC9966" Offset="1.25" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game3" FontWeight="Bold" Click="Game3_Click" >
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Height" Value="50px"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Border>
 
             </StackPanel>
         </Grid>
@@ -104,7 +126,9 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Images/Background/boardmenu.png" ></ImageBrush>
             </Grid.Background>
-            <StackPanel Margin="170 240 120 30" x:Name="stproundgame1" Visibility="Visible" >
+            <Grid Margin="170 240 120 30">
+                
+            <StackPanel  x:Name="stproundgame1" Visibility="Collapsed" >
                 <StackPanel Orientation="Horizontal" Height="220" Margin="0 30 0 0">
                     <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
@@ -130,9 +154,9 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border MouseDown="Border_MouseEnter"  >
+                        <Border x:Name="round1" MouseDown="Border_MouseEnter"  >
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Game1/Round1/tho2.png"></ImageBrush>
+                                    <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -155,6 +179,63 @@
                                                 FontStretch="UltraExpanded"
                                                 FontStyle="Italic"
                                                 FontWeight="UltraBold" >1</TextBlock>
+                            </Border>
+                        </Border>
+                       
+                    </Border>
+                    
+                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
+                        
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+
+                        <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>-->
+                       
+                        <Border x:Name="round2" MouseDown="round2_MouseDown" >
+                            <Border.Background>
+                                <ImageBrush x:Name="imground2"  ImageSource="/Images/Background/lock.png"></ImageBrush>
+                            </Border.Background>
+                           
+                            <!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>-->
+
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                                <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >2</TextBlock>
                             </Border>
                         </Border>
                        
@@ -183,62 +264,9 @@
                             </Button.Resources>
                             
                         </Button>-->
-                        <Border x:Name="round2" MouseDown="round2_MouseDown" >
-                            <Border.Background>
-                                <ImageBrush x:Name="imground2"  ImageSource="/Images/Background/lock.png"></ImageBrush>
-                            </Border.Background>
-                            <!--<Border.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Width" Value="210" ></Setter>
-                                            <Setter Property="Height" Value="130" ></Setter>
-                                        </Trigger>
-
-                                    </Style.Triggers>
-                                </Style>
-                            </Border.Resources>-->
-
-                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
-                                <TextBlock  Foreground="BlanchedAlmond" 
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"
-                                                FontFamily="Century Gothic"
-                                                FontSize="24"
-                                                FontStretch="UltraExpanded"
-                                                FontStyle="Italic"
-                                                FontWeight="UltraBold" >2</TextBlock>
-                            </Border>
-                        </Border>
-
-                    </Border>
-                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
-                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#FF9966" Offset="0" />
-                                <GradientStop Color="#CC9966" Offset="1.25" />
-                            </LinearGradientBrush>
-
-                        </Border.Background>
-
-                        <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
-                    Content="Game2" FontWeight="Bold"  >
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="true">
-                                            <Setter Property="Height" Value="110px"></Setter>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Resources>
-                            
-                        </Button>-->
                         <Border x:Name="round3" MouseDown="round3_MouseDown">
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                <ImageBrush x:Name="imground3" ImageSource="/Images/Background/lock.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -280,7 +308,7 @@
                        
                         <Border x:Name="round4" MouseDown="round4_MouseDown" >
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                <ImageBrush x:Name="imground4" ImageSource="/Images/Background/lock.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -333,7 +361,7 @@
                         </Button>-->
                         <Border x:Name="round5" MouseDown="round5_MouseDown" >
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                <ImageBrush x:Name="imground5"  ImageSource="/Images/Background/lock.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -386,7 +414,7 @@
                         </Button>-->
                         <Border  x:Name="round6" MouseDown="round6_MouseDown">
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                <ImageBrush x:Name="imground6" ImageSource="/Images/Background/lock.png"></ImageBrush>
                             </Border.Background>
                             <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -416,6 +444,60 @@
                 </StackPanel>
                
             </StackPanel>
+                <!--<Border x:Name="clock2"  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="200 10 210 225"   >
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#FF9966" Offset="0" />
+                            <GradientStop Color="#CC9966" Offset="1.25" />
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+
+                    --><!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>--><!--
+                    <Border x:Name="round31" MouseDown="round3_MouseDown">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
+                        </Border.Background>
+                        --><!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>--><!--
+
+                        <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                            <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >2</TextBlock>
+                        </Border>
+                    </Border>
+
+                </Border>-->
+            </Grid>
             <StackPanel Margin="170 240 120 30" x:Name="stproundgame2" Visibility="Collapsed" >
                 <StackPanel Orientation="Horizontal" Height="220" Margin="0 30 0 0">
                     <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
@@ -728,7 +810,351 @@
                 </StackPanel>
               
             </StackPanel>
+            <StackPanel Margin="170 240 120 30" x:Name="stproundgame3" Visibility="Visible" >
+                <StackPanel Orientation="Horizontal" Height="220" Margin="0 30 0 0">
+                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+
+                        <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>-->
+                        <Border x:Name="round3_1" MouseDown="round3_1_MouseDown"  >
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
+                            </Border.Background>
+                            <!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>-->
+
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                                <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >1</TextBlock>
+                            </Border>
+                        </Border>
+
+                    </Border>
+
+                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
+
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+
+                        <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>-->
+
+                        <Border x:Name="round3_2" MouseDown="round3_2_MouseDown" >
+                            <Border.Background>
+                                <ImageBrush x:Name="imground3_2"  ImageSource="/Images/Background/lock.png"></ImageBrush>
+                            </Border.Background>
+
+                            <!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>-->
+
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                                <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >2</TextBlock>
+                            </Border>
+                        </Border>
+
+                    </Border>
+                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+
+                        <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>-->
+                        <Border x:Name="round3_3" MouseDown="round3_3_MouseDown">
+                            <Border.Background>
+                                <ImageBrush x:Name="imground3_3" ImageSource="/Images/Background/lock.png"></ImageBrush>
+                            </Border.Background>
+                            <!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>-->
+
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                                <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >3</TextBlock>
+                            </Border>
+                        </Border>
+
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="220">
+                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+
+
+                        <Border x:Name="round3_4" MouseDown="round3_4_MouseDown" >
+                            <Border.Background>
+                                <ImageBrush x:Name="imground3_4" ImageSource="/Images/Background/lock.png"></ImageBrush>
+                            </Border.Background>
+                            <!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>-->
+
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                                <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >4</TextBlock>
+                            </Border>
+                        </Border>
+
+                    </Border>
+                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+
+                        <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>-->
+                        <Border x:Name="round3_5" MouseDown="round3_5_MouseDown" >
+                            <Border.Background>
+                                <ImageBrush x:Name="imground3_5"  ImageSource="/Images/Background/lock.png"></ImageBrush>
+                            </Border.Background>
+                            <!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>-->
+
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                                <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >5</TextBlock>
+                            </Border>
+                        </Border>
+
+                    </Border>
+                    <Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 0"   >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+
+                        <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>-->
+                        <Border  x:Name="round3_6" MouseDown="round3_6_MouseDown">
+                            <Border.Background>
+                                <ImageBrush x:Name="imground3_6" ImageSource="/Images/Background/lock.png"></ImageBrush>
+                            </Border.Background>
+                            <!--<Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Width" Value="210" ></Setter>
+                                            <Setter Property="Height" Value="130" ></Setter>
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>-->
+
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
+                                <TextBlock  Foreground="BlanchedAlmond" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Century Gothic"
+                                                FontSize="24"
+                                                FontStretch="UltraExpanded"
+                                                FontStyle="Italic"
+                                                FontWeight="UltraBold" >6</TextBlock>
+                            </Border>
+                        </Border>
+
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
         </Grid>
-        <Grid x:Name="oc" Grid.RowSpan="2" Grid.ColumnSpan="2"></Grid>
+        <Grid x:Name="oc" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <!--<Border  CornerRadius="5" Padding="2"  Width="200" Height="180" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 0 500"   >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF9966" Offset="0" />
+                        <GradientStop Color="#CC9966" Offset="1.25" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+                --><!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    Content="Game2" FontWeight="Bold"  >
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="110px"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Resources>
+                            
+                        </Button>--><!--
+               
+
+            </Border>-->
+        </Grid>
     </Grid>
 </UserControl>

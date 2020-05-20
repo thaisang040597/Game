@@ -96,26 +96,10 @@ namespace PuzzleGame.Views
         {
             InitializeComponent();
             this.DataContext = this;
-            Countdown.Completed += new EventHandler(Story_completed);
+           
         }
 
-        private void Story_completed(object sender, EventArgs e)
-        {
-            if (xeb == false || xecs == false || xef == false || xek == false || xet == false)
-            {
-                timeout.Visibility = Visibility.Visible;
-
-                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
-                playMedia.Open(uri); // inserting the URI to the media player
-                playMedia.Play();
-                if (checkpoint == true)
-                {
-                    playMedia.Stop();
-                }
-                Canvas1.IsEnabled = false;
-            }
-            Countdown.Remove(this);
-        }
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string prop)
@@ -132,15 +116,13 @@ namespace PuzzleGame.Views
             xecs = false;
             xeb = false;
             checkpoint = true;
-            Countdown.Stop(this);
-            Countdown.Remove(this);
+           
         }
 
         private void Replay_Click(object sender, RoutedEventArgs e)
         {
             Canvas1.IsEnabled = true;
-            Countdown.Begin(this, true);
-            Pause1.IsEnabled = true;
+          
             report.Visibility = Visibility.Hidden;
             timeout.Visibility = Visibility.Collapsed;
 
@@ -192,7 +174,7 @@ namespace PuzzleGame.Views
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            Pause1.IsEnabled = true;
+           
             playMedia.Stop();
 
             this.Visibility = Visibility.Collapsed;
@@ -204,21 +186,19 @@ namespace PuzzleGame.Views
             xet = false;
         }
 
-        private void Pause1_Click(object sender, RoutedEventArgs e)
-        {
-            Pause1.Visibility = Visibility.Collapsed;
-            Resume1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = false;
-            Canvas1.Focusable = false;
-        }
+        //private void Pause1_Click(object sender, RoutedEventArgs e)
+        //{
+            
+        //    Canvas1.IsEnabled = false;
+        //    Canvas1.Focusable = false;
+        //}
 
-        private void Resume1_Click(object sender, RoutedEventArgs e)
-        {
-            Resume1.Visibility = Visibility.Collapsed;
-            Pause1.Visibility = Visibility.Visible;
-            Canvas1.IsEnabled = true;
-            Canvas1.Focusable = true;
-        }
+        //private void Resume1_Click(object sender, RoutedEventArgs e)
+        //{
+           
+        //    Canvas1.IsEnabled = true;
+        //    Canvas1.Focusable = true;
+        //}
 
         private void Feast_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -351,12 +331,11 @@ namespace PuzzleGame.Views
             if (xet == true && xecs == true && xef == true && xek == true && xeb == true)
             {
                 report.Visibility = Visibility.Visible;
-                Pause1.IsEnabled = false;
+              
                 Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                 playMedia.Open(uri); // inserting the URI to the media player
                 playMedia.Play();
-                Countdown.Stop(this);
-                Countdown.Remove(this);
+              
             }
         }
 
