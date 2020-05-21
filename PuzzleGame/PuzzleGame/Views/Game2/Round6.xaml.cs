@@ -579,6 +579,8 @@ namespace PuzzleGame.Views.Game2
                     shadow15.Opacity = 0;
                     shadow16.Opacity = 0;
                     MessageBox.Show("Win");
+                    UCWin uCWin = new UCWin();
+                    uc.Children.Add(uCWin);
                 }
             }
         }
@@ -625,13 +627,13 @@ namespace PuzzleGame.Views.Game2
                     MouseMoveImage(_BasePoint6, e);
                     _BasePoint6 = pointtemp;
                 }
-                else if (l.Name == "ho")
+                else if (l.Name == "img7")
                 {
                     temp = 7;
                     MouseMoveImage(_BasePoint7, e);
                     _BasePoint7 = pointtemp;
                 }
-                else if (l.Name == "voi")
+                else if (l.Name == "img8")
                 {
                     temp = 8;
                     MouseMoveImage(_BasePoint8, e);

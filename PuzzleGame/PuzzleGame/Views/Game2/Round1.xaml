@@ -76,7 +76,7 @@
             </Style>
         </Grid.Resources>
         <Image Source="/Images/Game2/Round2.1/img.jpg"></Image>
-
+        
         <Grid ShowGridLines="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -370,6 +370,6 @@
 
 
         </Grid>
-
+        <Grid x:Name="uc"></Grid>
     </Grid>
 </UserControl>

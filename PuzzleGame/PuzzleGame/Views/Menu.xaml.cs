@@ -1,4 +1,5 @@
 ﻿using PuzzleGame.Views.Game2;
+using PuzzleGame.Views.Game3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -150,7 +151,8 @@ namespace PuzzleGame.Views
 
         private void round3_1_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Round1Game3 round1Game3 = new Round1Game3();
+            oc.Children.Add(round1Game3);
         }
 
         private void round3_2_MouseDown(object sender, MouseButtonEventArgs e)
@@ -165,7 +167,8 @@ namespace PuzzleGame.Views
 
         private void round3_4_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Round4Game3 round4Game3 = new Round4Game3();
+            oc.Children.Add(round4Game3);
         }
 
         private void round3_5_MouseDown(object sender, MouseButtonEventArgs e)

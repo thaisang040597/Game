@@ -381,5 +381,7 @@
                 </Image.Source>
             </Image>
         </Canvas>
+        <Grid x:Name="uc"></Grid>
     </Grid>
+    
 </UserControl>

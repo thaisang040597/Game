@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="PuzzleGame.Views.Game3.Round4Game3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PuzzleGame.Views.Game3"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" Loaded="Window_Loaded" d:DesignWidth="1366">
+    <Grid>
+        <Image Source="/Images/Game2/Round2.1/img.jpg"></Image>
+        <Canvas Name="cnBoard" Width="440" Height="440" Background="Black"></Canvas>
+    </Grid>
+</UserControl>

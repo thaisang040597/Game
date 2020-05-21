@@ -136,21 +136,8 @@ namespace PuzzleGame.Views.Game2
             InitBoard();
             CreatePositionImage();
             RanDomImage();
-            //Countdown.Completed += new EventHandler(Story_completed);
         }
 
-        //private void Story_completed(object sender, EventArgs e)
-        //{
-        //    //timeout.Visibility = Visibility.Visible;
-        //    //Countdown.Begin(this, true);
-        //    Countdown.Remove(this);
-        //    flat = false;
-        //    //if(flat = false)
-        //    //{
-        //    //    Countdown.Begin(this, true);
-        //    //}
-            
-        //}
 
         //private void CutImage(Int32Rect obj)
         //{
@@ -311,8 +298,6 @@ namespace PuzzleGame.Views.Game2
                     LocationImage(_BasePoint1);
                     _BasePoint1 = pointtemp;
                     img1.ReleaseMouseCapture();
-
-
                 }
                 else if (l.Name == "img2")
                 {
@@ -392,9 +377,11 @@ namespace PuzzleGame.Views.Game2
                     shadow8.Opacity = 0;
                     shadow9.Opacity = 0;
                     report.Visibility = Visibility.Visible;
-                    Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                    Uri uri = new Uri(@"..\..\..\Sound\chucmung.mp3", UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                     playMedia.Open(uri); // inserting the URI to the media player
                     playMedia.Play();
+                    UCWin uCWin = new UCWin();
+                    uc.Children.Add(uCWin);
                     //Countdown.Stop(this);
                     //Countdown.Remove(this);
                     //MessageBox.Show("Win");   
@@ -528,6 +515,10 @@ namespace PuzzleGame.Views.Game2
             DeltaX = 0.0;
             DeltaY = 0.0;
             moving = false;
+            Uri uri = new Uri(@"..\..\..\Sound\Ting.mp3", UriKind.Relative);
+            playMedia.Open(uri); // inserting the URI to the media player
+            playMedia.Play();
+            playMedia.Open(new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative));
         }
         private void MouseMoveImage(Point point, MouseEventArgs e)
         {

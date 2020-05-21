@@ -375,9 +375,11 @@ namespace PuzzleGame.Views.Game2
                     shadow8.Opacity = 0;
                     shadow9.Opacity = 0;
                     //report.Visibility = Visibility.Visible;
-                    Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                    Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                     playMedia.Open(uri); // inserting the URI to the media player
                     playMedia.Play();
+                    UCWin uCWin = new UCWin();
+                    uc.Children.Add(uCWin);
                     //Countdown.Stop(this);
                     //Countdown.Remove(this);
                     //MessageBox.Simg7w("Win");   

@@ -362,6 +362,6 @@
 
 
         </Grid>-->
-
+        <Grid x:Name="uc"></Grid>
     </Grid>
 </UserControl>
