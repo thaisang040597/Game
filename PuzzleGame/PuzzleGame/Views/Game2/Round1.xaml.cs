@@ -150,8 +150,8 @@ namespace PuzzleGame.Views.Game2
         private static List<Point> list;
         private void CreatePositionImage()
         {
-            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = 768;
+            double screenWidth = 1366;
             list = new List<Point>(9);
             list.Add(_BasePoint1);
             list.Add(_BasePoint2);
@@ -376,16 +376,14 @@ namespace PuzzleGame.Views.Game2
                     shadow7.Opacity = 0;
                     shadow8.Opacity = 0;
                     shadow9.Opacity = 0;
-                    report.Visibility = Visibility.Visible;
+                   
                     Uri uri = new Uri(@"..\..\..\Sound\chucmung.mp3", UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                     playMedia.Open(uri); // inserting the URI to the media player
                     playMedia.Play();
                     UCWin uCWin = new UCWin();
                     uc.Children.Add(uCWin);
-                    //Countdown.Stop(this);
-                    //Countdown.Remove(this);
-                    //MessageBox.Show("Win");   
-                    //checkwin nè kk thieu border thong bao;
+                    next.Visibility = Visibility.Visible;
+                    bantay.Visibility = Visibility.Visible;
 
                 }
             }
@@ -532,8 +530,8 @@ namespace PuzzleGame.Views.Game2
         }
         private void LocationImage(Point point)
         {
-            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = 768;
+            double screenWidth = 1366;
             int count = 0;
             var lstX = new List<Point>(9);
             Point p = new Point();
@@ -650,8 +648,8 @@ namespace PuzzleGame.Views.Game2
         }
         private void RanDomImage()
         {
-            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = 768;
+            double screenWidth = 1366;
             List<Point> points = new List<Point>();
             Point point = new Point();
             int xWidth = (int)(screenWidth - (150 * 5)) / 6;
@@ -739,7 +737,7 @@ namespace PuzzleGame.Views.Game2
             shadow7.Opacity = 100;
             shadow8.Opacity = 100;
             shadow9.Opacity = 100;
-            report.Visibility = Visibility.Collapsed;
+          
            
             //Countdown.Remove(this);
             
@@ -824,7 +822,17 @@ namespace PuzzleGame.Views.Game2
             //Countdown.Remove(this);
         }
 
-       
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            Round2 man2 = new Round2();
+            Global.menutest.oc.Children.Add(man2);
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
 

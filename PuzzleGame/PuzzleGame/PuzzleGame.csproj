@@ -380,6 +380,7 @@
     <Resource Include="Images\Game3\conbuom.png" />
     <Resource Include="Images\Game3\conga.jpg" />
     <Resource Include="Images\Background\startimg.png" />
+    <Resource Include="Images\Game2\muiten1.png" />
     <Content Include="Sound\timeout.mp3" />
     <Content Include="Sound\voikeu.mp3" />
     <Resource Include="Images\Background\backdoor1.png" />

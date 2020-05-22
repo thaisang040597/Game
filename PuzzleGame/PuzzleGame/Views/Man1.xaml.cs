@@ -608,7 +608,7 @@ namespace PuzzleGame.Views
             //Global.menutest.oc.Children.Add(man2);
             //Global.menutest.round2.Width = 300;
 
-            Global.menutest.imground2.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\Images\Game1\Round2\carrot.png"));
+           
             this.Visibility = Visibility.Collapsed;
             
             gaucho = false;

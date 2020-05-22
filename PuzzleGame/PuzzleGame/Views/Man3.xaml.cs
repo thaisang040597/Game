@@ -224,6 +224,7 @@ namespace PuzzleGame.Views
         //}
         private void RanDomAlp()
         {
+
             List<string> Images = new List<string>()
             {
                 "/Images/Game1/Round3/b.png","/Images/Game1/Round3/c.png" ,"/Images/Game1/Round3/o.png" ,"/Images/Game1/Round3/g.png",
@@ -240,7 +241,7 @@ namespace PuzzleGame.Views
             };
             List<int> lstIndex = new List<int>();
             Random rnd = new Random();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 int index = 0;
                 do
@@ -254,22 +255,21 @@ namespace PuzzleGame.Views
             ImagesBong[lstIndex[2]].Visibility = Visibility.Collapsed;
             ImagesBong[lstIndex[3]].Visibility = Visibility.Collapsed;
             ImagesBong[lstIndex[4]].Visibility = Visibility.Collapsed;
+            ImagesBong[lstIndex[5]].Visibility = Visibility.Collapsed;
+
             ImagesGoc[lstIndex[0]].Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
             ImagesGoc[lstIndex[1]].Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
             ImagesGoc[lstIndex[2]].Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
             ImagesGoc[lstIndex[3]].Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
             ImagesGoc[lstIndex[4]].Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
-            //c.Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
-            //ho2.Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
-            //voi2.Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
-            //khi2.Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
-            //tho2.Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
-            //gau1.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[0]], UriKind.RelativeOrAbsolute));
-            //ho.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[1]], UriKind.RelativeOrAbsolute));
-            //voi.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[2]], UriKind.RelativeOrAbsolute));
-            //khi.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[3]], UriKind.RelativeOrAbsolute));
-            //tho.Source = new BitmapImage(new Uri(ImagesBong[lstIndex[4]], UriKind.RelativeOrAbsolute));
+            ImagesGoc[lstIndex[5]].Source = new BitmapImage(new Uri(Images[lstIndex[5]], UriKind.RelativeOrAbsolute));
+            List<int> lstRemain = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            List<int> differences = lstRemain.Except(lstIndex).ToList();
 
+            foreach (var dif in differences)
+            {
+                ImagesGoc[dif].Visibility = Visibility.Collapsed;
+            }
 
         }
         private Image GetImageByIndex(int index)
@@ -613,7 +613,7 @@ namespace PuzzleGame.Views
                     CheckImage(BasePointT, DeltaXT, DeltaYT, xt, yt, t);
                 }
             }
-            if(chuc == true && chub == true && chuo == true && chug == true && chue == true && chui == true && chuk == true && chuf == true && chus == true &&   chut == true && chuv == true)
+            if(temp == 6)
             {
                 report.Visibility = Visibility.Visible;
                 //Pause1.IsEnabled = false;
@@ -640,47 +640,58 @@ namespace PuzzleGame.Views
                 if(hinh.Name == "c")
                 {
                     chuc = true;
+                    temp++;
                 }
                 if (hinh.Name == "b")
                 {
                     chub = true;
+                    temp++;
                 }
                 if (hinh.Name == "o")
                 {
                     chuo = true;
+                    temp++;
                 }
                 if (hinh.Name == "g")
                 {
                     chug = true;
+                    temp++;
                 }
                 if (hinh.Name == "e1")
                 {
                     chue = true;
+                    temp++;
                 }
                 if (hinh.Name == "i")
                 {
                     chui = true;
+                    temp++;
                 }
                 if (hinh.Name == "k")
                 {
                     chuk = true;
+                    temp++;
                 }
                 if (hinh.Name == "f")
                 {
                     chuf = true;
+                    temp++;
                 }
                 if (hinh.Name == "v")
                 {
                     chuv = true;
+                    temp++;
                 }
                 if (hinh.Name == "s")
                 {
                     chus = true;
+                    temp++;
                 }
               
                 if (hinh.Name == "t")
                 {
                     chut = true;
+                    temp++;
                 }
                 Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Ting.mp3");
                 playMedia.Open(ting);

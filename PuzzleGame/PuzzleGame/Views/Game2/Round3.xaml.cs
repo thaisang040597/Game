@@ -146,8 +146,8 @@ namespace PuzzleGame.Views.Game2
         private static List<Point> list;
         private void CreatePositionImage()
         {
-            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = 768;
+            double screenWidth =1366;
             list = new List<Point>(9);
             list.Add(_BasePoint1);
             list.Add(_BasePoint2);
@@ -526,8 +526,8 @@ namespace PuzzleGame.Views.Game2
         }
         private void LocationImage(Point point)
         {
-            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight =768;
+            double screenWidth = 1366;
             int count = 0;
             var lstX = new List<Point>(9);
             Point p = new Point();
@@ -644,8 +644,8 @@ namespace PuzzleGame.Views.Game2
         }
         private void RanDomImage()
         {
-            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = 768;
+            double screenWidth = 1366;
             List<Point> points = new List<Point>();
             Point point = new Point();
             int xWidth = (int)(screenWidth - (150 * 5)) / 6;
