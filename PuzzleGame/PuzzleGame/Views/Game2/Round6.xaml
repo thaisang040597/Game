@@ -21,26 +21,7 @@
         <ImageBrush  x:Key="btnLoginImgHover" />
         <ImageBrush x:Key="btnLoginImgClick" />
     </UserControl.Resources>
-    <!--<UserControl.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard x:Name="begin1"  >
-                <Storyboard x:Name="Countdown" >
-                    <DoubleAnimationUsingKeyFrames x:Name="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Time">
-
-                        <EasingDoubleKeyFrame  KeyTime="0:0:45" Value="0"/>
-                    </DoubleAnimationUsingKeyFrames>
-                </Storyboard>
-            </BeginStoryboard>
-
-        </EventTrigger>
-
-        <EventTrigger RoutedEvent="Button.Click" SourceName="Pause1">
-            <PauseStoryboard BeginStoryboardName="begin1"></PauseStoryboard>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
-            <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
-        </EventTrigger>
-    </UserControl.Triggers>-->
+    
     <Grid>
         <Grid.Resources>
             <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="15" Direction="270" Color="#BBBBBB"/>
@@ -381,6 +362,67 @@
                 </Image.Source>
             </Image>
         </Canvas>
+        <StackPanel  x:Name="bantay"  
+                         Margin="700 250 600 400 "
+                         Height="100"
+                         Width="100"
+                     Visibility="Collapsed" MouseDown="bantay_MouseDown">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/Game1/Round1/bantay.png"></ImageBrush>
+            </StackPanel.Background>
+            <StackPanel.RenderTransform>
+                <TranslateTransform x:Name="AnimatedTranslateTransform" />
+            </StackPanel.RenderTransform>
+
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="StackPanel.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                            <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="X"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                <DiscreteDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="Y"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+
+                                <LinearDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                <DiscreteDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+        </StackPanel>
+        <Grid Width="250" Height="250" x:Name="gethint"  Visibility="Collapsed" >
+
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="bodertimeout"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Image Width="200" Height="200" x:Name="anhgoc" Source="/Images/Game2/Round2.6/rua4x4.jpg"></Image>
+
+        </Grid>
         <Grid x:Name="uc"></Grid>
     </Grid>
 </UserControl>

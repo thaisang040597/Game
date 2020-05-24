@@ -380,10 +380,9 @@ namespace PuzzleGame.Views.Game2
                     playMedia.Play();
                     UCWin uCWin = new UCWin();
                     uc.Children.Add(uCWin);
-                    //Countdown.Stop(this);
-                    //Countdown.Remove(this);
-                    //MessageBox.Show("Win");   
-                    //checkwin nè kk thieu border thong bao;
+                    next.Visibility = Visibility.Visible;
+                    bantay.Visibility = Visibility.Visible;
+                    
 
                 }
             }
@@ -431,13 +430,13 @@ namespace PuzzleGame.Views.Game2
                     MouseMoveImage(_BasePoint6, e);
                     _BasePoint6 = pointtemp;
                 }
-                else if (l.Name == "ho")
+                else if (l.Name == "img7")
                 {
                     temp = 7;
                     MouseMoveImage(_BasePoint7, e);
                     _BasePoint7 = pointtemp;
                 }
-                else if (l.Name == "voi")
+                else if (l.Name == "img8")
                 {
                     temp = 8;
                     MouseMoveImage(_BasePoint8, e);
@@ -766,7 +765,7 @@ namespace PuzzleGame.Views.Game2
         private void getHint(object sender, RoutedEventArgs e)
         {
             time = 2;
-            timeout.Visibility = Visibility.Visible;
+            gethint.Visibility = Visibility.Visible;
             canvas1.Opacity = 0.2;
             canvas1.IsEnabled = false;
             timer = new DispatcherTimer();
@@ -785,7 +784,7 @@ namespace PuzzleGame.Views.Game2
             else
             {
                 timer.Stop();
-                timeout.Visibility = Visibility.Collapsed;
+                gethint.Visibility = Visibility.Collapsed;
                 canvas1.Opacity = 1;
                 canvas1.IsEnabled = true;
             }
@@ -800,8 +799,20 @@ namespace PuzzleGame.Views.Game2
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            //Countdown.Stop(this);
-            //Countdown.Remove(this);
+        }
+
+        private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Uri uri = new Uri("../../Sound/conca.mp3", UriKind.Relative);
+            playMedia.Open(uri);
+            playMedia.Play();
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            Round4 man4 = new Round4();
+            Global.menutest.oc.Children.Add(man4);
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

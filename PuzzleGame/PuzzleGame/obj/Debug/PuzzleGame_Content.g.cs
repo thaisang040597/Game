@@ -8,6 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conca.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conga.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conho.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conmeo.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conrua.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/consoc.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/contho.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/timeout.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/voikeu.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/chucmung.mp3")]

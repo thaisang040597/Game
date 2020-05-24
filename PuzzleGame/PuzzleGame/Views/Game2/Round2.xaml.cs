@@ -294,8 +294,6 @@ namespace PuzzleGame.Views.Game2
                     LocationImage(_BasePoint1);
                     _BasePoint1 = pointtemp;
                     img1.ReleaseMouseCapture();
-
-
                 }
                 else if (l.Name == "img2")
                 {
@@ -380,10 +378,9 @@ namespace PuzzleGame.Views.Game2
                     playMedia.Play();
                     UCWin uCWin = new UCWin();
                     uc.Children.Add(uCWin);
-                    //Countdown.Stop(this);
-                    //Countdown.Remove(this);
-                    //MessageBox.Simg7w("Win");   
-                    //checkwin nè kk thieu border timg7ng bao;
+                    next.Visibility = Visibility.Visible;
+                    bantay.Visibility = Visibility.Visible;
+                    
 
                 }
             }
@@ -437,7 +434,7 @@ namespace PuzzleGame.Views.Game2
                     MouseMoveImage(_BasePoint7, e);
                     _BasePoint7 = pointtemp;
                 }
-                else if (l.Name == "voi")
+                else if (l.Name == "img8")
                 {
                     temp = 8;
                     MouseMoveImage(_BasePoint8, e);
@@ -513,6 +510,7 @@ namespace PuzzleGame.Views.Game2
             DeltaX = 0.0;
             DeltaY = 0.0;
             moving = false;
+            
         }
         private void MouseMoveImage(Point point, MouseEventArgs e)
         {
@@ -569,54 +567,81 @@ namespace PuzzleGame.Views.Game2
                 point = new Point(list[0].X, list[0].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative); 
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[1].X && x1 <= lstX[1].Y) && (y1 > lstY[1].X && y1 <= lstY[1].Y))
             {
                 point = new Point(list[1].X, list[1].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[2].X && x1 <= lstX[2].Y) && (y1 > lstY[2].X && y1 <= lstY[2].Y))
             {
                 point = new Point(list[2].X, list[2].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[3].X && x1 <= lstX[3].Y) && (y1 > lstY[3].X && y1 <= lstY[3].Y))
             {
                 point = new Point(list[3].X, list[3].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[4].X && x1 <= lstX[4].Y) && (y1 > lstY[4].X && y1 <= lstY[4].Y))
             {
                 point = new Point(list[4].X, list[4].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[5].X && x1 <= lstX[5].Y) && (y1 > lstY[5].X && y1 <= lstY[5].Y))
             {
                 point = new Point(list[5].X, list[5].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[6].X && x1 <= lstX[6].Y) && (y1 > lstY[6].X && y1 <= lstY[6].Y))
             {
                 point = new Point(list[6].X, list[6].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[7].X && x1 <= lstX[7].Y) && (y1 > lstY[7].X && y1 <= lstY[7].Y))
             {
                 point = new Point(list[7].X, list[7].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
             else if ((x1 > lstX[8].X && x1 <= lstX[8].Y) && (y1 > lstY[8].X && y1 <= lstY[8].Y))
             {
                 point = new Point(list[8].X, list[8].Y);
                 checkDuplicate(point);
                 pointtemp = point;
+                Uri uri = new Uri("../../Sound/Ting.mp3", UriKind.Relative);
+                playMedia.Open(uri);
+                playMedia.Play();
             }
 
         }
@@ -694,7 +719,6 @@ namespace PuzzleGame.Views.Game2
             }
 
         }
-
         private void checkDuplicate(Point point)
         {
             var lst = this.GetType().GetProperties();
@@ -717,8 +741,6 @@ namespace PuzzleGame.Views.Game2
                 RaisePropertyChanged("YPosition" + i);
             }
         }
-
-
         private void rePlay(object sender, RoutedEventArgs e)
         {
             RanDomImage();
@@ -733,40 +755,12 @@ namespace PuzzleGame.Views.Game2
             shadow9.Opacity = 100;
             //report.Visibility = Visibility.Collapsed;
         }
-
-
-
-        //private void Pause1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Pause1.Visibility = Visibility.Collapsed;
-        //    Resume1.Visibility = Visibility.Visible;
-        //    canvas1.IsEnabled = false;
-        //    canvas1.Focusable = false;
-        //}
-
-        //private void Resume1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Resume1.Visibility = Visibility.Collapsed;
-        //    Pause1.Visibility = Visibility.Visible;
-        //    canvas1.IsEnabled = true;
-        //    canvas1.Focusable = true;
-        //}
-
-        //private void Hint(object sender, MouseButtonEventArgs e)
-        //{
-        //    anhgoc.Visibility = Visibility.Collapsed;
-        //}
-
-        //private void getHint(object sender, MouseButtonEventArgs e)
-        //{
-        //    anhgoc.Visibility = Visibility.Visible;
-        //}
         private DispatcherTimer timer;
         private int time;
         private void getHint(object sender, RoutedEventArgs e)
         {
             time = 2;
-            timeout.Visibility = Visibility.Visible;
+            gethint.Visibility = Visibility.Visible;
             canvas1.Opacity = 0.2;
             canvas1.IsEnabled = false;
             timer = new DispatcherTimer();
@@ -785,7 +779,7 @@ namespace PuzzleGame.Views.Game2
             else
             {
                 timer.Stop();
-                timeout.Visibility = Visibility.Collapsed;
+                gethint.Visibility = Visibility.Collapsed;
                 canvas1.Opacity = 1;
                 canvas1.IsEnabled = true;
             }
@@ -800,8 +794,20 @@ namespace PuzzleGame.Views.Game2
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            //Countdown.Stop(this);
-            //Countdown.Remove(this);
+        }
+
+        private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Uri uri = new Uri("../../Sound/conmeo.mp3", UriKind.Relative);
+            playMedia.Open(uri);
+            playMedia.Play();
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            Round3 man3 = new Round3();
+            Global.menutest.oc.Children.Add(man3);
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PuzzleGame.Views.Game2
 {
@@ -46,6 +47,7 @@ namespace PuzzleGame.Views.Game2
         private double DeltaY = 0.0;
         private bool moving = false;
         private static Point PositionInImage;
+        MediaPlayer mediaPlayer = new MediaPlayer();
         public Round5()
         {
             this.DataContext = this;
@@ -578,9 +580,13 @@ namespace PuzzleGame.Views.Game2
                     shadow14.Opacity = 0;
                     shadow15.Opacity = 0;
                     shadow16.Opacity = 0;
-                    MessageBox.Show("Win");
+                    Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                    mediaPlayer.Open(uri); // inserting the URI to the media player
+                    mediaPlayer.Play();
                     UCWin uCWin = new UCWin();
                     uc.Children.Add(uCWin);
+                    next.Visibility = Visibility.Visible;
+                    bantay.Visibility = Visibility.Visible;
                 }
             }
         }
@@ -1001,8 +1007,33 @@ namespace PuzzleGame.Views.Game2
             }
         }
 
+        private DispatcherTimer timer;
+        private int time;
         private void getHint(object sender, RoutedEventArgs e)
         {
+            time = 2;
+            gethint.Visibility = Visibility.Visible;
+            canvas1.Opacity = 0.2;
+            canvas1.IsEnabled = false;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_tick;
+            timer.Start();
+        }
+        void Timer_tick(object sender, EventArgs e)
+        {
+
+            if (time > 0)
+            {
+                time--;
+            }
+            else
+            {
+                timer.Stop();
+                gethint.Visibility = Visibility.Collapsed;
+                canvas1.Opacity = 1;
+                canvas1.IsEnabled = true;
+            }
 
         }
 
@@ -1049,6 +1080,20 @@ namespace PuzzleGame.Views.Game2
         {
             this.Visibility = Visibility.Collapsed;
             
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            Round6 man6 = new Round6();
+            Global.menutest.oc.Children.Add(man6);
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Uri uri = new Uri("../../Sound/contho.mp3", UriKind.Relative);
+            mediaPlayer.Open(uri);
+            mediaPlayer.Play();
         }
     }
 }

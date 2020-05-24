@@ -33,15 +33,15 @@ namespace PuzzleGame.Views.Game3
             Random random = new Random();
             int count = 0;
             var numbers = new List<int>(15) { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
-            //int n = numbers.Count;
-            //while (n > 1)
-            //{
-            //    n--;
-            //    int k = random.Next(n + 1);
-            //    int value = numbers[k];
-            //    numbers[k] = numbers[n];
-            //    numbers[n] = value;
-            //}
+            int n = numbers.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                int value = numbers[k];
+                numbers[k] = numbers[n];
+                numbers[n] = value;
+            }
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -68,7 +68,7 @@ namespace PuzzleGame.Views.Game3
                 {
                     if (Board[i, j] > 0)
                     {
-                        ItemUC2 cnv = new ItemUC2(Board[i, j])
+                        ItemUC4 cnv = new ItemUC4(Board[i, j])
                         {
                             Width = cnBoard.Width / 4,
                             Height = cnBoard.Height / 4,
@@ -87,7 +87,7 @@ namespace PuzzleGame.Views.Game3
         }
         void cnv_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ItemUC2 it = (ItemUC2)sender;
+            ItemUC4 it = (ItemUC4)sender;
             if (CheckMove(it.I - 1, it.J))
             {
                 MoveItem(it, it.I - 1, it.J);
@@ -106,9 +106,9 @@ namespace PuzzleGame.Views.Game3
             }
         }
 
-        private void MoveItem(ItemUC2 it, int i, int j)
+        private void MoveItem(ItemUC4 it, int i, int j)
         {
-            ItemUC2 a = new ItemUC2(1);
+            ItemUC4 a = new ItemUC4(1);
             a.I = 1;
             Board[i, j] = Board[it.I, it.J];
             Board[it.I, it.J] = 0;
@@ -135,7 +135,7 @@ namespace PuzzleGame.Views.Game3
             if (CheckWin())
             {
                 Board[4, 4] = 16;
-                ItemUC2 cnv = new ItemUC2(16);
+                ItemUC4 cnv = new ItemUC4(16);
                 Canvas.SetTop(cnv, 330);
                 Canvas.SetLeft(cnv, 330);
                 cnBoard.Children.Add(cnv);

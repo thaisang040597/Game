@@ -207,7 +207,7 @@ namespace PuzzleGame.Views.Game2
             Panel.SetZIndex(img5, 5);
             Panel.SetZIndex(img6, 6);
             Panel.SetZIndex(img7, 7);
-            Panel.SetZIndex(voi, 8);
+            Panel.SetZIndex(img8, 8);
             Panel.SetZIndex(img9, 9);
             if (l != null)
             {
@@ -267,13 +267,13 @@ namespace PuzzleGame.Views.Game2
                     PositionInImage = e.GetPosition(img7);
                     Panel.SetZIndex(img7, 10);
                 }
-                else if (l.Name == "voi")
+                else if (l.Name == "img8")
                 {
                     currentPositionImage = _BasePoint8;
-                    voi.CaptureMouse();
+                    img8.CaptureMouse();
                     moving = true;
-                    PositionInImage = e.GetPosition(voi);
-                    Panel.SetZIndex(voi, 10);
+                    PositionInImage = e.GetPosition(img8);
+                    Panel.SetZIndex(img8, 10);
                 }
                 else if (l.Name == "img9")
                 {
@@ -347,13 +347,13 @@ namespace PuzzleGame.Views.Game2
                     _BasePoint7 = pointtemp;
                     img7.ReleaseMouseCapture();
                 }
-                else if (l.Name == "voi")
+                else if (l.Name == "img8")
                 {
                     temp = 8;
-                    MouseUpImage(_BasePoint8, voi);
+                    MouseUpImage(_BasePoint8, img8);
                     LocationImage(_BasePoint8);
                     _BasePoint8 = pointtemp;
-                    voi.ReleaseMouseCapture();
+                    img8.ReleaseMouseCapture();
                 }
                 else if (l.Name == "img9")
                 {
@@ -376,9 +376,9 @@ namespace PuzzleGame.Views.Game2
                     shadow7.Opacity = 0;
                     shadow8.Opacity = 0;
                     shadow9.Opacity = 0;
-                   
-                    Uri uri = new Uri(@"..\..\..\Sound\chucmung.mp3", UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
-                    playMedia.Open(uri); // inserting the URI to the media player
+
+                    Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative);
+                    playMedia.Open(uri);
                     playMedia.Play();
                     UCWin uCWin = new UCWin();
                     uc.Children.Add(uCWin);
@@ -437,7 +437,7 @@ namespace PuzzleGame.Views.Game2
                     MouseMoveImage(_BasePoint7, e);
                     _BasePoint7 = pointtemp;
                 }
-                else if (l.Name == "voi")
+                else if (l.Name == "img8")
                 {
                     temp = 8;
                     MouseMoveImage(_BasePoint8, e);
@@ -754,31 +754,7 @@ namespace PuzzleGame.Views.Game2
 
 
 
-        //private void Pause1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Pause1.Visibility = Visibility.Collapsed;
-        //    Resume1.Visibility = Visibility.Visible;
-        //    canvas1.IsEnabled = false;
-        //    canvas1.Focusable = false;
-        //}
-
-        //private void Resume1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Resume1.Visibility = Visibility.Collapsed;
-        //    Pause1.Visibility = Visibility.Visible;
-        //    canvas1.IsEnabled = true;
-        //    canvas1.Focusable = true;
-        //}
-
-        //private void Hint(object sender, MouseButtonEventArgs e)
-        //{
-        //    anhgoc.Visibility = Visibility.Collapsed;
-        //}
-
-        //private void getHint(object sender, MouseButtonEventArgs e)
-        //{
-        //    anhgoc.Visibility = Visibility.Visible;
-        //}
+        
         private DispatcherTimer timer;
         private int time;
         private void getHint(object sender, RoutedEventArgs e)
@@ -831,7 +807,9 @@ namespace PuzzleGame.Views.Game2
 
         private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Uri uri = new Uri("../../Sound/consoc.mp3", UriKind.Relative);
+            playMedia.Open(uri);
+            playMedia.Play();
         }
     }
 }

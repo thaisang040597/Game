@@ -125,17 +125,41 @@
     <Compile Include="Views\Game2\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Game3\ItemUC.xaml.cs">
-      <DependentUpon>ItemUC.xaml</DependentUpon>
+    <Compile Include="Views\Game3\ItemUC1.xaml.cs">
+      <DependentUpon>ItemUC1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Game3\ItemUC2.xaml.cs">
       <DependentUpon>ItemUC2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Game3\ItemUC3.xaml.cs">
+      <DependentUpon>ItemUC3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game3\ItemUC4.xaml.cs">
+      <DependentUpon>ItemUC4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game3\ItemUC5.xaml.cs">
+      <DependentUpon>ItemUC5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game3\ItemUC6.xaml.cs">
+      <DependentUpon>ItemUC6.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Game3\Round1Game3.xaml.cs">
       <DependentUpon>Round1Game3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Game3\Round2Game3.xaml.cs">
+      <DependentUpon>Round2Game3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game3\Round3Game3.xaml.cs">
+      <DependentUpon>Round3Game3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Game3\Round4Game3.xaml.cs">
       <DependentUpon>Round4Game3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game3\Round5Game3.xaml.cs">
+      <DependentUpon>Round5Game3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game3\Round6Game3.xaml.cs">
+      <DependentUpon>Round6Game3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Instruction.xaml.cs">
       <DependentUpon>Instruction.xaml</DependentUpon>
@@ -207,7 +231,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Game3\ItemUC.xaml">
+    <Page Include="Views\Game3\ItemUC1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,11 +239,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Game3\ItemUC3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game3\ItemUC4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game3\ItemUC5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game3\ItemUC6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Game3\Round1Game3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Game3\Round2Game3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game3\Round3Game3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Game3\Round4Game3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game3\Round5Game3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Game3\Round6Game3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -381,6 +437,17 @@
     <Resource Include="Images\Game3\conga.jpg" />
     <Resource Include="Images\Background\startimg.png" />
     <Resource Include="Images\Game2\muiten1.png" />
+    <Resource Include="Images\Game3\conchim.jpg" />
+    <Resource Include="Images\Game3\concho.jpg" />
+    <Resource Include="Images\Game3\convoi.jpg" />
+    <Resource Include="Images\Game3\conkhi.jpg" />
+    <Content Include="Sound\conca.mp3" />
+    <Content Include="Sound\conga.mp3" />
+    <Content Include="Sound\conho.mp3" />
+    <Content Include="Sound\conmeo.mp3" />
+    <Content Include="Sound\conrua.mp3" />
+    <Content Include="Sound\consoc.mp3" />
+    <Content Include="Sound\contho.mp3" />
     <Content Include="Sound\timeout.mp3" />
     <Content Include="Sound\voikeu.mp3" />
     <Resource Include="Images\Background\backdoor1.png" />

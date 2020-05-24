@@ -169,6 +169,9 @@
             <Button x:Name="back" Style="{StaticResource btnLoginStyle}" Click="back_Click" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <Image Source="/Images/Background/backdoor1.png"></Image>
             </Button>
+            <Button x:Name="next" Style="{StaticResource btnLoginStyle}" Click="next_Click" Canvas.Left="1300" Visibility="Collapsed">
+                <Image Source="/Images/Game2/muiten1.png"></Image>
+            </Button>
             <Image x:Name="img1" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Width="110" Height="110"
                    Canvas.Left="{Binding XPosition1}" Canvas.Top="{Binding YPosition1}">
                 <Image.Source>
@@ -381,6 +384,67 @@
                 </Image.Source>
             </Image>
         </Canvas>
+        <StackPanel  x:Name="bantay"  
+                         Margin="700 250 600 400 "
+                         Height="100"
+                         Width="100"
+                     Visibility="Collapsed" MouseDown="bantay_MouseDown">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/Game1/Round1/bantay.png"></ImageBrush>
+            </StackPanel.Background>
+            <StackPanel.RenderTransform>
+                <TranslateTransform x:Name="AnimatedTranslateTransform" />
+            </StackPanel.RenderTransform>
+
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="StackPanel.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                            <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="X"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                <DiscreteDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="Y"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+
+                                <LinearDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                <DiscreteDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+        </StackPanel>
+        <Grid Width="250" Height="250" x:Name="gethint"  Visibility="Collapsed" >
+
+            <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="250" RenderTransformOrigin="0.844,0.439"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="bodertimeout"  Opacity="0.9">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Bisque" Offset="0" />
+                        <GradientStop Color="Orange" Offset="0.95" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Image Width="200" Height="200" x:Name="anhgoc" Source="/Images/Game2/Round2.5/contho.png"></Image>
+
+        </Grid>
         <Grid x:Name="uc"></Grid>
     </Grid>
 </UserControl>

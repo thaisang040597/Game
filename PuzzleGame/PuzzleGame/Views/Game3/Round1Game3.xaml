@@ -7,7 +7,114 @@
              mc:Ignorable="d" 
              Width="1366" Loaded="Window_Loaded" Height="768">
     <Grid>
+        <Grid.Resources>
+            <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="15" Direction="270" Color="#BBBBBB"/>
+
+            <Style TargetType="Button"  x:Key="btnLoginStyle">
+                <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle}"></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="Cursor" Value="Hand" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="130" Height="45">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>
+                                    <Setter Property="Width" Value="125" TargetName="button1"></Setter>
+                                    <Setter Property="Height" Value="45" TargetName="button1"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgClick}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
         <Image Source="/Images/Game2/Round2.1/img.jpg"></Image>
+        <Button x:Name="back" Style="{StaticResource btnLoginStyle}" Click="back_Click" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image Source="/Images/Background/backdoor1.png"></Image>
+        </Button>
+        <Button x:Name="next" Style="{StaticResource btnLoginStyle}" Click="next_Click" Canvas.Left="1300" Visibility="Collapsed">
+            <Image Source="/Images/Game2/muiten1.png"></Image>
+        </Button>
         <Canvas Name="cnBoard" Width="450" Height="450" Background="Black"></Canvas>
+        <StackPanel  x:Name="bantay"  
+                         Margin="700 250 600 400 "
+                         Height="100"
+                         Width="100"
+                     Visibility="Collapsed" MouseDown="bantay_MouseDown">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/Game1/Round1/bantay.png"></ImageBrush>
+            </StackPanel.Background>
+            <StackPanel.RenderTransform>
+                <TranslateTransform x:Name="AnimatedTranslateTransform" />
+            </StackPanel.RenderTransform>
+
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="StackPanel.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                            <!-- Animate the TranslateTransform.X property using 3 KeyFrames
+                   which animates the rectangle along a straight line. 
+                   This animation repeats indefinitely. -->
+                            <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="X"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+
+                                <!-- Using a LinearDoubleKeyFrame, the rectangle moves 
+                     steadily from its starting position to 500 over 
+                     the first 3 seconds.  -->
+                                <LinearDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                <!-- Using a DiscreteDoubleKeyFrame, the rectangle suddenly 
+                     appears at 400 after the fourth second of the animation. -->
+                                <DiscreteDoubleKeyFrame Value="-40" KeyTime="0:0:1" />
+
+                                <!-- Using a SplineDoubleKeyFrame, the rectangle moves 
+                     back to its starting point. The
+                     animation starts out slowly at first and then speeds up. 
+                     This KeyFrame ends after the 6th
+                     second. -->
+                                <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetName="AnimatedTranslateTransform"
+                                    Storyboard.TargetProperty="Y"
+                                    Duration="0:0:2"
+                                    RepeatBehavior="Forever">
+
+                                <!-- Using a LinearDoubleKeyFrame, the rectangle moves 
+                     steadily from its starting position to 500 over 
+                     the first 3 seconds.  -->
+                                <LinearDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                <!-- Using a DiscreteDoubleKeyFrame, the rectangle suddenly 
+                     appears at 400 after the fourth second of the animation. -->
+                                <DiscreteDoubleKeyFrame Value="50" KeyTime="0:0:1" />
+
+                                <!-- Using a SplineDoubleKeyFrame, the rectangle moves 
+                     back to its starting point. The
+                     animation starts out slowly at first and then speeds up. 
+                     This KeyFrame ends after the 6th
+                     second. -->
+                                <SplineDoubleKeyFrame KeySpline="0.0,0.0 0.0,0.00" Value="0" KeyTime="0:0:2" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+        </StackPanel>
+        <Grid x:Name="uc"></Grid>
     </Grid>
 </UserControl>

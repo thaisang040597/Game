@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 namespace PuzzleGame.Views.Game3
 {
     /// <summary>
-    /// Interaction logic for ItemUC.xaml
+    /// Interaction logic for ItemUC3.xaml
     /// </summary>
-    public partial class ItemUC : UserControl
+    public partial class ItemUC3 : UserControl
     {
         public int I { get; set; }
         public int J { get; set; }
-        public ItemUC(int i)
+        public ItemUC3(int i)
         {
             this.DataContext = this;
             InitializeComponent();
-            
+
             if (i == 1)
             {
                 img1.Visibility = Visibility.Visible;

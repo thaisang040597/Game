@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PuzzleGame.Views.Game2
 {
@@ -46,6 +47,7 @@ namespace PuzzleGame.Views.Game2
         private double DeltaY = 0.0;
         private bool moving = false;
         private static Point PositionInImage;
+        MediaPlayer playMedia = new MediaPlayer();
         public Round4()
         {
             this.DataContext = this;
@@ -578,10 +580,13 @@ namespace PuzzleGame.Views.Game2
                     shadow14.Opacity = 0;
                     shadow15.Opacity = 0;
                     shadow16.Opacity = 0;
-                    MessageBox.Show("Win");
-
+                    Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                    playMedia.Open(uri); // inserting the URI to the media player
+                    playMedia.Play();
                     UCWin uCWin = new UCWin();
                     uc.Children.Add(uCWin);
+                    next.Visibility = Visibility.Visible;
+                    bantay.Visibility = Visibility.Visible;
                 }
             }
         }
@@ -1001,12 +1006,35 @@ namespace PuzzleGame.Views.Game2
                 RaisePropertyChanged("YPosition" + i);
             }
         }
-
+        private DispatcherTimer timer;
+        private int time;
         private void getHint(object sender, RoutedEventArgs e)
         {
+            time = 2;
+            gethint.Visibility = Visibility.Visible;
+            canvas1.Opacity = 0.2;
+            canvas1.IsEnabled = false;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_tick;
+            timer.Start();
+        }
+        void Timer_tick(object sender, EventArgs e)
+        {
+
+            if (time > 0)
+            {
+                time--;
+            }
+            else
+            {
+                timer.Stop();
+                gethint.Visibility = Visibility.Collapsed;
+                canvas1.Opacity = 1;
+                canvas1.IsEnabled = true;
+            }
 
         }
-
         private void rePlay(object sender, RoutedEventArgs e)
         {
             RanDomImage();
@@ -1027,29 +1055,24 @@ namespace PuzzleGame.Views.Game2
             shadow15.Opacity = 100;
             shadow16.Opacity = 100;
         }
-
-
-
-        //private void Pause1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Pause1.Visibility = Visibility.Collapsed;
-        //    Resume1.Visibility = Visibility.Visible;
-        //    canvas1.IsEnabled = false;
-        //    canvas1.Focusable = false;
-        //}
-
-        //private void Resume1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Resume1.Visibility = Visibility.Collapsed;
-        //    Pause1.Visibility = Visibility.Visible;
-        //    canvas1.IsEnabled = true;
-        //    canvas1.Focusable = true;
-        //}
-
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
             
+        }
+
+        private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Uri uri = new Uri("../../Sound/conho.mp3", UriKind.Relative);
+            playMedia.Open(uri);
+            playMedia.Play();
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            Round5 man5 = new Round5();
+            Global.menutest.oc.Children.Add(man5);
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

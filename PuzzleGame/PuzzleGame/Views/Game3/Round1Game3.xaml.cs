@@ -22,6 +22,7 @@ namespace PuzzleGame.Views.Game3
     public partial class Round1Game3 : UserControl
     {
         int[,] Board;
+        MediaPlayer mediaPlayer = new MediaPlayer();
         public Round1Game3()
         {
             InitializeComponent();
@@ -80,7 +81,7 @@ namespace PuzzleGame.Views.Game3
                 {
                     if (Board[i, j] > 0 && Board[i, j]<9)
                     {
-                        ItemUC cnv = new ItemUC(Board[i, j])
+                        ItemUC1 cnv = new ItemUC1(Board[i, j])
                         {
                             Width = cnBoard.Width / 3,
                             Height = cnBoard.Height / 3,
@@ -99,7 +100,7 @@ namespace PuzzleGame.Views.Game3
         }
         void cnv_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ItemUC it = (ItemUC)sender;
+            ItemUC1 it = (ItemUC1)sender;
             if (CheckMove(it.I - 1, it.J))
             {
                 MoveItem(it, it.I - 1, it.J);
@@ -118,9 +119,9 @@ namespace PuzzleGame.Views.Game3
             }
         }
 
-        private void MoveItem(ItemUC it, int i, int j)
+        private void MoveItem(ItemUC1 it, int i, int j)
         {
-            ItemUC a = new ItemUC(1);
+            ItemUC1 a = new ItemUC1(1);
             a.I = 1;
             Board[i, j] = Board[it.I, it.J];
             Board[it.I, it.J] = 0;
@@ -147,11 +148,16 @@ namespace PuzzleGame.Views.Game3
             if (CheckWin())
             {
                 Board[2, 2] = 9;
-                ItemUC cnv = new ItemUC(9);
+                ItemUC1 cnv = new ItemUC1(9);
                 Canvas.SetTop(cnv, 300);
                 Canvas.SetLeft(cnv, 300);
                 cnBoard.Children.Add(cnv);
-                MessageBox.Show("Win");
+                UCWin uCWin = new UCWin();
+                uc.Children.Add(uCWin);
+                Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative); 
+                mediaPlayer.Open(uri); 
+                mediaPlayer.Play();
+                bantay.Visibility = Visibility.Visible;
             }
         }
 
@@ -190,6 +196,25 @@ namespace PuzzleGame.Views.Game3
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DrawBord();
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            //Round6 man6 = new Round6();
+            //Global.menutest.oc.Children.Add(man6);
+            //this.Visibility = Visibility.Collapsed;
+        }
+
+        private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Uri uri = new Uri("../../Sound/conga.mp3", UriKind.Relative);
+            mediaPlayer.Open(uri);
+            mediaPlayer.Play();
         }
     }
 }

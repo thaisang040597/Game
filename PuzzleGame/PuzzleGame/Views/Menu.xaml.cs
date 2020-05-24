@@ -49,12 +49,16 @@ namespace PuzzleGame.Views
 
         private void r311_Completed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            stb3_12.Begin();
+            Round6Game3 round6Game3 = new Round6Game3();
+            oc.Children.Add(round6Game3);
         }
 
         private void r39_Completed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            stb3_10.Begin();
+            Round5Game3 round5Game3 = new Round5Game3();
+            oc.Children.Add(round5Game3);
         }
 
         private void r37_Completed(object sender, EventArgs e)
@@ -66,12 +70,16 @@ namespace PuzzleGame.Views
 
         private void r35_Completed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            stb3_6.Begin();
+            Round3Game3 round3Game3 = new Round3Game3();
+            oc.Children.Add(round3Game3);
         }
 
         private void r33_Completed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            stb3_4.Begin();
+            Round2Game3 round2Game3 = new Round2Game3();
+            oc.Children.Add(round2Game3);
         }
 
         private void r31_Completed(object sender, EventArgs e)

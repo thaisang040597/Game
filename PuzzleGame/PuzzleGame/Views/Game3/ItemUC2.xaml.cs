@@ -26,6 +26,7 @@ namespace PuzzleGame.Views.Game3
         {
             this.DataContext = this;
             InitializeComponent();
+
             if (i == 1)
             {
                 img1.Visibility = Visibility.Visible;
@@ -62,34 +63,7 @@ namespace PuzzleGame.Views.Game3
             {
                 img9.Visibility = Visibility.Visible;
             }
-            else if (i == 10)
-            {
-                img10.Visibility = Visibility.Visible;
-            }
-            else if (i == 11)
-            {
-                img11.Visibility = Visibility.Visible;
-            }
-            else if (i == 12)
-            {
-                img12.Visibility = Visibility.Visible;
-            }
-            else if (i == 13)
-            {
-                img13.Visibility = Visibility.Visible;
-            }
-            else if (i == 14)
-            {
-                img14.Visibility = Visibility.Visible;
-            }
-            else if (i == 15)
-            {
-                img15.Visibility = Visibility.Visible;
-            }
-            else if (i == 16)
-            {
-                img16.Visibility = Visibility.Visible;
-            }
+
         }
     }
 }

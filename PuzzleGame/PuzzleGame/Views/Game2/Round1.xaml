@@ -311,7 +311,7 @@
                         SourceRect="{Binding Pieces7}" />
                 </Image.Source>
             </Image>
-            <Image x:Name="voi" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Width="150" Height="150"
+            <Image x:Name="img8" MouseDown="Feast_MouseDown"  MouseUp="Feast_MouseUp" MouseMove="Feast_MouseMove" Width="150" Height="150"
                    Canvas.Left="{Binding XPosition8}" Canvas.Top="{Binding YPosition8}">
                 <Image.BitmapEffect>
                     <DropShadowBitmapEffect x:Name="shadow8" Color="Black" Direction="-50"
@@ -421,7 +421,7 @@
                 </Border.Background>
 
             </Border>
-            <Image Width="200" Height="200" x:Name="anhgoc" Source="/Images/Game2/Round2.1/soc.png"></Image>
+            <Image Width="200" Height="200" x:Name="anhgoc" Source="/Images/Game2/Round2.2/meocon.jpg"></Image>
            
         </Grid>
        
