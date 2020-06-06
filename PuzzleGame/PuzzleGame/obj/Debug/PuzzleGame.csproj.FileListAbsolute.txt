@@ -364,3 +364,4 @@ F:\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round2Game3.baml
 F:\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round3Game3.baml
 F:\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round5Game3.baml
 F:\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round6Game3.baml
+F:\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache

@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace PuzzleGame
 {
-    public class Global
+    public static class Global
     {
         public static int dem;
         public static Menu menutest;
+        public static int level = 0;
         //private static Global instance;
         //public int dem;
         //public Menu menutest;
-        //private Global() {
-        //    dem = new int();
-        //    menutest = new Menu();
-        //}
 
         //public static Global getInstance()
         //{

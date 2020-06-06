@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace PuzzleGame.Views.Game2
     {
        
         int[,] Board;
+
         public Point _BasePoint1 { get; set; }
         public Point _BasePoint2 { get; set; }
         public Point _BasePoint3 { get; set; }
@@ -128,25 +130,15 @@ namespace PuzzleGame.Views.Game2
         public Int32Rect Pieces7 { get { return new Int32Rect(x, z, 300, 300); } }
         public Int32Rect Pieces8 { get { return new Int32Rect(y, z, 300, 300); } }
         public Int32Rect Pieces9 { get { return new Int32Rect(z, z, 300, 300); } }
+
         public Round1()
         {
-           
             this.DataContext = this;
             InitializeComponent();
             InitBoard();
             CreatePositionImage();
             RanDomImage();
         }
-
-
-        //private void CutImage(Int32Rect obj)
-        //{
-        //    Image croppedImage = new Image();
-        //    CroppedBitmap cb = new CroppedBitmap(
-        //       (BitmapSource)this.Resources["masterImage"],
-        //       obj);
-        //    croppedImage.Source = cb;
-        //}
         private static List<Point> list;
         private void CreatePositionImage()
         {

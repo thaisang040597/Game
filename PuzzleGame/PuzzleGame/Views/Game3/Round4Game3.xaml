@@ -7,7 +7,44 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" Loaded="Window_Loaded" d:DesignWidth="1366">
     <Grid>
+        <Grid.Resources>
+            <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="15" Direction="270" Color="#BBBBBB"/>
+
+            <Style TargetType="Button"  x:Key="btnLoginStyle">
+                <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle}"></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="Cursor" Value="Hand" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="button1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="130" Height="45">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgHover}"/>
+                                    <Setter Property="Width" Value="125" TargetName="button1"></Setter>
+                                    <Setter Property="Height" Value="45" TargetName="button1"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource btnLoginImgClick}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
         <Image Source="/Images/Game2/Round2.1/img.jpg"></Image>
+        <Button x:Name="back" Style="{StaticResource btnLoginStyle}" Click="back_Click" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image Source="/Images/Background/backdoor1.png"></Image>
+        </Button>
+        <Button x:Name="next" Style="{StaticResource btnLoginStyle}" Click="next_Click" Canvas.Left="1300" Visibility="Collapsed">
+            <Image Source="/Images/Game2/muiten1.png"></Image>
+        </Button>
         <Canvas Name="cnBoard" Width="440" Height="440" Background="Black"></Canvas>
     </Grid>
 </UserControl>

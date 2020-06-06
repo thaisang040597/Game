@@ -22,29 +22,9 @@
         <ImageBrush x:Key="btnLoginImgClick" />
        
     </UserControl.Resources>
-    <!--<UserControl.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard x:Name="begin1"  >
-                <Storyboard x:Name="Countdown" >
-                    <DoubleAnimationUsingKeyFrames x:Name="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Time">
-
-                        <EasingDoubleKeyFrame  KeyTime="0:0:45" Value="0"/>
-                    </DoubleAnimationUsingKeyFrames>
-                </Storyboard>
-
-            </BeginStoryboard>
-        </EventTrigger>
-      
-        
-
-        <EventTrigger RoutedEvent="Button.Click" SourceName="Pause1">
-            <PauseStoryboard BeginStoryboardName="begin1"></PauseStoryboard>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="Button.Click" SourceName="Resume1">
-            <ResumeStoryboard BeginStoryboardName="begin1"></ResumeStoryboard>
-        </EventTrigger>
-    </UserControl.Triggers>-->
+    
     <Grid >
+        
         <Grid.Resources>
             <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="15" Direction="270" Color="#BBBBBB"/>
 

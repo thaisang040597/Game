@@ -26,27 +26,18 @@ namespace PuzzleGame.Views.Game3
         {
             InitializeComponent();
             InitBoard();
+            AutoSlideImage();
         }
         private void InitBoard()
         {
             Board = new int[4, 4];
-            Random random = new Random();
             int count = 0;
             var numbers = new List<int>(15) { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-            int n = numbers.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                int value = numbers[k];
-                numbers[k] = numbers[n];
-                numbers[n] = value;
-            }
+            
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
-
                     if (count > 14)
                     {
                         Board[i, j] = 0;
@@ -57,7 +48,62 @@ namespace PuzzleGame.Views.Game3
                 }
             }
         }
+        private void AutoSlideImage()
+        {
+            Random rnd = new Random();
+            ItemUC6 it = new ItemUC6(1);
+            int temp;
+            int count;
+            bool flag = true;
+            while (flag)
+            {
+                temp = 0;
+                count = 1;
+                for (int k = 0; k < 300; k++)
+                {
+                    int i = rnd.Next(0, 4);
+                    int j = rnd.Next(0, 4);
+                    it.I = i;
+                    it.J = j;
+                    it.Width = 0;
+                    it.Height = 0;
+                    if (CheckMove(it.I - 1, it.J))
+                    {
+                        MoveItem(it, it.I - 1, it.J);
+                    }
+                    else if (CheckMove(it.I, it.J + 1))
+                    {
+                        MoveItem(it, it.I, it.J + 1);
+                    }
+                    else if (CheckMove(it.I + 1, it.J))
+                    {
+                        MoveItem(it, it.I + 1, it.J);
+                    }
+                    else if (CheckMove(it.I, it.J - 1))
+                    {
+                        MoveItem(it, it.I, it.J - 1);
+                    }
+                }
 
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if (Board[i, j] == count)
+                        {
+                            temp++;
+                        }
+                        count++;
+                    }
+                }
+                if (temp < 8)
+                {
+                    flag = false;
+                    break;
+                }
+                flag = true;
+            }
+        }
         private void DrawBord()
         {
             cnBoard.Children.Clear();
@@ -78,11 +124,9 @@ namespace PuzzleGame.Views.Game3
                         Canvas.SetLeft(cnv, j * cnBoard.Width / 4);
                         cnBoard.Children.Add(cnv);
                         cnv.MouseLeftButtonUp += new MouseButtonEventHandler(cnv_MouseLeftButtonUp);
-
                     }
                 }
             }
-
         }
         void cnv_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -102,6 +146,15 @@ namespace PuzzleGame.Views.Game3
             else if (CheckMove(it.I, it.J - 1))
             {
                 MoveItem(it, it.I, it.J - 1);
+            }
+            if (CheckWin())
+            {
+                Board[3, 3] = 16;
+                ItemUC6 cnv = new ItemUC6(16);
+                Canvas.SetTop(cnv, 330);
+                Canvas.SetLeft(cnv, 330);
+                cnBoard.Children.Add(cnv);
+                MessageBox.Show("Win");
             }
         }
 
@@ -131,15 +184,7 @@ namespace PuzzleGame.Views.Game3
             sb.Completed += new EventHandler(sb_Completed);
             it.I = i;
             it.J = j;
-            if (CheckWin())
-            {
-                Board[4, 4] = 16;
-                ItemUC6 cnv = new ItemUC6(16);
-                Canvas.SetTop(cnv, 330);
-                Canvas.SetLeft(cnv, 330);
-                cnBoard.Children.Add(cnv);
-                MessageBox.Show("Win");
-            }
+            
         }
 
         private bool CheckWin()
@@ -177,6 +222,11 @@ namespace PuzzleGame.Views.Game3
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DrawBord();
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

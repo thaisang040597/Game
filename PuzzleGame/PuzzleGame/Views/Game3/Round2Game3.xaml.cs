@@ -27,51 +27,84 @@ namespace PuzzleGame.Views.Game3
         {
             InitializeComponent();
             InitBoard();
+            AutoSlideImage();
         }
         private void InitBoard()
         {
             Board = new int[3, 3];
-            Random random = new Random();
             int count = 0;
-            var numbers = new List<int>(4) { 5, 6, 7, 8 };
-            int n = numbers.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                int value = numbers[k];
-                numbers[k] = numbers[n];
-                numbers[n] = value;
-            }
-            var numbers1 = new List<int>(4) { 1, 2, 3, 4 };
-            int m = numbers1.Count;
-            while (m > 1)
-            {
-                m--;
-                int k = random.Next(m + 1);
-                int value = numbers1[k];
-                numbers1[k] = numbers1[m];
-                numbers1[m] = value;
-            }
+            var numbers = new List<int>(8) { 1, 2, 3, 4, 5, 6, 7, 8 };
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
+                    if (count > 7)
+                    {
+                        Board[i, j] = 0;
+                        break;
+                    }
+                    Board[i, j] = numbers[count];
+
                     count++;
-                    Board[i, j] = count;
-                    if (count < 5)
-                    {
-                        Board[i, j] = numbers[count - 1];
-                    }
-                    if (count >= 5 && count < 9)
-                    {
-                        Board[i, j] = numbers1[count - 5];
-                    }
-                    if (count > 8) Board[i, j] = 0;
                 }
             }
         }
+        private void AutoSlideImage()
+        {
+            Random rnd = new Random();
+            ItemUC2 it = new ItemUC2(1);
+            int temp;
+            int count;
+            bool flag = true;
+            while (flag)
+            {
+                temp = 0;
+                count = 1;
+                for (int k = 0; k < 200; k++)
+                {
+                    int i = rnd.Next(0, 3);
+                    int j = rnd.Next(0, 3);
+                    it.I = i;
+                    it.J = j;
+                    it.Width = 0;
+                    it.Height = 0;
+                    if (CheckMove(it.I - 1, it.J))
+                    {
+                        MoveItem(it, it.I - 1, it.J);
+                    }
+                    else if (CheckMove(it.I, it.J + 1))
+                    {
+                        MoveItem(it, it.I, it.J + 1);
+                    }
+                    else if (CheckMove(it.I + 1, it.J))
+                    {
+                        MoveItem(it, it.I + 1, it.J);
+                    }
+                    else if (CheckMove(it.I, it.J - 1))
+                    {
+                        MoveItem(it, it.I, it.J - 1);
+                    }
+                }
 
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (Board[i, j] == count)
+                        {
+                            temp++;
+                        }
+                        count++;
+                    }
+                }
+                if (temp < 3)
+                {
+                    flag = false;
+                    break;
+                }
+                flag = true;
+            }
+        }
         private void DrawBord()
         {
             cnBoard.Children.Clear();
@@ -117,6 +150,20 @@ namespace PuzzleGame.Views.Game3
             {
                 MoveItem(it, it.I, it.J - 1);
             }
+            if (CheckWin())
+            {
+                Board[2, 2] = 9;
+                ItemUC2 cnv = new ItemUC2(9);
+                Canvas.SetTop(cnv, 300);
+                Canvas.SetLeft(cnv, 300);
+                cnBoard.Children.Add(cnv);
+                UCWin uCWin = new UCWin();
+                uc.Children.Add(uCWin);
+                Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative);
+                mediaPlayer.Open(uri);
+                mediaPlayer.Play();
+                bantay.Visibility = Visibility.Visible;
+            }
         }
 
         private void MoveItem(ItemUC2 it, int i, int j)
@@ -145,20 +192,7 @@ namespace PuzzleGame.Views.Game3
             sb.Completed += new EventHandler(sb_Completed);
             it.I = i;
             it.J = j;
-            if (CheckWin())
-            {
-                Board[2, 2] = 9;
-                ItemUC2 cnv = new ItemUC2(9);
-                Canvas.SetTop(cnv, 300);
-                Canvas.SetLeft(cnv, 300);
-                cnBoard.Children.Add(cnv);
-                UCWin uCWin = new UCWin();
-                uc.Children.Add(uCWin);
-                Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative);
-                mediaPlayer.Open(uri);
-                mediaPlayer.Play();
-                bantay.Visibility = Visibility.Visible;
-            }
+            
         }
 
         private bool CheckWin()
