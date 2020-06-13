@@ -35,7 +35,7 @@ namespace PuzzleGame.Views
         private Point BasePointQ = new Point(1100, 840);
         private Point BasePointT = new Point(1160, 840);
         private double DeltaXC = 0.0;
-        private double DeltaYC= 0.0;
+        private double DeltaYC = 0.0;
         private double DeltaXB = 0.0;
         private double DeltaYB = 0.0;
         private double DeltaXO = 0.0;
@@ -70,7 +70,7 @@ namespace PuzzleGame.Views
         private static bool chuf = false;
         private static bool chuv = false;
         private static bool chus = false;
-       
+
         private static bool chut = false;
         private bool checkpoint = false;
         private bool replay = false;
@@ -81,7 +81,7 @@ namespace PuzzleGame.Views
             InitializeComponent();
             this.DataContext = this;
             RanDomAlp();
-            //Countdown.Completed += new EventHandler(Story_completed);
+            
         }
         public double XPositionC
         {
@@ -173,8 +173,8 @@ namespace PuzzleGame.Views
         {
             get { return BasePointS.Y + DeltaYS; }
         }
-      
-        
+
+
         public double XPositionT
         {
             get { return BasePointT.X + DeltaXT; }
@@ -197,34 +197,17 @@ namespace PuzzleGame.Views
             chuk = false;
             chuf = false;
             chus = false;
-           
+
             chut = false;
             chuv = false;
             checkpoint = true;
             //Countdown.Stop(this);
             //Countdown.Remove(this);
         }
-        //private void Story_completed(object sender, EventArgs e)
-        //{
-        //    if (chuc == false || chub == false || chuo == false || chug == false || chue == false || chui == false || chuk == false || chuf == false || chut == false || chus == false || chuv == false)
-        //    {
-        //        timeout.Visibility = Visibility.Visible;
-
-        //        Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/timeout.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
-        //        playMedia.Open(uri); // inserting the URI to the media player
-        //        playMedia.Play();
-        //        if (checkpoint == true)
-        //        {
-        //            playMedia.Stop();
-
-        //        }
-        //        Grid1.IsEnabled = false;
-        //    }
-        //    Countdown.Remove(this);
-        //}
+       
         private void RanDomAlp()
         {
-
+            List<int> differences = new List<int>();
             List<string> Images = new List<string>()
             {
                 "/Images/Game1/Round3/b.png","/Images/Game1/Round3/c.png" ,"/Images/Game1/Round3/o.png" ,"/Images/Game1/Round3/g.png",
@@ -240,41 +223,205 @@ namespace PuzzleGame.Views
                 b,c,o,g,e1,i,k,f,v,s,t
             };
             List<int> lstIndex = new List<int>();
-            Random rnd = new Random();
-            for (int i = 0; i < 6; i++)
+            if(replay== true)
             {
-                int index = 0;
-                do
+                differences.Clear();
+                lstIndex.Clear();
+
+                Random rnd = new Random();
+                for (int i = 0; i < 6; i++)
                 {
-                    index = rnd.Next(0, 10);
-                } while (lstIndex.Exists(x => x == index) == true);
-                lstIndex.Add(index);
+                    int index = 0;
+                    do
+                    {
+                        index = rnd.Next(0, 10);
+                    } while (lstIndex.Exists(x => x == index) == true);
+                    lstIndex.Add(index);
+                }
+                List<int> lstRemain = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                differences = lstRemain.Except(lstIndex).ToList();
+                ImagesBong[lstIndex[0]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[1]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[2]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[3]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[4]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[5]].Visibility = Visibility.Collapsed;
+
+
+                ImagesGoc[lstIndex[0]].Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[1]].Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[2]].Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[3]].Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[4]].Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[5]].Source = new BitmapImage(new Uri(Images[lstIndex[5]], UriKind.RelativeOrAbsolute));
+
+
+
+                foreach (var dif in differences)
+                {
+                    ImagesGoc[dif].Visibility = Visibility.Collapsed;
+                }
             }
-            ImagesBong[lstIndex[0]].Visibility = Visibility.Collapsed;
-            ImagesBong[lstIndex[1]].Visibility = Visibility.Collapsed;
-            ImagesBong[lstIndex[2]].Visibility = Visibility.Collapsed;
-            ImagesBong[lstIndex[3]].Visibility = Visibility.Collapsed;
-            ImagesBong[lstIndex[4]].Visibility = Visibility.Collapsed;
-            ImagesBong[lstIndex[5]].Visibility = Visibility.Collapsed;
-
-            ImagesGoc[lstIndex[0]].Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
-            ImagesGoc[lstIndex[1]].Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
-            ImagesGoc[lstIndex[2]].Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
-            ImagesGoc[lstIndex[3]].Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
-            ImagesGoc[lstIndex[4]].Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
-            ImagesGoc[lstIndex[5]].Source = new BitmapImage(new Uri(Images[lstIndex[5]], UriKind.RelativeOrAbsolute));
-            List<int> lstRemain = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            List<int> differences = lstRemain.Except(lstIndex).ToList();
-
-            foreach (var dif in differences)
+            else
             {
-                ImagesGoc[dif].Visibility = Visibility.Collapsed;
+                Random rnd = new Random();
+                for (int i = 0; i < 6; i++)
+                {
+                    int index = 0;
+                    do
+                    {
+                        index = rnd.Next(0, 10);
+                    } while (lstIndex.Exists(x => x == index) == true);
+                    lstIndex.Add(index);
+                }
+                List<int> lstRemain = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                differences = lstRemain.Except(lstIndex).ToList();
+                ImagesBong[lstIndex[0]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[1]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[2]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[3]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[4]].Visibility = Visibility.Collapsed;
+                ImagesBong[lstIndex[5]].Visibility = Visibility.Collapsed;
+
+
+                ImagesGoc[lstIndex[0]].Source = new BitmapImage(new Uri(Images[lstIndex[0]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[1]].Source = new BitmapImage(new Uri(Images[lstIndex[1]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[2]].Source = new BitmapImage(new Uri(Images[lstIndex[2]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[3]].Source = new BitmapImage(new Uri(Images[lstIndex[3]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[4]].Source = new BitmapImage(new Uri(Images[lstIndex[4]], UriKind.RelativeOrAbsolute));
+                ImagesGoc[lstIndex[5]].Source = new BitmapImage(new Uri(Images[lstIndex[5]], UriKind.RelativeOrAbsolute));
+
+
+
+                foreach (var dif in differences)
+                {
+                    ImagesGoc[dif].Visibility = Visibility.Collapsed;
+                }
             }
+           
+
+        }
+        private void Replay_Click(object sender, RoutedEventArgs e)
+        {  
+           
+            Grid1.IsEnabled = true;
+
+            report.Visibility = Visibility.Hidden;
+
+            temp = 0;
+            playMedia.Stop();
+           
+           
+            replay = true;
+            if (replay == true)
+            {
+
+                moving = false;
+                chuc = false;
+                chub = false;
+                chuo = false;
+                chug = false;
+                chue = false;
+                chui = false;
+                chuk = false;
+                chuf = false;
+                chus = false;
+
+                chut = false;
+                chuv = false;
+                BasePointC.X = 1100;
+                BasePointC.Y = 700;
+                RaisePropertyChanged("XPositionC");
+                RaisePropertyChanged("YPositionC");
+                BasePointB.X = 1220;
+                BasePointB.Y = 700;
+                RaisePropertyChanged("XPositionB");
+                RaisePropertyChanged("YPositionB");
+                BasePointO.X = 1160;
+                BasePointO.Y = 700;
+
+                RaisePropertyChanged("XPositionO");
+                RaisePropertyChanged("YPositionO");
+
+                BasePointG.X = 1280;
+                BasePointG.Y = 700;
+
+                RaisePropertyChanged("XPositionG");
+                RaisePropertyChanged("YPositionG");
+
+                BasePointE.X = 1100;
+                BasePointE.Y = 770;
+
+                RaisePropertyChanged("XPositionE");
+                RaisePropertyChanged("YPositionE");
+                BasePointI.X = 1160;
+                BasePointI.Y = 770;
+
+                RaisePropertyChanged("XPositionI");
+                RaisePropertyChanged("YPositionI");
+                BasePointK.X = 1220;
+                BasePointK.Y = 770;
+
+                RaisePropertyChanged("XPositionK");
+                RaisePropertyChanged("YPositionK");
+                BasePointF.X = 1280;
+                BasePointF.Y = 770;
+
+                RaisePropertyChanged("XPositionF");
+                RaisePropertyChanged("YPositionF");
+                BasePointS.X = 1280;
+                BasePointS.Y = 840;
+
+                RaisePropertyChanged("XPositionS");
+                RaisePropertyChanged("YPositionS");
+                BasePointT.X = 1220;
+                BasePointT.Y = 840;
+
+                RaisePropertyChanged("XPositionT");
+                RaisePropertyChanged("YPositionT");
+                BasePointQ.X = 1100;
+                BasePointQ.Y = 840;
+
+                RaisePropertyChanged("XPositionQ");
+                RaisePropertyChanged("YPositionQ");
+                BasePointV.X = 1160;
+                BasePointV.Y = 840;
+
+                RaisePropertyChanged("XPositionV");
+                RaisePropertyChanged("YPositionV");
+                num_b.Visibility = Visibility;
+                num_c.Visibility = Visibility;
+                num_o.Visibility = Visibility;
+                num_g.Visibility = Visibility;
+                num_e.Visibility = Visibility;
+                num_i.Visibility = Visibility;
+                num_k.Visibility = Visibility;
+                num_f.Visibility = Visibility;
+                num_v.Visibility = Visibility;
+                num_s.Visibility = Visibility;
+                num_t.Visibility = Visibility;
+                b.Visibility = Visibility;
+                c.Visibility = Visibility;
+                o.Visibility = Visibility;
+                g.Visibility = Visibility;
+                e1.Visibility = Visibility;
+                i.Visibility = Visibility;
+                k.Visibility = Visibility;
+                f.Visibility = Visibility;
+                v.Visibility = Visibility;
+                s.Visibility = Visibility;
+                t.Visibility = Visibility;
+              
+
+
+            }
+            RanDomAlp();
+
 
         }
         private Image GetImageByIndex(int index)
         {
-            switch(index)
+            switch (index)
             {
                 case 1:
                     {
@@ -320,7 +467,7 @@ namespace PuzzleGame.Views
                     {
                         return v;
                     }
-                   
+
             }
             return null;
         }
@@ -329,13 +476,13 @@ namespace PuzzleGame.Views
             Image l = e.Source as Image;
             if (l != null)
             {
-                
+
                 if (l.Name == "c" && chuc == false)
                 {
                     c.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(c);
-                    Panel.SetZIndex(c,12);
+                    Panel.SetZIndex(c, 12);
                     Panel.SetZIndex(b, 1);
                     Panel.SetZIndex(o, 1);
                     Panel.SetZIndex(g, 1);
@@ -345,7 +492,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                   
+
                     Panel.SetZIndex(t, 1);
 
 
@@ -365,7 +512,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                   
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "o" && chuo == false)
@@ -383,7 +530,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                  
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "g" && chug == false)
@@ -401,7 +548,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                  
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "e1" && chue == false)
@@ -419,7 +566,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                   
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "i" && chui == false)
@@ -437,7 +584,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                   
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "k" && chuk == false)
@@ -455,7 +602,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                  
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "f" && chuf == false)
@@ -473,12 +620,12 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 12);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                 
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "v" && chuv == false)
                 {
-                   v.CaptureMouse();
+                    v.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(v);
                     Panel.SetZIndex(c, 1);
@@ -491,7 +638,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 12);
-                  
+
                     Panel.SetZIndex(t, 1);
                 }
                 if (l.Name == "s" && chus == false)
@@ -509,13 +656,13 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 12);
                     Panel.SetZIndex(v, 1);
-                  
+
                     Panel.SetZIndex(t, 1);
                 }
-             
+
                 if (l.Name == "t" && chut == false)
                 {
-                   t.CaptureMouse();
+                    t.CaptureMouse();
                     moving = true;
                     PositionImage = e.GetPosition(t);
                     Panel.SetZIndex(c, 1);
@@ -528,7 +675,7 @@ namespace PuzzleGame.Views
                     Panel.SetZIndex(f, 1);
                     Panel.SetZIndex(s, 1);
                     Panel.SetZIndex(v, 1);
-                  
+
                     Panel.SetZIndex(t, 12);
                 }
                 playMedia.Stop();
@@ -537,11 +684,11 @@ namespace PuzzleGame.Views
 
             }
         }
-        
+
         private void Feast_MouseUp(object sender, MouseButtonEventArgs e)
         {
             double xc = Canvas.GetLeft(chuC);
-            double yc= Canvas.GetTop(chuC);
+            double yc = Canvas.GetTop(chuC);
             double xb = Canvas.GetLeft(chuB);
             double yb = Canvas.GetTop(chuB);
             double xo = Canvas.GetLeft(chuO);
@@ -560,7 +707,7 @@ namespace PuzzleGame.Views
             double yv = Canvas.GetTop(chuV);
             double xs = Canvas.GetLeft(chuS);
             double ys = Canvas.GetTop(chuS);
-           
+
             double xt = Canvas.GetLeft(chuT);
             double yt = Canvas.GetTop(chuT);
 
@@ -607,25 +754,25 @@ namespace PuzzleGame.Views
                 {
                     CheckImage(BasePointS, DeltaXS, DeltaYS, xs, ys, s);
                 }
-               
+
                 if (l.Name == "t")
                 {
                     CheckImage(BasePointT, DeltaXT, DeltaYT, xt, yt, t);
                 }
             }
-            if(temp == 6)
+            if (temp == 6)
             {
                 report.Visibility = Visibility.Visible;
                 //Pause1.IsEnabled = false;
                 Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                 playMedia.Open(uri); // inserting the URI to the media player
                 playMedia.Play();
-            //    Countdown.Stop(this);
-            //    Countdown.Remove(this);
+                //    Countdown.Stop(this);
+                //    Countdown.Remove(this);
             }
-            
+
         }
-        private void CheckImage(Point point, double deltaX, double deltaY, double toadoX, double toadoY,Image hinh )
+        private void CheckImage(Point point, double deltaX, double deltaY, double toadoX, double toadoY, Image hinh)
         {
             hinh.ReleaseMouseCapture();
             point.X += deltaX;
@@ -636,8 +783,8 @@ namespace PuzzleGame.Views
 
             if ((((point.X - 50) < toadoX) && ((point.X + 50) > toadoX)) && (((point.Y - 700) < toadoY) && ((point.Y + 700) > toadoY)))
             {
-                
-                if(hinh.Name == "c")
+
+                if (hinh.Name == "c")
                 {
                     chuc = true;
                     temp++;
@@ -687,7 +834,7 @@ namespace PuzzleGame.Views
                     chus = true;
                     temp++;
                 }
-              
+
                 if (hinh.Name == "t")
                 {
                     chut = true;
@@ -697,7 +844,7 @@ namespace PuzzleGame.Views
                 playMedia.Open(ting);
                 playMedia.Play();
 
-               
+
             }
 
         }
@@ -722,7 +869,7 @@ namespace PuzzleGame.Views
                 Image l = e.Source as Image;
                 if (l.Name == "c")
                 {
-                   
+
                     Point p = e.GetPosition(null);
                     DeltaXC = p.X - BasePointC.X - PositionImage.X;
                     DeltaYC = p.Y - (BasePointC.Y - 650) - PositionImage.Y;
@@ -731,7 +878,7 @@ namespace PuzzleGame.Views
                     RaisePropertyChanged("XPositionC");
                     RaisePropertyChanged("YPositionC");
                 }
-                if(l.Name =="b")
+                if (l.Name == "b")
                 {
                     Point p = e.GetPosition(null);
                     DeltaXB = p.X - BasePointB.X - PositionImage.X;
@@ -844,7 +991,7 @@ namespace PuzzleGame.Views
 
             }
         }
-       
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string prop)
@@ -874,7 +1021,7 @@ namespace PuzzleGame.Views
             //Pause1.IsEnabled = true;
             playMedia.Stop();
 
-            Global.dem = 3;
+          
             //Man2 man2 = new Man2();
             //Global.menutest.oc.Children.Add(man2);
             //Global.menutest.round2.Width = 300;
@@ -892,103 +1039,13 @@ namespace PuzzleGame.Views
             chuk = false;
             chus = false;
             chut = false;
-           
+
             chuv = false;
             Man4 man4 = new Man4();
             Global.menutest.oc.Children.Add(man4);
 
         }
 
-        private void Replay_Click(object sender, RoutedEventArgs e)
-        {
-            Grid1.IsEnabled = true;
-            //Countdown.Begin(this, true);
-            //Pause1.IsEnabled = true;
-            report.Visibility = Visibility.Hidden;
-            //timeout.Visibility = Visibility.Collapsed;
-            playMedia.Stop();
-            replay = true;
-            if (replay == true)
-            {
-                moving = false;
-                chuc = false;
-                chub = false;
-                chuo = false;
-                chug = false;
-                chue = false;
-                chui = false;
-                chuk = false;
-                chuf = false;
-                chus = false;
-              
-                chut = false;
-                chuv = false;
-                BasePointC.X = 1100;
-                BasePointC.Y = 700;
-                RaisePropertyChanged("XPositionC");
-                RaisePropertyChanged("YPositionC");
-                BasePointB.X = 1220;
-                BasePointB.Y = 700;
-                RaisePropertyChanged("XPositionB");
-                RaisePropertyChanged("YPositionB");
-                BasePointO.X = 1160;
-                BasePointO.Y = 700;
-               
-                RaisePropertyChanged("XPositionO");
-                RaisePropertyChanged("YPositionO");
-             
-                BasePointG.X = 1280;
-                BasePointG.Y = 700;
-               
-                RaisePropertyChanged("XPositionG");
-                RaisePropertyChanged("YPositionG");
-              
-                BasePointE.X = 1100;
-                BasePointE.Y = 770;
-                
-                RaisePropertyChanged("XPositionE");
-                RaisePropertyChanged("YPositionE");
-                BasePointI.X = 1160;
-                BasePointI.Y = 770;
-
-                RaisePropertyChanged("XPositionI");
-                RaisePropertyChanged("YPositionI");
-                BasePointK.X = 1220;
-                BasePointK.Y = 770;
-
-                RaisePropertyChanged("XPositionK");
-                RaisePropertyChanged("YPositionK");
-                BasePointF.X = 1280;
-                BasePointF.Y = 770;
-
-                RaisePropertyChanged("XPositionF");
-                RaisePropertyChanged("YPositionF");
-                BasePointS.X = 1280;
-                BasePointS.Y = 840;
-
-                RaisePropertyChanged("XPositionS");
-                RaisePropertyChanged("YPositionS");
-                BasePointT.X = 1220;
-                BasePointT.Y = 840;
-
-                RaisePropertyChanged("XPositionT");
-                RaisePropertyChanged("YPositionT");
-                BasePointQ.X = 1100;
-                BasePointQ.Y = 840;
-
-                RaisePropertyChanged("XPositionQ");
-                RaisePropertyChanged("YPositionQ");
-                BasePointV.X = 1160;
-                BasePointV.Y = 840;
-
-                RaisePropertyChanged("XPositionV");
-                RaisePropertyChanged("YPositionV");
-
-
-
-
-
-            }
-        }
+       
     }
 }

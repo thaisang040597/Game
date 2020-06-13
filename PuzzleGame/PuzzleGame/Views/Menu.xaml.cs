@@ -175,6 +175,11 @@ namespace PuzzleGame.Views
 
         private void Game1_Click(object sender, RoutedEventArgs e)
         {
+            var bc = new BrushConverter();
+            level.Visibility = Visibility.Collapsed;
+            Game2.Background = (Brush)bc.ConvertFrom("#FFCCCC");
+            Game1.Background = Brushes.Crimson;
+            Game3.Background = (Brush)bc.ConvertFrom("#FFCCCC");
             stproundgame1.Visibility = Visibility.Visible;
             stproundgame2.Visibility = Visibility.Collapsed;
             stproundgame3.Visibility = Visibility.Collapsed;
@@ -187,12 +192,22 @@ namespace PuzzleGame.Views
         }
         private void Game2_Click(object sender, RoutedEventArgs e)
         {
+            var bc = new BrushConverter();
+            level.Visibility = Visibility.Collapsed;
+            Game1.Background = (Brush)bc.ConvertFrom("#FFCCCC");
+            Game2.Background = Brushes.Crimson;
+            Game3.Background = (Brush)bc.ConvertFrom("#FFCCCC");
             stproundgame2.Visibility = Visibility.Visible;
             stproundgame1.Visibility = Visibility.Collapsed;
             stproundgame3.Visibility = Visibility.Collapsed;
         }
         private void Game3_Click(object sender, RoutedEventArgs e)
         {
+            var bc = new BrushConverter();
+            level.Visibility = Visibility.Visible;
+            Game1.Background = (Brush)bc.ConvertFrom("#FFCCCC");
+            Game3.Background = Brushes.Crimson;
+            Game2.Background = (Brush)bc.ConvertFrom("#FFCCCC");
             stproundgame2.Visibility = Visibility.Collapsed;
             stproundgame1.Visibility = Visibility.Collapsed;
             stproundgame3.Visibility = Visibility.Visible;
