@@ -23,11 +23,12 @@ namespace PuzzleGame.Views
         public Instruction()
         {
             InitializeComponent();
+            
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            //this.Visibility = Visibility.Collapsed;
+           
         }
     }
 }

@@ -52,7 +52,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -162,9 +161,6 @@
     </Compile>
     <Compile Include="Views\Game3\Round6Game3.xaml.cs">
       <DependentUpon>Round6Game3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GameTuChon\Game4.xaml.cs">
-      <DependentUpon>Game4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Instruction.xaml.cs">
       <DependentUpon>Instruction.xaml</DependentUpon>
@@ -281,10 +277,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Game3\Round6Game3.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GameTuChon\Game4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -450,6 +442,7 @@
     <Resource Include="Images\Game3\concho.jpg" />
     <Resource Include="Images\Game3\convoi.jpg" />
     <Resource Include="Images\Game3\conkhi.jpg" />
+    <Content Include="Images\Background\video.wmv" />
     <Content Include="Sound\conca.mp3" />
     <Content Include="Sound\conga.mp3" />
     <Content Include="Sound\conho.mp3" />

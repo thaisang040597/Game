@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/background/video.wmv")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conca.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conga.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/conho.mp3")]

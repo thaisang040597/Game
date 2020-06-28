@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PuzzleGame.Views.Game3
 {
@@ -163,6 +164,7 @@ namespace PuzzleGame.Views.Game3
                 mediaPlayer.Open(uri);
                 mediaPlayer.Play();
                 bantay.Visibility = Visibility.Visible;
+                next.Visibility = Visibility.Visible;
             }
         }
 
@@ -239,9 +241,9 @@ namespace PuzzleGame.Views.Game3
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
-            //Round6 man6 = new Round6();
-            //Global.menutest.oc.Children.Add(man6);
-            //this.Visibility = Visibility.Collapsed;
+            Round3Game3 man3 = new Round3Game3();
+            Global.menutest.oc.Children.Add(man3);
+            this.Visibility = Visibility.Collapsed;
         }
 
         private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
@@ -249,6 +251,41 @@ namespace PuzzleGame.Views.Game3
             Uri uri = new Uri("../../Sound/conga.mp3", UriKind.Relative);
             mediaPlayer.Open(uri);
             mediaPlayer.Play();
+        }
+
+        private DispatcherTimer timer;
+        private int time;
+        private void getHint(object sender, RoutedEventArgs e)
+        {
+            time = 2;
+            gethint.Visibility = Visibility.Visible;
+            cnBoard.Opacity = 0.2;
+            cnBoard.IsEnabled = false;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_tick;
+            timer.Start();
+        }
+        void Timer_tick(object sender, EventArgs e)
+        {
+
+            if (time > 0)
+            {
+                time--;
+            }
+            else
+            {
+                timer.Stop();
+                gethint.Visibility = Visibility.Collapsed;
+                cnBoard.Opacity = 1;
+                cnBoard.IsEnabled = true;
+            }
+
+        }
+
+        private void rePlay(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -87,7 +87,7 @@
            
             <Image x:Name="quadudu" Width="180" Height="180" Source="/Images/Game1/Round4/dudu1.png" Canvas.Left="560" Canvas.Top="320" ></Image>
             <Image x:Name="dudugoc" Width="180" Height="180" Source="/Images/Game1/Round4/dudu.png" Canvas.Left="560" Canvas.Top="320" Visibility="Collapsed" ></Image>
-            <Image x:Name="quanho"  Width="120" Height="120" Source="/Images/Game1/Round4/nho.png" Canvas.Left="580" Canvas.Top="440"></Image>
+            <Image x:Name="quanho"  Width="120" Height="120" Source="/Images/Game1/Round4/nho2.png" Canvas.Left="580" Canvas.Top="440"></Image>
             <Image x:Name="nhogoc" Width="120" Height="120" Source="/Images/Game1/Round4/nho.png" Canvas.Left="580" Canvas.Top="440" Visibility="Collapsed"></Image>
             <Image x:Name="quathanhlong" Width="160" Height="160" Source="/Images/Game1/Round4/thanhlong2.png" Canvas.Left="720" Canvas.Top="400" Panel.ZIndex="2"></Image>
             <Image x:Name="thanhlonggoc" Width="160" Height="160" Source="/Images/Game1/Round4/thanhlong.png" Canvas.Left="720" Canvas.Top="400" Visibility="Collapsed"></Image>

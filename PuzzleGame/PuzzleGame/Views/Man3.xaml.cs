@@ -788,57 +788,112 @@ namespace PuzzleGame.Views
                 {
                     chuc = true;
                     temp++;
+                    if(chuc == true)
+                    {
+                        num_c.Visibility = Visibility.Visible;
+                        c.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "b")
                 {
                     chub = true;
                     temp++;
+                    if (chub == true)
+                    {
+                        num_b.Visibility = Visibility.Visible;
+                        b.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "o")
                 {
                     chuo = true;
                     temp++;
+                    if (chuo == true)
+                    {
+                        num_o.Visibility = Visibility.Visible;
+                        o.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "g")
                 {
                     chug = true;
                     temp++;
+                    if (chug == true)
+                    {
+                        num_g.Visibility = Visibility.Visible;
+                        g.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "e1")
                 {
                     chue = true;
                     temp++;
+                    if (chue == true)
+                    {
+                        num_e.Visibility = Visibility.Visible;
+                        e1.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "i")
                 {
                     chui = true;
                     temp++;
+                    if (chui == true)
+                    {
+                        num_i.Visibility = Visibility.Visible;
+                        i.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "k")
                 {
                     chuk = true;
                     temp++;
+                    if (chuk == true)
+                    {
+                        num_k.Visibility = Visibility.Visible;
+                        k.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "f")
                 {
                     chuf = true;
                     temp++;
+                    if (chuf == true)
+                    {
+                        num_f.Visibility = Visibility.Visible;
+                        f.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "v")
                 {
                     chuv = true;
                     temp++;
+                    if (chuv == true)
+                    {
+                        num_v.Visibility = Visibility.Visible;
+                        v.Visibility = Visibility.Collapsed;
+                    }
                 }
                 if (hinh.Name == "s")
                 {
                     chus = true;
                     temp++;
+                    if (chus == true)
+                    {
+                        num_s.Visibility = Visibility.Visible;
+                        s.Visibility = Visibility.Collapsed;
+                    }
                 }
 
                 if (hinh.Name == "t")
                 {
                     chut = true;
                     temp++;
+                    if (chut == true)
+                    {
+                        num_t.Visibility = Visibility.Visible;
+                        t.Visibility = Visibility.Collapsed;
+                    }
                 }
                 Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Ting.mp3");
                 playMedia.Open(ting);

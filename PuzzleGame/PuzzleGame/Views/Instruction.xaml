@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:PuzzleGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
@@ -42,8 +42,35 @@
                 </Setter>
             </Style>
         </Grid.Resources>
-        <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}" Click="back_Click">
-            <Image Source="/Images/Background/backdoor1.png"></Image>
-        </Button>
+       
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="9*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/Game1/Round3/board1.png"   ></ImageBrush>
+            </Grid.Background>
+            <Button x:Name="back" Style="{StaticResource btnLoginStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"  Click="back_Click">
+                <Image Source="/Images/Background/backdoor1.png"></Image>
+            </Button>
+            <Grid Grid.Row="0">
+               
+                <TextBlock FontSize="35" FontWeight="DemiBold" FontFamily="Constantia" Foreground="BurlyWood" HorizontalAlignment="Center" Margin="0 130 0 0">HƯỚNG DẪN</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBlock FontSize="25" FontWeight="DemiBold" FontFamily="Constantia" Foreground="BurlyWood" Margin="130 0 0 0">Các kí hiệu: </TextBlock>
+                <Image Source="/Images/Background/backdoor1.png" Width="50" Height="50" Margin="50 50 1100 470"></Image>
+                <TextBlock FontSize="20" FontWeight="DemiBold" FontFamily="Constantia" Foreground="BurlyWood" Margin="190 60 1000 470">: Quay Lại</TextBlock>
+                <Image Source="/Images/Game2/muiten1.png" Width="50" Height="50" Margin="50 100 1100 400"></Image>
+                <TextBlock FontSize="20" FontWeight="DemiBold" FontFamily="Constantia" Foreground="BurlyWood" Margin="190 120 1000 400">: Qua Màn</TextBlock>
+                <Image Source="/Images/Background/close1.png" Width="50" Height="50" Margin="50 170 1100 350"></Image>
+                <TextBlock FontSize="20" FontWeight="DemiBold" FontFamily="Constantia" Foreground="BurlyWood" Margin="190 180 1000 350">: Thoát Game</TextBlock>
+                <TextBlock FontSize="25" FontWeight="DemiBold" FontFamily="Constantia" Foreground="BurlyWood" Margin="130 250 0 0">Cách chơi:</TextBlock>
+                <!--<MediaElement x:Name="vdgame1" Width="150" Height="150" Source="/Images/Background/video.wmv" Margin="60 120 1000 0" LoadedBehavior="Play" Volume="0"  ></MediaElement>-->
+            </Grid>
+          
+            
+        </Grid>
     </Grid>
 </UserControl>

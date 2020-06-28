@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PuzzleGame.Views.Game3
 {
@@ -22,6 +23,7 @@ namespace PuzzleGame.Views.Game3
     public partial class Round4Game3 : UserControl
     {
         int[,] Board;
+        MediaPlayer mediaPlayer = new MediaPlayer();
         public Round4Game3()
         {
             InitializeComponent();
@@ -97,7 +99,7 @@ namespace PuzzleGame.Views.Game3
                         count++;
                     }
                 }
-                if (temp < Global.level + 4)
+                if (temp < Global.level+4)
                 {
                     flag = false;
                     break;
@@ -157,7 +159,13 @@ namespace PuzzleGame.Views.Game3
                 Canvas.SetTop(cnv, 330);
                 Canvas.SetLeft(cnv, 330);
                 cnBoard.Children.Add(cnv);
-                MessageBox.Show("Win");
+                UCWin uCWin = new UCWin();
+                uc.Children.Add(uCWin);
+                Uri uri = new Uri("../../Sound/chucmung.mp3", UriKind.Relative);
+                mediaPlayer.Open(uri);
+                mediaPlayer.Play();
+                bantay.Visibility = Visibility.Visible;
+                next.Visibility = Visibility.Visible;
             }
         }
 
@@ -233,7 +241,51 @@ namespace PuzzleGame.Views.Game3
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
+            Round5Game3 man5 = new Round5Game3();
+            Global.menutest.oc.Children.Add(man5);
+            this.Visibility = Visibility.Collapsed;
+        }
 
+        private DispatcherTimer timer;
+        private int time;
+        private void getHint(object sender, RoutedEventArgs e)
+        {
+            time = 2;
+            gethint.Visibility = Visibility.Visible;
+            cnBoard.Opacity = 0.2;
+            cnBoard.IsEnabled = false;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_tick;
+            timer.Start();
+        }
+        void Timer_tick(object sender, EventArgs e)
+        {
+
+            if (time > 0)
+            {
+                time--;
+            }
+            else
+            {
+                timer.Stop();
+                gethint.Visibility = Visibility.Collapsed;
+                cnBoard.Opacity = 1;
+                cnBoard.IsEnabled = true;
+            }
+
+        }
+
+        private void rePlay(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bantay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Uri uri = new Uri("../../Sound/conga.mp3", UriKind.Relative);
+            mediaPlayer.Open(uri);
+            mediaPlayer.Play();
         }
     }
 }

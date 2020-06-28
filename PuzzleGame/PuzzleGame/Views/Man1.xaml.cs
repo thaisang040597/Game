@@ -418,7 +418,7 @@ namespace PuzzleGame.Views
                         gau.Visibility = Visibility.Hidden;
                                              
                         gaucho = true;
-                        Uri uri = new Uri(@"..\..\Sound\chucmung.mp3", UriKind.Relative);
+                        Uri uri = new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative);
                         playMedia.Open(uri);
 
                         playMedia.Play();
@@ -444,7 +444,10 @@ namespace PuzzleGame.Views
                         ho1.Visibility = Visibility.Hidden;
                         ho2.Visibility = Visibility.Visible;
                         hovan = true;
-                        playMedia.Open(new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative));
+                        Uri uri = new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative);
+                        playMedia.Open(uri);
+
+                        playMedia.Play();
 
                     }
                 }
@@ -465,7 +468,10 @@ namespace PuzzleGame.Views
                         voi1.Visibility = Visibility.Hidden;
                         voi2.Visibility = Visibility.Visible;
                         voixam = true;
-                        playMedia.Open(new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative));
+                        Uri uri = new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative);
+                        playMedia.Open(uri);
+
+                        playMedia.Play();
 
                     }
                    
@@ -487,7 +493,10 @@ namespace PuzzleGame.Views
                         khi1.Visibility = Visibility.Hidden;
                         khi2.Visibility = Visibility.Visible;
                         khinau = true;
-                        playMedia.Open(new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative));
+                        Uri uri = new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative);
+                        playMedia.Open(uri);
+
+                        playMedia.Play();
 
                     }
                 }
@@ -508,7 +517,10 @@ namespace PuzzleGame.Views
                         tho1.Visibility = Visibility.Hidden;
                         tho.Visibility = Visibility.Visible;
                         thoxam = true;
-                        playMedia.Open(new Uri(@"\Sound\Ting.mp3", UriKind.Relative));
+                        Uri uri = new Uri(@"..\..\Sound\Ting.mp3", UriKind.Relative);
+                        playMedia.Open(uri);
+
+                        playMedia.Play();
 
                     }
                 }

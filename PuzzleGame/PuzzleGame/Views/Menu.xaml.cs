@@ -1,6 +1,5 @@
 ﻿using PuzzleGame.Views.Game2;
 using PuzzleGame.Views.Game3;
-using PuzzleGame.Views.GameTuChon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PuzzleGame.Views
 {
@@ -51,22 +51,24 @@ namespace PuzzleGame.Views
         private void r311_Completed(object sender, EventArgs e)
         {
             stb3_12.Begin();
-            Round6Game3 round6Game3 = new Round6Game3();
-            oc.Children.Add(round6Game3);
+            Round4Game3 round4Game3 = new Round4Game3();
+            oc.Children.Add(round4Game3);
+          
         }
 
         private void r39_Completed(object sender, EventArgs e)
         {
             stb3_10.Begin();
-            Round5Game3 round5Game3 = new Round5Game3();
-            oc.Children.Add(round5Game3);
+            Round6Game3 round6Game3 = new Round6Game3();
+
+            oc.Children.Add(round6Game3);
         }
 
         private void r37_Completed(object sender, EventArgs e)
         {
             stb3_8.Begin();
-            Round4Game3 round4Game3 = new Round4Game3();
-            oc.Children.Add(round4Game3);
+            Round5Game3 round5Game3 = new Round5Game3();
+            oc.Children.Add(round5Game3);
         }
 
         private void r35_Completed(object sender, EventArgs e)
@@ -135,7 +137,7 @@ namespace PuzzleGame.Views
         private void r11_Completed(object sender, EventArgs e)
         {
             stb12.Begin();
-            Man6 man6 = new Man6();
+            Man3 man6 = new Man3();
             oc.Children.Add(man6);
         }
 
@@ -156,7 +158,7 @@ namespace PuzzleGame.Views
         private void r5_Completed(object sender, EventArgs e)
         {
             stb6.Begin();
-            Man3 man3 = new Man3();
+            Man6 man3 = new Man6();
             oc.Children.Add(man3);
         }
 
@@ -179,7 +181,7 @@ namespace PuzzleGame.Views
             var bc = new BrushConverter();
             level.Visibility = Visibility.Collapsed;
             Game2.Background = (Brush)bc.ConvertFrom("#FFCCCC");
-            Game1.Background = Brushes.Crimson;
+            Game1.Background = (Brush)bc.ConvertFrom("#AFEEEE");
             Game3.Background = (Brush)bc.ConvertFrom("#FFCCCC");
             stproundgame1.Visibility = Visibility.Visible;
             stproundgame2.Visibility = Visibility.Collapsed;
@@ -196,7 +198,7 @@ namespace PuzzleGame.Views
             var bc = new BrushConverter();
             level.Visibility = Visibility.Collapsed;
             Game1.Background = (Brush)bc.ConvertFrom("#FFCCCC");
-            Game2.Background = Brushes.Crimson;
+            Game2.Background = (Brush)bc.ConvertFrom("#AFEEEE");
             Game3.Background = (Brush)bc.ConvertFrom("#FFCCCC");
             stproundgame2.Visibility = Visibility.Visible;
             stproundgame1.Visibility = Visibility.Collapsed;
@@ -207,31 +209,57 @@ namespace PuzzleGame.Views
             var bc = new BrushConverter();
             level.Visibility = Visibility.Visible;
             Game1.Background = (Brush)bc.ConvertFrom("#FFCCCC");
-            Game3.Background = Brushes.Crimson;
+            Game3.Background = (Brush)bc.ConvertFrom("#AFEEEE");
             Game2.Background = (Brush)bc.ConvertFrom("#FFCCCC");
             stproundgame2.Visibility = Visibility.Collapsed;
             stproundgame1.Visibility = Visibility.Collapsed;
+           
         }
 
         private void Selected_LevelEasy(object sender, RoutedEventArgs e)
         {
             Global.level = 5;
-            stproundgame3.Visibility = Visibility.Visible;
+            time = 0.2;
+            stproundgame3.Visibility = Visibility.Collapsed;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            timer.Tick += Timer_tick;
+            timer.Start();
+            var bc = new BrushConverter();
+            Easy.Background = (Brush)bc.ConvertFrom("#AFEEEE");
+            Difficult.Background = (Brush)bc.ConvertFrom("#FFCCCC");
         }
-
         private void Selected_LevelDif(object sender, RoutedEventArgs e)
         {
             Global.level = 1;
+            time = 0.2;
             stproundgame3.Visibility = Visibility.Collapsed;
-            stproundgame3.Visibility = Visibility.Visible;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0,0,0,0,1);
+            timer.Tick += Timer_tick;
+            timer.Start();
+           
+            var bc = new BrushConverter();
+            Easy.Background = (Brush)bc.ConvertFrom("#FFCCCC");
+            Difficult.Background = (Brush)bc.ConvertFrom("#AFEEEE");
         }
+        private DispatcherTimer timer;
+        private double time;
+        
+        void Timer_tick(object sender, EventArgs e)
+        {
 
-        //private void GameTuChon_Click(object sender, RoutedEventArgs e)
-        //{
+            if (time > 0)
+            {
+                time--;
+            }
+            else
+            {
+                timer.Stop();
+                stproundgame3.Visibility = Visibility.Visible;
+               
+            }
 
-        //    Game4 game4 = new Game4();
-        //    oc.Children.Add(game4);
-
-        //}
+        }
     }
 }

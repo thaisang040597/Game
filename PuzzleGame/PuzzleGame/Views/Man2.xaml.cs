@@ -330,7 +330,7 @@ namespace PuzzleGame.Views
                         //gau.Visibility = Visibility.Hidden;
                         //hoa.Visibility = Visibility.Visible;
                         matong = true;
-                        Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/Gaukeu.mp3");
+                        Uri ting = new Uri(@"..\..\Sound\Gaukeu.mp3",UriKind.Relative);
                         playMedia.Open(ting);
                         playMedia.Play();
                         //bantay1.Visibility = Visibility.Hidden;
@@ -353,7 +353,7 @@ namespace PuzzleGame.Views
                         RaisePropertyChanged("YPosition1");
                       
                         carot = true;
-                        Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/thokeu.mp3");
+                        Uri ting = new Uri(@"..\..\Sound\thokeu.mp3",UriKind.Relative);
                         playMedia.Open(ting);
                         playMedia.Play();
 
@@ -375,7 +375,7 @@ namespace PuzzleGame.Views
                         RaisePropertyChanged("YPosition2");
 
                         coxanh = true;
-                        Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/thokeu.mp3");
+                        Uri ting = new Uri(@"..\..\Sound\thokeu.mp3",UriKind.Relative);
                         playMedia.Open(ting);
                         playMedia.Play();
 
@@ -397,7 +397,7 @@ namespace PuzzleGame.Views
                         RaisePropertyChanged("YPosition3");
 
                         miatim = true;
-                        Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/voikeu.mp3");
+                        Uri ting = new Uri(@"..\..\Sound\voikeu.mp3",UriKind.Relative);
                         playMedia.Open(ting);
                         playMedia.Play();
 
@@ -419,7 +419,7 @@ namespace PuzzleGame.Views
                         RaisePropertyChanged("YPosition4");
 
                         chuoivang = true;
-                        Uri ting = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/khikeu.mp3");
+                        Uri ting = new Uri(@"..\..\Sound\khikeu.mp3",UriKind.Relative);
                         playMedia.Open(ting);
                         playMedia.Play();
 
@@ -433,7 +433,7 @@ namespace PuzzleGame.Views
             {
 
                 report.Visibility = Visibility.Visible;
-                Uri uri = new Uri("D:/ĐỒ ÁN TN/PuzzleGame/PuzzleGame/Sound/chucmung.mp3"); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
+                Uri uri = new Uri(@"..\..\Sound\chucmung.mp3",UriKind.Relative); // "/PuzzleGame;component/Sound/Ilikeme.wav", UriKind.Relative, browsing to the sound folder and then the WAV file location
                 playMedia.Open(uri); // inserting the URI to the media player
                 playMedia.Play();
                 //Countdown.Stop(this);
@@ -459,7 +459,7 @@ namespace PuzzleGame.Views
             //Global.menutest.oc.Children.Add(man2);
             //Global.menutest.round2.Width = 300;
 
-            Global.menutest.imground3.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\Images\Game1\Round3\AH.png"));
+            //Global.menutest.imground3.ImageSource = new BitmapImage(new Uri(@"D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\Images\Game1\Round3\AH.png"));
             this.Visibility = Visibility.Collapsed;
             carot = false;
             matong = false;

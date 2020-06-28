@@ -9,7 +9,7 @@
              d:DesignHeight="768" d:DesignWidth="1366">
     <UserControl.Resources>
         <ImageBrush  x:Key="btnLoginImgIdle" />
-        <ImageBrush  x:Key="btnLoginImgHover" />
+            <ImageBrush  x:Key="btnLoginImgHover" />
         <ImageBrush x:Key="btnLoginImgClick" />
     </UserControl.Resources>
     <Grid Background="White">
@@ -42,7 +42,7 @@
                 </Setter>
             </Style>
         </Grid.Resources>
-
+       
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*"></ColumnDefinition>
             <ColumnDefinition Width="4.5*"></ColumnDefinition>
@@ -51,30 +51,30 @@
             <Image Source="/Images/Background/backdoor1.png"></Image>
         </Button>
         <Grid Grid.Row="0" Grid.Column="0" >
-
+           
             <StackPanel Margin="0 300 0 0">
-                <Border CornerRadius="5" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
+            <Border CornerRadius="5" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15"  >
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                            <GradientStop Color="#FF9966" Offset="0" />
-                            <GradientStop Color="#CC9966" Offset="1.25" />
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    <Button Cursor="Hand" x:Name="Game1"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF9966" Offset="0" />
+                        <GradientStop Color="#CC9966" Offset="1.25" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                    <Button Cursor="Hand" x:Name="Game1"  Background="#FFCCCC" Foreground="#43CD80" FontSize="24"
                     Content="Puzzle Basic" FontWeight="Bold" Click="Game1_Click" >
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Height" Value="50px"></Setter>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </Border>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                            <!--<Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Height" Value="50px"></Setter>
+                                </Trigger>
+                            </Style.Triggers>-->
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Border>
                 <Border CornerRadius="5" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15"  >
                     <Border.Background>
@@ -83,94 +83,73 @@
                             <GradientStop Color="#CC9966" Offset="1.25" />
                         </LinearGradientBrush>
                     </Border.Background>
-                    <Button Cursor="Hand" x:Name="Game2"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                    <Button Cursor="Hand" x:Name="Game2"  Background="#FFCCCC" Foreground="#43CD80" FontSize="24"
                     Content="Puzzle Teris" FontWeight="Bold" Click="Game2_Click" >
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                                <Style.Triggers>
+                                <Setter Property="CornerRadius" Value="5"/>
+                                <!--<Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="true">
                                         <Setter Property="Height" Value="50px"></Setter>
                                     </Trigger>
-                                </Style.Triggers>
+                                </Style.Triggers>-->
                             </Style>
                         </Button.Resources>
                     </Button>
                 </Border>
-                <Border CornerRadius="5" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
+
+
+               
+                    <Border CornerRadius="5" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15"  >
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                            <GradientStop Color="#FF9966" Offset="0" />
-                            <GradientStop Color="#CC9966" Offset="1.25" />
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    <Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="1.25" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    <Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#43CD80" FontSize="24"
                     Content="Puzzle Sliding" FontWeight="Bold" Click="Game3_Click" >
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Height" Value="50px">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                    <!--<Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Height" Value="50px">
 
-                                        </Setter>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Resources>
-
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>-->
+                                </Style>
+                            </Button.Resources>
+                       
                     </Button>
-                </Border>
-                <!--<Border CornerRadius="5" Padding="2"  Width="250" RenderTransformOrigin="0.844,0.439"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15"  >
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                            <GradientStop Color="#FF9966" Offset="0" />
-                            <GradientStop Color="#CC9966" Offset="1.25" />
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    <Button Cursor="Hand" x:Name="GameTuChon"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
-                    Content="Game Tu Chon" FontWeight="Bold" Click="GameTuChon_Click" >
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Height" Value="50px">
-                                        </Setter>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Resources>
-
-                    </Button>
-                </Border>-->
-
+                    </Border>
+               
 
             </StackPanel>
             <Grid Margin="0 520 0 0" >
                 <Grid Width="250" Height="80" VerticalAlignment="Top"  x:Name="level" Visibility="Collapsed" >
-
+                  
                     <Border Grid.RowSpan="2" CornerRadius="15" Padding="2"  Width="250" Height="80" RenderTransformOrigin="0.844,0.439"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" x:Name="boderstart"  Opacity="0.9">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="Bisque" Offset="0" />
-                                <GradientStop Color="#FFCCCC" Offset="0.95" />
+                                <GradientStop Color="#FF9966" Offset="0" />
+                                <GradientStop Color="#CC9966" Offset="0.95" />
                             </LinearGradientBrush>
 
                         </Border.Background>
 
                     </Border>
-
+                   
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="Easy"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
-                    Content="Dễ" FontWeight="Bold" Click="Selected_LevelEasy"   >
+                        <Button x:Name="Easy"  Grid.Column="0" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#FFCCCC" Foreground="#43CD80" FontSize="15"
+                    Content="Dễ" FontWeight="Bold"  Click="Selected_LevelEasy"     >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -178,7 +157,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button x:Name="Difficult"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#339999" Foreground="Orange" FontSize="15"
+                        <Button x:Name="Difficult"  Grid.Column="1" Cursor="Hand"  Width="90" Height="40" BorderBrush="Transparent" Background="#FFCCCC" Foreground="#43CD80" FontSize="15"
                     Content="Khó" FontWeight="Bold" Click="Selected_LevelDif"  >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -307,13 +286,13 @@
                                         </BeginStoryboard>
                                     </EventTrigger>
                                 </Border.Triggers>
-
+                                
                                 <Border x:Name="round2"  >
                                     <Border.Background>
                                         <ImageBrush x:Name="imground2"  ImageSource="/Images/Game1/Round2/carrot.png"></ImageBrush>
                                     </Border.Background>
 
-
+                                    
 
                                     <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
                                         <TextBlock  Foreground="BlanchedAlmond" 
@@ -365,9 +344,9 @@
                                 </Border.Triggers>
                                 <Border x:Name="round3" >
                                     <Border.Background>
-                                        <ImageBrush x:Name="imground3" ImageSource="/Images/Game1/Round3/AH.png"></ImageBrush>
+                                        <ImageBrush x:Name="imground3" ImageSource="/Images/Game1/Round6/xedap.png"></ImageBrush>
                                     </Border.Background>
-
+                                   
 
                                     <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
                                         <TextBlock  Foreground="BlanchedAlmond" 
@@ -549,7 +528,7 @@
                                 </Border.Triggers>
                                 <Border  x:Name="round6" >
                                     <Border.Background>
-                                        <ImageBrush x:Name="imground6" ImageSource="/Images/Game1/Round6/xedap.png"></ImageBrush>
+                                        <ImageBrush x:Name="imground6" ImageSource="/Images/Game1/Round3/AH.png"></ImageBrush>
                                     </Border.Background>
                                     <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -579,7 +558,7 @@
                         </StackPanel>
 
                     </StackPanel>
-
+                   
                 </materialDesign:TransitioningContent>
 
             </Grid>
@@ -625,12 +604,12 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Border.Triggers>
-
+                            
                             <Border x:Name="g2round1"    CornerRadius="5" >
                                 <Border.Background>
                                     <ImageBrush  ImageSource="/Images/Game2/Round2.1/soc.png"></ImageBrush>
                                 </Border.Background>
-
+                               
                                 <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
                                     <TextBlock  Foreground="BlanchedAlmond" 
                                                 VerticalAlignment="Center"
@@ -877,7 +856,7 @@
                                 <Border.Background>
                                     <ImageBrush ImageSource="/Images/Game2/Round2.5/contho.png"></ImageBrush>
                                 </Border.Background>
-
+                               
 
                                 <Border VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30">
                                     <TextBlock  Foreground="BlanchedAlmond" 
@@ -1003,9 +982,9 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Border.Triggers>
-                            <Border x:Name="round3_1"   >
+                            <Border x:Name="round3_1"   CornerRadius="5" >
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                    <ImageBrush ImageSource="/Images/Game3/conga.jpg"></ImageBrush>
                                 </Border.Background>
                                 <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -1070,9 +1049,9 @@
                                 </EventTrigger>
                             </Border.Triggers>
 
-                            <Border x:Name="round3_2"  >
+                            <Border x:Name="round3_2"  CornerRadius="5"  >
                                 <Border.Background>
-                                    <ImageBrush x:Name="imground3_2"  ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                    <ImageBrush x:Name="imground3_2"  ImageSource="/Images/Game3/conchim.jpg"></ImageBrush>
                                 </Border.Background>
 
                                 <!--<Border.Resources>
@@ -1135,9 +1114,9 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Border.Triggers>
-                            <Border x:Name="round3_3" >
+                            <Border x:Name="round3_3"  CornerRadius="5">
                                 <Border.Background>
-                                    <ImageBrush x:Name="imground3_3" ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                    <ImageBrush x:Name="imground3_3" ImageSource="/Images/Game3/concho.jpg"></ImageBrush>
                                 </Border.Background>
                                 <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -1202,9 +1181,9 @@
                             </Border.Triggers>
 
 
-                            <Border x:Name="round3_4"  >
+                            <Border x:Name="round3_4"  CornerRadius="5" >
                                 <Border.Background>
-                                    <ImageBrush x:Name="imground3_4" ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                    <ImageBrush x:Name="imground3_4" ImageSource="/Images/Game3/convoi.jpg"></ImageBrush>
                                 </Border.Background>
                                 <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -1266,9 +1245,9 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Border.Triggers>
-                            <Border x:Name="round3_5"  >
+                            <Border x:Name="round3_5"  CornerRadius="5" >
                                 <Border.Background>
-                                    <ImageBrush x:Name="imground3_5"  ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                    <ImageBrush x:Name="imground3_5"  ImageSource="/Images/Game3/conkhi.jpg"></ImageBrush>
                                 </Border.Background>
                                 <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -1330,9 +1309,9 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Border.Triggers>
-                            <Border  x:Name="round3_6" >
+                            <Border  x:Name="round3_6"  CornerRadius="5">
                                 <Border.Background>
-                                    <ImageBrush x:Name="imground3_6" ImageSource="/Images/Background/lock.png"></ImageBrush>
+                                    <ImageBrush x:Name="imground3_6" ImageSource="/Images/Game3/conbuom.png"></ImageBrush>
                                 </Border.Background>
                                 <!--<Border.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -1375,8 +1354,7 @@
 
                 </Border.Background>
 
-                -->
-            <!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
+                --><!--<Button Cursor="Hand" x:Name="Game3"  Background="#FFCCCC" Foreground="#33CCCC" FontSize="24"
                     Content="Game2" FontWeight="Bold"  >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -1389,8 +1367,7 @@
                                 </Style>
                             </Button.Resources>
                             
-                        </Button>-->
-            <!--
+                        </Button>--><!--
                
 
             </Border>-->
