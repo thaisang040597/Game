@@ -52,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -161,6 +162,9 @@
     </Compile>
     <Compile Include="Views\Game3\Round6Game3.xaml.cs">
       <DependentUpon>Round6Game3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameTuChon\Game4.xaml.cs">
+      <DependentUpon>Game4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Instruction.xaml.cs">
       <DependentUpon>Instruction.xaml</DependentUpon>
@@ -277,6 +281,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Game3\Round6Game3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameTuChon\Game4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

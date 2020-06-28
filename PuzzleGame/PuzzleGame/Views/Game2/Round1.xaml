@@ -16,18 +16,13 @@
                     Stroke="Black" StrokeThickness="4"></Rectangle>
         <CroppedBitmap x:Key="croppedImage" 
       Source="{StaticResource masterImage}"/>
-
         <ImageBrush  x:Key="btnLoginImgIdle" />
         <ImageBrush  x:Key="btnLoginImgHover" />
         <ImageBrush x:Key="btnLoginImgClick" />
-       
     </UserControl.Resources>
-    
     <Grid >
-        
         <Grid.Resources>
             <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="15" Direction="270" Color="#BBBBBB"/>
-
             <Style TargetType="Button"  x:Key="btnLoginStyle">
                 <Setter Property="Background" Value="{DynamicResource btnLoginImgIdle}"></Setter>
                 <Setter Property="BorderThickness" Value="0"></Setter>

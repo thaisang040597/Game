@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
     <UserControl.Resources>
-        <BitmapImage x:Key="masterImage" UriSource="/Images/Game3/convoi.jpg" />
+        <BitmapImage x:Key="masterImage" UriSource="/Images/Game3/conkhi.jpg" />
         <Rectangle x:Key="rectangle" Width="440"
                     Height="440"
                     Fill="Gray"

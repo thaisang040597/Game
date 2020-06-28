@@ -97,7 +97,7 @@ namespace PuzzleGame.Views.Game3
                         count++;
                     }
                 }
-                if (temp < 3)
+                if (temp < Global.level)
                 {
                     flag = false;
                     break;

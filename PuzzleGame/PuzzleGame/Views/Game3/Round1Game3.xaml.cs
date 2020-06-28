@@ -109,7 +109,6 @@ namespace PuzzleGame.Views.Game3
                         MoveItem(it, it.I, it.J - 1);
                     }
                 }
-                Global.level = 3;
                 for (int i = 0; i < 3; i++)
                 {
                     for (int j = 0; j < 3; j++)

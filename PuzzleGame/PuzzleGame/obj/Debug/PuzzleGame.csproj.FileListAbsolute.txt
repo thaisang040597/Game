@@ -139,7 +139,6 @@ F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round5
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round6.g.cs
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round5.baml
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game2\Round6.baml
-F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache
 D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\bin\Debug\PuzzleGame.exe.config
 D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\bin\Debug\PuzzleGame.exe
 D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\bin\Debug\PuzzleGame.pdb
@@ -201,9 +200,7 @@ D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Instruction.ba
 D:\ĐỒ ÁN TN\GitHub\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Instruction.g.cs
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Instruction.baml
-F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC.g.cs
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round1Game3.g.cs
-F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC.baml
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round1Game3.baml
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC2.g.cs
 F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round4Game3.g.cs
@@ -450,3 +447,24 @@ C:\Users\Admin\Desktop\7_6\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.cspro
 C:\Users\Admin\Desktop\7_6\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.exe
 C:\Users\Admin\Desktop\7_6\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.pdb
 C:\Users\Admin\Desktop\7_6\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC1.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC3.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC4.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC5.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC6.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round2Game3.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round3Game3.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round5Game3.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round6Game3.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC1.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC3.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC4.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC5.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\ItemUC6.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round2Game3.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round3Game3.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round5Game3.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\Game3\Round6Game3.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\GameTuChon\Game4.g.cs
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\Views\GameTuChon\Game4.baml
+F:\DO AN TOT NGHIEP\Game\Game\PuzzleGame\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache

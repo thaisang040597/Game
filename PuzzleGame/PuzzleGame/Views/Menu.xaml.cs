@@ -1,5 +1,6 @@
 ﻿using PuzzleGame.Views.Game2;
 using PuzzleGame.Views.Game3;
+using PuzzleGame.Views.GameTuChon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -210,12 +211,27 @@ namespace PuzzleGame.Views
             Game2.Background = (Brush)bc.ConvertFrom("#FFCCCC");
             stproundgame2.Visibility = Visibility.Collapsed;
             stproundgame1.Visibility = Visibility.Collapsed;
+        }
+
+        private void Selected_LevelEasy(object sender, RoutedEventArgs e)
+        {
+            Global.level = 5;
             stproundgame3.Visibility = Visibility.Visible;
         }
 
-      
-       
+        private void Selected_LevelDif(object sender, RoutedEventArgs e)
+        {
+            Global.level = 1;
+            stproundgame3.Visibility = Visibility.Collapsed;
+            stproundgame3.Visibility = Visibility.Visible;
+        }
 
-        
+        //private void GameTuChon_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //    Game4 game4 = new Game4();
+        //    oc.Children.Add(game4);
+
+        //}
     }
 }
